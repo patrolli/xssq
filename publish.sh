@@ -3,5 +3,5 @@
 hugo
 
 git add .
-git commit -m "refresh"
+git commit -m "updates $(date)"
 git push origin master
