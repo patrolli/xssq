@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://patrolli.github.io/xssq/sitemap.xml
