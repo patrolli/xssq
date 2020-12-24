@@ -1,28 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/posts/my-first-post/</loc>
-    <lastmod>2020-12-25T01:38:14+08:00</lastmod>
-  </url>
+<?xml-stylesheet type="text/xsl" href="https://patrolli.github.io/xssq/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
     <lastmod>2020-12-25T01:38:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/my-first-post/</loc>
+    <lastmod>2020-12-25T01:38:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/posts/</loc>
     <lastmod>2020-12-25T01:38:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>
