@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hogo
+hugo
 
 git add .
 git commit -m "refresh"
