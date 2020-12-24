@@ -3,26 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>xssq/posts/my-first-post/</loc>
+    <loc>https:patrolli.github.io/xssq/posts/my-first-post/</loc>
     <lastmod>2020-12-25T01:38:14+08:00</lastmod>
   </url>
   
   <url>
-    <loc>xssq/</loc>
+    <loc>https:patrolli.github.io/xssq/</loc>
     <lastmod>2020-12-25T01:38:14+08:00</lastmod>
   </url>
   
   <url>
-    <loc>xssq/posts/</loc>
+    <loc>https:patrolli.github.io/xssq/posts/</loc>
     <lastmod>2020-12-25T01:38:14+08:00</lastmod>
   </url>
   
   <url>
-    <loc>xssq/categories/</loc>
+    <loc>https:patrolli.github.io/xssq/categories/</loc>
   </url>
   
   <url>
-    <loc>xssq/tags/</loc>
+    <loc>https:patrolli.github.io/xssq/tags/</loc>
   </url>
   
 </urlset>
