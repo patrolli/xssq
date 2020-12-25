@@ -5,3 +5,32 @@ title = "LiXunsong's blog"
 
 publishDir = "docs"
 theme = "maupassant"
+
+[params]
+  author = "patrolli"
+  toc = true
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    style = "github"
+
+# [menu]
+
+#   [[menu.main]]
+#     identifier = "tools"
+#     name = "工具"
+#     url = "/tools/"
+#     weight = 2
+
+#   [[menu.main]]
+#     identifier = "archives"
+#     name = "归档"
+#     url = "/archives/"
+#     weight = 3
+
+#   [[menu.main]]
+#     identifier = "about"
+#     name = "关于"
+#     url = "/about/"
+#     weight = 4
