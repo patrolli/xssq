@@ -67,6 +67,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://patrolli.github.io/xssq/posts/hugo-workflow/" title="hugo&amp;org-mode&amp;ox-hugo 的博客工作流">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年2月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/xssq/categories/computer'>computer</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：
+1 2 3 4 5 6  +++ title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34; author = [&#34;LAPTOP-4COO4EVU&#34;] categories = [&#34;computer&#34;] draft = false +++   这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
+所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。
+文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：……
+        </div>
+        <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/hugo-workflow/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://patrolli.github.io/xssq/posts/my-first-post/" title="My First Post">My First Post</a>
             </h1>
         </header>
@@ -91,7 +119,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2020 <a href="https://patrolli.github.io/xssq/">patrolli By </a>
+        &copy; 2021 <a href="https://patrolli.github.io/xssq/">patrolli By </a>
         
     </div>
     <br />
@@ -135,6 +163,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://patrolli.github.io/xssq/posts/hugo-workflow/" title="hugo&amp;org-mode&amp;ox-hugo 的博客工作流">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</a>
+    </li>
+    
+    <li>
         <a href="https://patrolli.github.io/xssq/posts/my-first-post/" title="My First Post">My First Post</a>
     </li>
     
@@ -147,12 +179,20 @@
         <h3 class="widget-title"><a href='/xssq/categories/'>分类</a></h3>
 <ul class="widget-list">
     
+    <li><a href="https://patrolli.github.io/xssq/categories/computer/">computer (1)</a></li>
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href='/xssq/tags/'>标签</a></h3>
 <div class="tagcloud">
+    
+    <a href="https://patrolli.github.io/xssq/tags/emacs/">emacs</a>
+    
+    <a href="https://patrolli.github.io/xssq/tags/hugo/">hugo</a>
+    
+    <a href="https://patrolli.github.io/xssq/tags/orgmode/">orgmode</a>
     
 </div>
     </section>

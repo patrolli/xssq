@@ -5,6 +5,16 @@
     <link>https://patrolli.github.io/xssq/categories/</link>
     <description>Recent content in Categories on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://patrolli.github.io/xssq/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Feb 2021 17:51:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>computer</title>
+      <link>https://patrolli.github.io/xssq/categories/computer/</link>
+      <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/categories/computer/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on patrolli</title>
-    <link>https://patrolli.github.io/xssq/posts/</link>
-    <description>Recent content in Posts on patrolli</description>
+    <title>orgmode on patrolli</title>
+    <link>https://patrolli.github.io/xssq/tags/orgmode/</link>
+    <description>Recent content in orgmode on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Feb 2021 17:51:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Feb 2021 17:51:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流</title>
       <link>https://patrolli.github.io/xssq/posts/hugo-workflow/</link>
@@ -17,15 +17,6 @@
 1 2 3 4 5 6  +++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false +++   这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
 所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。
 文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://patrolli.github.io/xssq/posts/my-first-post/</link>
-      <pubDate>Fri, 25 Dec 2020 01:38:14 +0800</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/posts/my-first-post/</guid>
-      <description>Hello</description>
     </item>
     
   </channel>

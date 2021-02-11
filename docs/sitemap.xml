@@ -3,26 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://patrolli.github.io/xssq/posts/my-first-post/</loc>
-    <lastmod>2020-12-25T01:38:14+08:00</lastmod>
+    <loc>https://patrolli.github.io/xssq/categories/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/categories/computer/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/emacs/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/hugo/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/hugo-workflow/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/orgmode/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2020-12-25T01:38:14+08:00</lastmod>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/posts/</loc>
-    <lastmod>2020-12-25T01:38:14+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/categories/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/</loc>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/my-first-post/</loc>
+    <lastmod>2020-12-25T01:38:14+08:00</lastmod>
   </url>
   
 </urlset>
