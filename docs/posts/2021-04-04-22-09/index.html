@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流 | patrolli</title>
-    <meta property="og:title" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流 - patrolli">
+    <title>Decaug: augmenting HOI detection via decomposition | patrolli</title>
+    <meta property="og:title" content="Decaug: augmenting HOI detection via decomposition - patrolli">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2021-02-11T17:51:00&#43;08:00'>
+    <meta property="article:published_time" content='2021-04-04T00:00:00&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2021-02-11T17:53:27&#43;08:00'>
+    <meta property="article:modified_time" content='2021-04-04T22:10:49&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流">
+    <meta name="description" content="Decaug: augmenting HOI detection via decomposition">
         <meta name="author" content="[patrolli]">
         
-    <meta property="og:url" content="https://patrolli.github.io/xssq/posts/hugo-workflow/">
+    <meta property="og:url" content="https://patrolli.github.io/xssq/posts/2021-04-04-22-09/">
     <link rel="shortcut icon" href='/xssq/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/xssq/css/normalize.css'>
@@ -131,8 +131,10 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#两种工作流">两种工作流</a></li>
-    <li><a href="#文件元信息设置">文件元信息设置</a></li>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#comment">Comment</a></li>
+    <li><a href="#ref">Ref</a></li>
   </ul>
 </nav>
     </div>
@@ -166,62 +168,60 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</h1>
+            <h1 class="post-title">Decaug: augmenting HOI detection via decomposition</h1>
         </header>
         <date class="post-meta meta-date">
-            2021年2月11日
+            2021年4月4日
         </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/xssq/categories/computer'>computer</a></span>
-            
-        </div>
         
         
         
         <div class="post-content">
-            <h2 id="两种工作流">两种工作流</h2>
-<p>ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">+++
-title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34;
-author = [&#34;LAPTOP-4COO4EVU&#34;]
-categories = [&#34;computer&#34;]
-draft = false
-+++
-</code></pre></td></tr></table>
-</div>
-</div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
-<p>所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。</p>
-<h2 id="文件元信息设置">文件元信息设置</h2>
-<p>在 hugo 的 markdown 元信息配置中，通常需要涉及：</p>
+            <h2 id="motivation">Motivation</h2>
 <ul>
-<li>title</li>
-<li>tag</li>
-<li>author</li>
-<li>created time</li>
-<li>last modified time</li>
-<li>categories</li>
-<li>draft</li>
+<li>设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。</li>
 </ul>
-<p>将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：</p>
-<dl>
-<dt>HUGO_SECTION</dt>
-<dd>section 的定义可以参考 <a href="https://gohugo.io/content-management/sections/">Content Sections | Hugo</a>. 在 &ldquo;/content&rdquo; 目录下的一级目录，以及目录中含有 &ldquo;_index.md&rdquo; 的文件夹都被视作 section. 我的理解是 section 可以对博文进行一些分组，便于我们管理。</dd>
-<dt>HUGO_BASE_DIR</dt>
-<dd>Hugo site 的 root dir. 指定了这个路径后，在导出时，ox-hugo 就会找到这个目录下的 &ldquo;/content&rdquo; 文件夹，将导出的 md 文件放到对应位置。（如果是将 headline 导出，那么需要为这个 headline 设置 <code>EXPORT_FILE_NAME</code> 的 property.）</dd>
-</dl>
+<h2 id="method">Method</h2>
+<ul>
+<li>首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s:
+
+        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_25_13.png" />   
+    
+论文主要是通过 object state 和 spatial relationship 进行样本增强</li>
+<li>论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;. （在论文中，主要是用什么信息描述 object state?）</li>
+<li>这里贴物体的要求：1. 保持物体的 state 2. 增强后的图片要 realistic</li>
+<li>首先判断图中的物体是否可以替换。这里考虑如果一个物体和其他物体的遮挡交错 (interlock) 较为严重时，就不进行替换。论文设计了一个名为 &ldquo;instance interlocking ratio&rdquo; 的指标来进行判断。公式为：</li>
+</ul>
+<p>
+        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_34_48.png" />   
+    
+
+        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_34_57.png" />   
+    
+其中 C_i 是 instance i 的边界，M_i 是 instance i 的 mask, 如果两个物体的边界相交很长，就认为他们的 interlock 很高，因此这两个物体都不可以被替换 (数据集中可以被替换的物体比例？)。如图：
+
+        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_36_34.png" />   
+    </p>
+<ul>
+<li>在决定一个物体是否可以替换后，需要找到具有相似 state 的物体来进行替换。这里的 state 包括 shape variance, occlusion variance, pose variance 等。不同的 HOI 决定这些 object state 是不一样的。论文将 instance mask 作为 object state 的表征，他们认为这个 mask 包含了物体 6D pose 形状，6D pose 的投影，并且遮挡情况也可以通过临近的 instance mask 来量化。给出物体的一个 bounding box, 将 object mask 部分的像素点记为 1, background 部分的像素点记为 0, 将相邻的 object mask 的像素点记为 -1. 将这个 object state matrix 作为物体 pose, 6D pose, occulusion 的 descriptor. 基于这个 descriptor, object state distance 两个物体 state matrix 的 L1 距离。在找到可以相互替换的 object pair 后，就可以相互拼图替换，这里还涉及到一些算法，来使拼过去的图片更加 realistic. 如图：</li>
+</ul>
+<figure>
+    <img src="/img/capture_2021_04_03_20_03_32.png"/> 
+</figure>
+
+<ul>
+<li>目前的替换仍是在被替换的物体原来的位置上进行，也就是只对物体的 appearance 进行了增强，这里还需要对物体在这个 HOI 中可能出现的位置进行增强，将物体贴到可能的位置上去。论文提出 pose-guided probability 的方法来找到物体 feasible 的位置。首先生成 human 的 pose, 得到 17 个 keypoints 坐标。然后计算物体中心和 human body 的中心之间的位移矢量，作为 relative spatial position vector, 将物体出现的位置 L 建模为 human pose 的条件概率，用一个混合高斯分布来建模，对于每个 HOI label h, 去学习这个条件概率分布。</li>
+</ul>
+<p>
+        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_20_17_52.png" />   
+    
+这里 N_G 是指数据集中 atomic poses 的数目，这里设置为 42. 这个<a href="">混合高斯分布</a>的参数通过 <a href="">EM 算法</a>来求解。</p>
+<h2 id="comment">Comment</h2>
+<ul>
+<li>实际上替换的还是物体的 appearance</li>
+<li>在建模了物体可能出现的位置后，取得的提升是多少？从实验结果来看，对物体位置建模取得的提升要更大一些，但二者加在一起仍有提升。</li>
+</ul>
+<h2 id="ref">Ref</h2>
 
         </div>
 
@@ -233,15 +233,7 @@ draft = false
 
         <div class="post-meta meta-tags">
             
-            <ul class="clearfix">
-                
-                <li><a href='/xssq/tags/orgmode'>orgmode</a></li>
-                
-                <li><a href='/xssq/tags/emacs'>emacs</a></li>
-                
-                <li><a href='/xssq/tags/hugo'>hugo</a></li>
-                
-            </ul>
+            没有标签
             
         </div>
     </article>
