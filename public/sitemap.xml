@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://patrolli.github.io/xssq/</loc>
+    <lastmod>2021-04-05T17:42:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/</loc>
+    <lastmod>2021-04-05T17:42:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/test-easy-hugo/</loc>
+    <lastmod>2021-04-05T17:42:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/categories/academic/</loc>
     <lastmod>2021-04-05T16:59:22+08:00</lastmod>
   </url>
@@ -19,16 +34,6 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/machinelearning/</loc>
-    <lastmod>2021-04-05T16:59:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-04-05T16:59:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/posts/</loc>
     <lastmod>2021-04-05T16:59:22+08:00</lastmod>
   </url>
   
