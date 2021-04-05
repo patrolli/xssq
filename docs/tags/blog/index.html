@@ -7,21 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>Academic | patrolli</title>
-    <meta property="og:title" content="Academic - patrolli">
+    <title>blog | patrolli</title>
+    <meta property="og:title" content="blog - patrolli">
     <meta property="og:type" content="article">
         
         
     <meta name="Keywords" content="">
-    <meta name="description" content="Academic">
+    <meta name="description" content="blog">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://patrolli.github.io/xssq/categories/academic/">
+    <meta property="og:url" content="https://patrolli.github.io/xssq/tags/blog/">
     <link rel="shortcut icon" href='https://patrolli.github.io/xssq/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/normalize.css'>
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://patrolli.github.io/xssq/categories/academic/index.xml" title="patrolli" />
+    <link rel="alternate" type="application/rss+xml+xml" href="https://patrolli.github.io/xssq/tags/blog/index.xml" title="patrolli" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -64,9 +64,9 @@
 <div class="res-cons">
     
     <h3 class="archive-title">
-        分类
-        <span class="keyword">Academic</span>
-        中的文章
+        包含标签
+        <span class="keyword">blog</span>
+        的文章
     </h3>
     
 
@@ -74,7 +74,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">EM算法</a>
+                <a href="https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hugo 博客搭建</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -84,59 +84,16 @@
         <div class="post-meta meta-category">
             |
             
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
+            <a href='https://patrolli.github.io/xssq/categories/emacs'>emacs</a>
             
         </div>
         
         <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">混合高斯分布</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月5日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
-            
-        </div>
-        
-        <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/">Decaug: augmenting HOI detection via decomposition</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月5日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
-            
-        </div>
-        
-        <div class="post-content">
-            Xie-aaai-2021-decaugMotivation  设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。  Method  首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s: 论文主要是通过 object state 和 spatial relationship 进行样本增强 论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;.……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/">阅读全文</a></p>
+            基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
+本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
+1  hugo server   部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .github.io，另一种是针对项目的 pages: .github.io/projectxx. 无论如何，首先要在 github 上创建一个 .github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。 根据 Host on GitHub 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：
+ 在 github 创建一个仓库，不要添加 .gitignore 和 README.……
+            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">阅读全文</a></p>
         </div>
     </article>
     
