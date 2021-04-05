@@ -1,10 +1,14 @@
 +++
 title = "Decaug: augmenting HOI detection via decomposition"
-author = ["patrolli"]
-date = 2021-04-04
-lastmod = 2021-04-04T22:10:49+08:00
+author = ["Li Xunsong"]
+lastmod = 2021-04-05T16:40:05+08:00
+tags = ["PaperReading"]
+categories = ["Academic"]
 draft = false
 +++
+
+<sup id="8ee52d5562c7b98dc31141ab8959c0fc"><a href="#Xie-aaai-2021-decaug" title="Yichen Xie, Haoshu Fang, Dian Shao, Yonglu, Li \&amp; Cewu Lu, DecAug: Augmenting {HOI} Detection via  Decomposition, {CoRR}, v(), (2020).">Xie-aaai-2021-decaug</a></sup>
+
 
 ## Motivation {#motivation}
 

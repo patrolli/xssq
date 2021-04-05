@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Academic on patrolli</title>
+    <link>https://patrolli.github.io/xssq/categories/academic/</link>
+    <description>Recent content in Academic on patrolli</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Apr 2021 16:40:05 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/categories/academic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decaug: augmenting HOI detection via decomposition</title>
+      <link>https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/</link>
+      <pubDate>Mon, 05 Apr 2021 16:40:05 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/</guid>
+      <description>Xie-aaai-2021-decaugMotivation  设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。  Method  首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s: 论文主要是通过 object state 和 spatial relationship 进行样本增强 论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&amp;quot;.</description>
+    </item>
+    
+  </channel>
+</rss>
