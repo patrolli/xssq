@@ -1,7 +1,7 @@
 +++
 title = "hugo 博客搭建"
 author = ["Li Xunsong"]
-lastmod = 2021-04-05T18:09:09+08:00
+lastmod = 2021-04-05T18:01:11+08:00
 tags = ["emacs", "blog"]
 categories = ["emacs"]
 draft = false
@@ -64,20 +64,6 @@ git push origin master
 -   [X] 图片管理
 -   主题美化完善
 -   结合 emacs orgmode 的工作流
-
-
-### emacs orgmode easy-hugo ox-hugo 工作流 {#emacs-orgmode-easy-hugo-ox-hugo-工作流}
-
-目前在 emacs 中使用 hugo 的工作流：
-
--   使用 org-roam 来记录笔记
--   使用 yasnippet 来为这个 org 文件增加必要的导出头文件信息
--   使用 ox-hugo 将这个 org 文件导出到博客目录下 (content/posts), 并将 org 文件转换成 md 文件，文件名与 org 文件一致
--   发布，使用 easy-hugo 可以将博文发布到 github pages 上，或者手动执行 deploy.sh 脚本
-
-TODO:
-
--   [ ] 对于已经发布的笔记文件，如果进行了修改，在修改保存后自动导出并部署
 
 
 ### issues {#issues}
