@@ -21,10 +21,10 @@
         <meta name="author" content="[Li Xunsong]">
         
     <meta property="og:url" content="https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/">
-    <link rel="shortcut icon" href='/xssq/favicon.ico'  type="image/x-icon">
+    <link rel="shortcut icon" href='https://patrolli.github.io/xssq/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href='/xssq/css/normalize.css'>
-    <link rel="stylesheet" href='/xssq/css/style.css'>
+    <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/normalize.css'>
+    <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/style.css'>
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -177,7 +177,7 @@
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='/xssq/categories/academic'>Academic</a></span>
+            <span class="meta-category"><a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a></span>
             
         </div>
         
@@ -193,7 +193,7 @@
 <ul>
 <li>首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s:
 
-        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_25_13.png" />   
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_03_19_25_13.png" />   
     
 论文主要是通过 object state 和 spatial relationship 进行样本增强</li>
 <li>论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;. （在论文中，主要是用什么信息描述 object state?）</li>
@@ -201,29 +201,29 @@
 <li>首先判断图中的物体是否可以替换。这里考虑如果一个物体和其他物体的遮挡交错 (interlock) 较为严重时，就不进行替换。论文设计了一个名为 &ldquo;instance interlocking ratio&rdquo; 的指标来进行判断。公式为：</li>
 </ul>
 <p>
-        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_34_48.png" />   
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_03_19_34_48.png" />   
     
 
-        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_34_57.png" />   
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_03_19_34_57.png" />   
     
 其中 C_i 是 instance i 的边界，M_i 是 instance i 的 mask, 如果两个物体的边界相交很长，就认为他们的 interlock 很高，因此这两个物体都不可以被替换 (数据集中可以被替换的物体比例？)。如图：
 
-        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_19_36_34.png" />   
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_03_19_36_34.png" />   
     </p>
 <ul>
 <li>在决定一个物体是否可以替换后，需要找到具有相似 state 的物体来进行替换。这里的 state 包括 shape variance, occlusion variance, pose variance 等。不同的 HOI 决定这些 object state 是不一样的。论文将 instance mask 作为 object state 的表征，他们认为这个 mask 包含了物体 6D pose 形状，6D pose 的投影，并且遮挡情况也可以通过临近的 instance mask 来量化。给出物体的一个 bounding box, 将 object mask 部分的像素点记为 1, background 部分的像素点记为 0, 将相邻的 object mask 的像素点记为 -1. 将这个 object state matrix 作为物体 pose, 6D pose, occulusion 的 descriptor. 基于这个 descriptor, object state distance 两个物体 state matrix 的 L1 距离。在找到可以相互替换的 object pair 后，就可以相互拼图替换，这里还涉及到一些算法，来使拼过去的图片更加 realistic. 如图：</li>
 </ul>
 <figure>
-    <img src="/img/capture_2021_04_03_20_03_32.png"/> 
+    <img src="https://patrolli.github.io/xssq/img/capture_2021_04_03_20_03_32.png"/> 
 </figure>
 
 <ul>
 <li>目前的替换仍是在被替换的物体原来的位置上进行，也就是只对物体的 appearance 进行了增强，这里还需要对物体在这个 HOI 中可能出现的位置进行增强，将物体贴到可能的位置上去。论文提出 pose-guided probability 的方法来找到物体 feasible 的位置。首先生成 human 的 pose, 得到 17 个 keypoints 坐标。然后计算物体中心和 human body 的中心之间的位移矢量，作为 relative spatial position vector, 将物体出现的位置 L 建模为 human pose 的条件概率，用一个混合高斯分布来建模，对于每个 HOI label h, 去学习这个条件概率分布。</li>
 </ul>
 <p>
-        <img class="mx-auto" alt="" src="/img/capture_2021_04_03_20_17_52.png" />   
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_03_20_17_52.png" />   
     
-这里 N_G 是指数据集中 atomic poses 的数目，这里设置为 42. 这个<a href="/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">混合高斯分布</a>的参数通过 <a href="/xssq/posts/em%E7%AE%97%E6%B3%95/">EM 算法</a>来求解。</p>
+这里 N_G 是指数据集中 atomic poses 的数目，这里设置为 42. 这个<a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">混合高斯分布</a>的参数通过 <a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">EM 算法</a>来求解。</p>
 <h2 id="comment">Comment</h2>
 <ul>
 <li>实际上替换的还是物体的 appearance</li>
@@ -243,7 +243,7 @@
             
             <ul class="clearfix">
                 
-                <li><a href='/xssq/tags/paperreading'>PaperReading</a></li>
+                <li><a href='https://patrolli.github.io/xssq/tags/paperreading'>PaperReading</a></li>
                 
             </ul>
             
@@ -288,7 +288,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/xssq/js/totop.js?v=0.0.0' async=""></script>
+<script type="text/javascript" src='https://patrolli.github.io/xssq/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -345,7 +345,7 @@
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href='/xssq/categories/'>分类</a></h3>
+        <h3 class="widget-title"><a href='https://patrolli.github.io/xssq/categories/'>分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://patrolli.github.io/xssq/categories/academic/">Academic (3)</a></li>
@@ -356,7 +356,7 @@
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href='/xssq/tags/'>标签</a></h3>
+        <h3 class="widget-title"><a href='https://patrolli.github.io/xssq/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://patrolli.github.io/xssq/tags/emacs/">emacs</a>

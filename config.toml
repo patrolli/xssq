@@ -2,7 +2,7 @@ baseURL = "https://patrolli.github.io/xssq/"
 languageCode = "en"
 defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "patrolli"
-
+canonifyURLs = true
 publishDir = "docs"
 theme = "maupassant"
 

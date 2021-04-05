@@ -9,7 +9,6 @@ draft = false
 
 <sup id="8ee52d5562c7b98dc31141ab8959c0fc"><a href="#Xie-aaai-2021-decaug" title="Yichen Xie, Haoshu Fang, Dian Shao, Yonglu, Li \&amp; Cewu Lu, DecAug: Augmenting {HOI} Detection via  Decomposition, {CoRR}, v(), (2020).">Xie-aaai-2021-decaug</a></sup>
 
-
 ## Motivation {#motivation}
 
 -   设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。
