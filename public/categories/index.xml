@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Even - A super concise theme for Hugo</title>
+    <title>Categories on patrolli</title>
     <link>https://patrolli.github.io/xssq/categories/</link>
-    <description>Recent content in Categories on Even - A super concise theme for Hugo</description>
+    <description>Recent content in Categories on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://patrolli.github.io/xssq/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Apr 2021 16:59:22 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Academic</title>
+      <link>https://patrolli.github.io/xssq/categories/academic/</link>
+      <pubDate>Mon, 05 Apr 2021 16:59:22 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/categories/academic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>computer</title>
+      <link>https://patrolli.github.io/xssq/categories/computer/</link>
+      <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/categories/computer/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

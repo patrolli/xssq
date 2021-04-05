@@ -1,10 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Even - A super concise theme for Hugo</title>
+    <title>Tags on patrolli</title>
     <link>https://patrolli.github.io/xssq/tags/</link>
-    <description>Recent content in Tags on Even - A super concise theme for Hugo</description>
+    <description>Recent content in Tags on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://patrolli.github.io/xssq/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Apr 2021 16:59:22 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MachineLearning</title>
+      <link>https://patrolli.github.io/xssq/tags/machinelearning/</link>
+      <pubDate>Mon, 05 Apr 2021 16:59:22 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/tags/machinelearning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PaperReading</title>
+      <link>https://patrolli.github.io/xssq/tags/paperreading/</link>
+      <pubDate>Mon, 05 Apr 2021 16:40:05 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/tags/paperreading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>https://patrolli.github.io/xssq/tags/emacs/</link>
+      <pubDate>Wed, 17 Feb 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://patrolli.github.io/xssq/tags/hugo/</link>
+      <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orgmode</title>
+      <link>https://patrolli.github.io/xssq/tags/orgmode/</link>
+      <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/tags/orgmode/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

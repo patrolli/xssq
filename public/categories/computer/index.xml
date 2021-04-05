@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>computer on patrolli</title>
+    <link>https://patrolli.github.io/xssq/categories/computer/</link>
+    <description>Recent content in computer on patrolli</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Feb 2021 17:51:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/categories/computer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流</title>
+      <link>https://patrolli.github.io/xssq/posts/hugo-workflow/</link>
+      <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/posts/hugo-workflow/</guid>
+      <description>两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：
+1 2 3 4 5 6  +++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false +++   这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
+所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。
+文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：</description>
+    </item>
+    
+  </channel>
+</rss>
