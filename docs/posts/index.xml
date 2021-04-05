@@ -71,23 +71,5 @@ sudo apt install librime-dev
 文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：</description>
     </item>
     
-    <item>
-      <title>test yasnippet</title>
-      <link>https://patrolli.github.io/xssq/posts/test_hugo/</link>
-      <pubDate>Thu, 11 Feb 2021 00:00:00 +0800</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/posts/test_hugo/</guid>
-      <description>test</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://patrolli.github.io/xssq/posts/my-first-post/</link>
-      <pubDate>Fri, 25 Dec 2020 01:38:14 +0800</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/posts/my-first-post/</guid>
-      <description>Hello</description>
-    </item>
-    
   </channel>
 </rss>
