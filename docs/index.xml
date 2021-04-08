@@ -6,7 +6,21 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Apr 2021 18:09:09 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Apr 2021 17:55:41 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu 安装 iosevka 字体</title>
+      <link>https://patrolli.github.io/xssq/posts/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</link>
+      <pubDate>Thu, 08 Apr 2021 17:55:41 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/posts/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</guid>
+      <description>  从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;)
+  解压文件
+1  unzip -u ttf-iosevka-5.2.1.zip -d iosevka     放到系统的字体目录：
+1  sudo cp -r ~/temp/iosevka /usr/share/fonts/     重新刷新字体缓存
+1  fc-cache -fv     Ref:
+ Linux notes | Shreyas Ragavan    </description>
+    </item>
+    
     <item>
       <title>hugo 博客搭建</title>
       <link>https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>

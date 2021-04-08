@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://patrolli.github.io/xssq/tags/linux/</loc>
+    <lastmod>2021-04-08T17:55:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/</loc>
+    <lastmod>2021-04-08T17:55:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/</loc>
+    <lastmod>2021-04-08T17:55:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/</loc>
+    <lastmod>2021-04-08T17:55:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</loc>
+    <lastmod>2021-04-08T17:55:41+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/tags/blog/</loc>
     <lastmod>2021-04-05T18:09:09+08:00</lastmod>
   </url>
@@ -24,21 +49,6 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2021-04-05T18:09:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-04-05T18:09:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/posts/</loc>
-    <lastmod>2021-04-05T18:09:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/tags/</loc>
     <lastmod>2021-04-05T18:09:09+08:00</lastmod>
   </url>
   
