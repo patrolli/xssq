@@ -7,21 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>linux | patrolli</title>
-    <meta property="og:title" content="linux - patrolli">
+    <title>TestDemo | patrolli</title>
+    <meta property="og:title" content="TestDemo - patrolli">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2021-04-09T03:01:35&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-04-09T03:01:35&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="linux">
+    <meta name="description" content="TestDemo">
+        <meta name="author" content="[LAPTOP-4COO4EVU]">
         
-    <meta name="author" content="">
-    <meta property="og:url" content="https://patrolli.github.io/xssq/tags/linux/">
+    <meta property="og:url" content="https://patrolli.github.io/xssq/posts/test/">
     <link rel="shortcut icon" href='https://patrolli.github.io/xssq/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/normalize.css'>
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://patrolli.github.io/xssq/tags/linux/index.xml" title="patrolli" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -62,76 +65,148 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">linux</span>
-        的文章
-    </h3>
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-    
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents"></nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/test/">TestDemo</a>
-            </h1>
+            <h1 class="post-title">TestDemo</h1>
         </header>
         <date class="post-meta meta-date">
             2021年4月9日
         </date>
         
-        <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/test/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/ffmpeg/">ffmpeg</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月9日
-        </date>
+        
         
         <div class="post-content">
-             使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi  1 2  ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif     将视频转换成图片
-1  ffmpeg -i ./video.webm ./video/image%d.jpg     ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/ffmpeg/">阅读全文</a></p>
+            
         </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/">ubuntu 安装 iosevka 字体</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月9日
-        </date>
+
         
-        <div class="post-content">
-              从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;)
-  解压文件
-1  unzip -u ttf-iosevka-5.2.1.zip -d iosevka     放到系统的字体目录：
-1  sudo cp -r ~/temp/iosevka /usr/share/fonts/     重新刷新字体缓存
-1  fc-cache -fv     Ref:
- Linux notes | Shreyas Ragavan    ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/">阅读全文</a></p>
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="https://patrolli.github.io/xssq/posts/ffmpeg/">ffmpeg</a></li>
+        
+        <li><a href="https://patrolli.github.io/xssq/posts/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/">ubuntu 安装 iosevka 字体</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://patrolli.github.io/xssq/tags/ffmpeg'>ffmpeg</a></li>
+                
+                <li><a href='https://patrolli.github.io/xssq/tags/linux'>linux</a></li>
+                
+            </ul>
+            
         </div>
     </article>
     
-
     
 
-
-
-
-
+    
+    
 </div>
 
                     <footer id="footer">
@@ -154,6 +229,16 @@
 </footer>
 
 
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='https://patrolli.github.io/xssq/js/totop.js?v=0.0.0' async=""></script>

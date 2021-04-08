@@ -1,7 +1,7 @@
 +++
 title = "ubuntu 安装 iosevka 字体"
 author = ["Li Xunsong"]
-lastmod = 2021-04-08T17:55:41+08:00
+lastmod = 2021-04-09T02:57:48+08:00
 tags = ["linux"]
 draft = false
 +++
