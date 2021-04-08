@@ -3,36 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://patrolli.github.io/xssq/tags/ffmpeg/</loc>
-    <lastmod>2021-04-09T03:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/tags/linux/</loc>
-    <lastmod>2021-04-09T03:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-04-09T03:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/posts/</loc>
-    <lastmod>2021-04-09T03:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/tags/</loc>
-    <lastmod>2021-04-09T03:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/posts/test/</loc>
-    <lastmod>2021-04-09T03:01:35+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://patrolli.github.io/xssq/categories/academic/</loc>
     <lastmod>2021-04-09T02:57:49+08:00</lastmod>
   </url>
@@ -44,6 +14,21 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/machinelearning/</loc>
+    <lastmod>2021-04-09T02:57:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/</loc>
+    <lastmod>2021-04-09T02:57:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/posts/</loc>
+    <lastmod>2021-04-09T02:57:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/</loc>
     <lastmod>2021-04-09T02:57:49+08:00</lastmod>
   </url>
   
@@ -68,12 +53,22 @@
   </url>
   
   <url>
+    <loc>https://patrolli.github.io/xssq/tags/ffmpeg/</loc>
+    <lastmod>2021-04-09T02:57:48+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/posts/ffmpeg/</loc>
     <lastmod>2021-04-09T02:57:48+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2021-04-09T02:57:48+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/linux/</loc>
     <lastmod>2021-04-09T02:57:48+08:00</lastmod>
   </url>
   
