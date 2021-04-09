@@ -1,7 +1,7 @@
 +++
 title = "ffmpeg"
 author = ["Li Xunsong"]
-lastmod = 2021-04-09T03:08:58+08:00
+lastmod = 2021-04-09T19:46:57+08:00
 tags = ["ffmpeg", "linux"]
 draft = false
 +++

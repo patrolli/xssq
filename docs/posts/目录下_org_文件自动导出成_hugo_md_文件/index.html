@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流 | patrolli</title>
-    <meta property="og:title" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流 - patrolli">
+    <title>目录下 org 文件自动导出成 hugo md 文件 | patrolli</title>
+    <meta property="og:title" content="目录下 org 文件自动导出成 hugo md 文件 - patrolli">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2021-02-11T17:51:00&#43;08:00'>
+    <meta property="article:published_time" content='2021-04-09T19:46:59&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2021-02-11T17:53:27&#43;08:00'>
+    <meta property="article:modified_time" content='2021-04-09T19:46:59&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流">
-        <meta name="author" content="[patrolli]">
+    <meta name="description" content="目录下 org 文件自动导出成 hugo md 文件">
+        <meta name="author" content="[Li Xunsong]">
         
-    <meta property="og:url" content="https://patrolli.github.io/xssq/posts/hugo-workflow/">
+    <meta property="og:url" content="https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/">
     <link rel="shortcut icon" href='https://patrolli.github.io/xssq/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/normalize.css'>
@@ -129,12 +129,7 @@
 <div class="post-toc" style="position: absolute; top: 188px;">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#两种工作流">两种工作流</a></li>
-    <li><a href="#文件元信息设置">文件元信息设置</a></li>
-  </ul>
-</nav>
+        <nav id="TableOfContents"></nav>
     </div>
 </div>
 <script type="text/javascript">
@@ -166,63 +161,104 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</h1>
+            <h1 class="post-title">目录下 org 文件自动导出成 hugo md 文件</h1>
         </header>
         <date class="post-meta meta-date">
-            2021年2月11日
+            2021年4月9日
         </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://patrolli.github.io/xssq/categories/computer'>computer</a></span>
-            
-        </div>
         
         
         
         <div class="post-content">
-            <h2 id="两种工作流">两种工作流</h2>
-<p>ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+            <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">+++
-title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34;
-author = [&#34;LAPTOP-4COO4EVU&#34;]
-categories = [&#34;computer&#34;]
-draft = false
-+++
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#998;font-style:italic">;; 检测文件是否已经被导出 hugo</span>
+(<span style="color:#0086b3">defun</span> <span style="color:#008080">lxs-org-is-hugo-file-p</span> (<span style="color:#008080">fPath</span>)
+  <span style="color:#d14">&#34;Predict if the org file has been converted into hugo&#34;</span>
+  (<span style="color:#0086b3">with-temp-buffer</span>
+    (<span style="color:#0086b3">let</span> ((<span style="color:#008080">keyline</span> <span style="color:#d14">&#34;#+HUGO_DRAFT: false\n&#34;</span>))
+	  (<span style="color:#900;font-weight:bold">insert-file-contents</span> <span style="color:#008080">fPath</span>)
+	  (<span style="color:#0086b3">and</span> (<span style="color:#900;font-weight:bold">search-forward</span> <span style="color:#008080">keyline</span> <span style="color:#008080">nil</span> <span style="color:#008080">t</span>) <span style="color:#008080">t</span>)
+	  )
+    ))
+(<span style="color:#0086b3">defun</span> <span style="color:#008080">lxs-list-org-in-directory</span> (<span style="color:#008080">dPath</span>)
+  <span style="color:#d14">&#34;list org files under a directory path&#34;</span>
+  (<span style="color:#008080">directory-files-recursively</span> <span style="color:#008080">dPath</span> <span style="color:#d14">&#34;\.org$&#34;</span>)
+  )
+(<span style="color:#0086b3">defun</span> <span style="color:#008080">my--export-to-hugo</span> (<span style="color:#008080">dPath</span>)
+  <span style="color:#d14">&#34;Convert org files under a directory path into hugo .md files&#34;</span>
+  (<span style="color:#900;font-weight:bold">mapc</span>
+   (<span style="color:#0086b3">lambda</span> (<span style="color:#008080">file-name</span>)
+     (<span style="color:#0086b3">progn</span>
+       (<span style="color:#0086b3">if</span> (<span style="color:#008080">lxs-org-is-hugo-file-p</span> <span style="color:#008080">file-name</span>)
+	   (<span style="color:#0086b3">with-current-buffer</span> (<span style="color:#008080">find-file-noselect</span> <span style="color:#008080">file-name</span>)
+	     (<span style="color:#008080">org-hugo-export-wim-to-md</span>)
+	     ))
+       ))
+   (<span style="color:#008080">lxs-list-org-in-directory</span> <span style="color:#008080">dPath</span>)
+   )
+  (<span style="color:#900;font-weight:bold">message</span> <span style="color:#d14">&#34;export to hugo md file end!&#34;</span>))
+(<span style="color:#0086b3">defun</span> <span style="color:#008080">my--choose-directory</span> ()
+  <span style="color:#d14">&#34;Return a directory chosen by the user.  The user will be prompted
+</span><span style="color:#d14">to choose a directory&#34;</span>
+  (<span style="color:#0086b3">let*</span> ((<span style="color:#008080">ivy-read-prompt</span> <span style="color:#d14">&#34;Choose directory: &#34;</span>)
+	 (<span style="color:#008080">counsel--find-file-predicate</span> <span style="color:#900;font-weight:bold">#&#39;file-directory-p</span>)
+	 (<span style="color:#008080">selected-directory</span>
+	  (<span style="color:#008080">ivy-read</span>
+	   <span style="color:#008080">ivy-read-prompt</span>
+	   <span style="color:#900;font-weight:bold">#&#39;</span><span style="color:#008080">read-file-name-internal</span>
+	   <span style="color:#0086b3">:matcher</span> <span style="color:#900;font-weight:bold">#&#39;</span><span style="color:#008080">counsel--find-file-matcher</span>)))
+    <span style="color:#008080">selected-directory</span>))
+(<span style="color:#0086b3">defun</span> <span style="color:#008080">lxs-export-org-to-hugo</span> ()
+  (<span style="color:#0086b3">interactive</span>)
+  (<span style="color:#0086b3">let</span> ((<span style="color:#008080">directory</span> (<span style="color:#008080">my--choose-directory</span>)))
+    (<span style="color:#008080">my--export-to-hugo</span> <span style="color:#008080">directory</span>)))
 </code></pre></td></tr></table>
 </div>
-</div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
-<p>所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。</p>
-<h2 id="文件元信息设置">文件元信息设置</h2>
-<p>在 hugo 的 markdown 元信息配置中，通常需要涉及：</p>
-<ul>
-<li>title</li>
-<li>tag</li>
-<li>author</li>
-<li>created time</li>
-<li>last modified time</li>
-<li>categories</li>
-<li>draft</li>
-</ul>
-<p>将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：</p>
-<dl>
-<dt>HUGO_SECTION</dt>
-<dd>section 的定义可以参考 <a href="https://gohugo.io/content-management/sections/">Content Sections | Hugo</a>. 在 &ldquo;/content&rdquo; 目录下的一级目录，以及目录中含有 &ldquo;_index.md&rdquo; 的文件夹都被视作 section. 我的理解是 section 可以对博文进行一些分组，便于我们管理。</dd>
-<dt>HUGO_BASE_DIR</dt>
-<dd>Hugo site 的 root dir. 指定了这个路径后，在导出时，ox-hugo 就会找到这个目录下的 &ldquo;/content&rdquo; 文件夹，将导出的 md 文件放到对应位置。（如果是将 headline 导出，那么需要为这个 headline 设置 <code>EXPORT_FILE_NAME</code> 的 property.）</dd>
-</dl>
-
+</div>
         </div>
 
         
@@ -234,9 +270,11 @@ draft = false
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hugo 博客搭建</a></li>
+        <li><a href="https://patrolli.github.io/xssq/posts/2021-02-17-18-48/">配置 emacs-rime</a></li>
         
-        <li><a href="https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/">目录下 org 文件自动导出成 hugo md 文件</a></li>
+        <li><a href="https://patrolli.github.io/xssq/posts/hugo-workflow/">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</a></li>
+        
+        <li><a href="https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hugo 博客搭建</a></li>
         
     </ul>
 </div>
@@ -246,11 +284,9 @@ draft = false
             
             <ul class="clearfix">
                 
-                <li><a href='https://patrolli.github.io/xssq/tags/orgmode'>orgmode</a></li>
-                
                 <li><a href='https://patrolli.github.io/xssq/tags/emacs'>emacs</a></li>
                 
-                <li><a href='https://patrolli.github.io/xssq/tags/hugo'>hugo</a></li>
+                <li><a href='https://patrolli.github.io/xssq/tags/elisp'>elisp</a></li>
                 
             </ul>
             
