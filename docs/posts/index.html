@@ -76,7 +76,7 @@
         
         <div class="post-content">
             Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41  ;; 检测文件是否已经被导出 hugo (defun lxs-org-is-hugo-file-p (fPath) &#34;Predict if the org file has been converted into hugo&#34; (with-temp-buffer (let ((keyline &#34;#+HUGO_DRAFT: false\n&#34;)) (insert-file-contents fPath) (and (search-forward keyline nil t) t) ) )) (defun lxs-list-org-in-directory (dPath) &#34;list org files under a directory path&#34; (directory-files-recursively dPath &#34;\.……
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41  ;; 检测文件是否已经被导出 hugo (defun lxs-org-is-hugo-file-p (fPath) &#34;Predict if the org file has been converted into hugo&#34; (with-temp-buffer (let ((keyline &#34;#+HUGO_DRAFT: false\n&#34;)) (insert-file-contents fPath) (and (search-forward keyline nil t) t) ) )) (defun lxs-list-org-in-directory (dPath) &#34;list org files under a directory path&#34; (directory-files-recursively dPath &#34;\.org$&#34;) ) (defun my--export-to-hugo (dPath) &#34;Convert org files under a directory path into hugo .md files&#34; (mapc (lambda (file-name) (progn (if (lxs-org-is-hugo-file-p file-name) (with-current-buffer (find-file-noselect file-name) (org-hugo-export-wim-to-md) )) )) (lxs-list-org-in-directory dPath) ) (message &#34;export to hugo md file end!……
         </div>
         <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/">阅读全文</a></p>
     </article>
@@ -152,7 +152,7 @@
             基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
 1  hugo server   部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .github.io，另一种是针对项目的 pages: .github.io/projectxx. 无论如何，首先要在 github 上创建一个 .github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。 根据 Host on GitHub 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：
- 在 github 创建一个仓库，不要添加 .gitignore 和 README.……
+ 在 github 创建一个仓库，不要添加 .gitignore 和 README.md 在仓库页面的 setting 中，找到 github pages 的设置，将发布的 source 设置为 master 分支的 docs 文件夹  将本地的 hugo site 的根目录 (demo) 与远程仓库关联  git remote add origin xxx   修改 config.toml 文件（这一步很关键）  1 2  baseURL = &#34;https://patrolli.github.io/xssq/&#34; # 设置为 github pages 发布的地址 publishDir = &#34;docs&#34; # 将生成的静态页面文件夹设置到 docs 下，而不是 publish    将本地文件 push 到远程，这一步写在脚本里，在本地完成修改后一键部署到远程  1 2 3 4 5 6 7  #!/bin/bash  hugo git add .……
         </div>
         <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">阅读全文</a></p>
     </article>
@@ -221,7 +221,7 @@
         </div>
         
         <div class="post-content">
-            Xie-aaai-2021-decaugMotivation  设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。  Method  首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s: 论文主要是通过 object state 和 spatial relationship 进行样本增强 论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;.……
+            Xie-aaai-2021-decaugMotivation  设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。  Method  首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s: 论文主要是通过 object state 和 spatial relationship 进行样本增强 论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;. （在论文中，主要是用什么信息描述 object state?） 这里贴物体的要求：1. 保持物体的 state 2. 增强后的图片要 realistic 首先判断图中的物体是否可以替换。这里考虑如果一个物体和其他物体的遮挡交错 (interlock) 较为严重时，就不进行替换。论文设计了一个名为 &ldquo;instance interlocking ratio&rdquo; 的指标来进行判断。公式为：   其中 C_i 是 instance i 的边界，M_i 是 instance i 的 mask, 如果两个物体的边界相交很长，就认为他们的 interlock 很高，因此这两个物体都不可以被替换 (数据集中可以被替换的物体比例？)。如图：  在决定一个物体是否可以替换后，需要找到具有相似 state 的物体来进行替换。这里的 state 包括 shape variance, occlusion variance, pose variance 等。不同的 HOI 决定这些 object state 是不一样的。论文将 instance mask 作为 object state 的表征，他们认为这个 mask 包含了物体 6D pose 形状，6D pose 的投影，并且遮挡情况也可以通过临近的 instance mask 来量化。给出物体的一个 bounding box, 将 object mask 部分的像素点记为 1, background 部分的像素点记为 0, 将相邻的 object mask 的像素点记为 -1.……
         </div>
         <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/">阅读全文</a></p>
     </article>
@@ -243,7 +243,8 @@
 sudo apt install librime-dev
   安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装
   配置   配置 emacs rime
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  (use-package rime :custom (default-input-method &#34;rime&#34;) :config (setq default-input-method &#34;rime&#34; rime-show-candidate &#39;posframe);; (setq rime-user-data-dir &#34;~/.……
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  (use-package rime :custom (default-input-method &#34;rime&#34;) :config (setq default-input-method &#34;rime&#34; rime-show-candidate &#39;posframe);; (setq rime-user-data-dir &#34;~/.config/fcitx/rime&#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &#34;M-j&#34;) &#39;rime-force-enable) (setq rime-disable-predicates &#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &#34;#333333&#34; :foreground-color &#34;#dcdccc&#34; :font &#34;WenQuanYi Micro Hei Mono-14&#34; :internal-border-width 10)) (add-hook &#39;find-file-hook #&#39;toggle-input-method) ;; 打开文件时默认开启 rime )     配置系统的 rime
+在 emacs 中, 可以通过 M-x rime-open-shema, M-x rime-open-configuration 来打开配置文件的设置。emacs-rime 只是 rime 的前端，所有输入法相关的配置都在系统的 rime 的配置文件中完成。我需要使用的输入法是小鹤双拼，配置方法如下：……
         </div>
         <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/2021-02-17-18-48/">阅读全文</a></p>
     </article>
@@ -271,7 +272,9 @@ sudo apt install librime-dev
             两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：
 1 2 3 4 5 6  +++ title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34; author = [&#34;LAPTOP-4COO4EVU&#34;] categories = [&#34;computer&#34;] draft = false +++   这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
 所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。
-文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：……
+文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：
+ title tag author created time last modified time categories draft  将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：
+ HUGO_SECTION section 的定义可以参考 Content Sections | Hugo. 在 &ldquo;/content&rdquo; 目录下的一级目录，以及目录中含有 &ldquo;_index.md&rdquo; 的文件夹都被视作 section. 我的理解是 section 可以对博文进行一些分组，便于我们管理。 HUGO_BASE_DIR Hugo site 的 root dir. 指定了这个路径后，在导出时，ox-hugo 就会找到这个目录下的 &ldquo;/content&rdquo; 文件夹，将导出的 md 文件放到对应位置。（如果是将 headline 导出，那么需要为这个 headline 设置 EXPORT_FILE_NAME 的 property.）  ……
         </div>
         <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/hugo-workflow/">阅读全文</a></p>
     </article>

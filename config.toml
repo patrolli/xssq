@@ -5,11 +5,11 @@ title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
 theme = "maupassant"
-
+summaryLength = 140
 [params]
   author = "patrolli"
   toc = true
-  summaryLength = 140
+
 
 [markup]
   [markup.highlight]
