@@ -197,41 +197,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 <ol>
 <li>
 <p>配置 emacs rime</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#0086b3">use-package</span> <span style="color:#008080">rime</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#0086b3">use-package</span> <span style="color:#008080">rime</span>
   <span style="color:#0086b3">:custom</span>
   (<span style="color:#008080">default-input-method</span> <span style="color:#d14">&#34;rime&#34;</span>)
   <span style="color:#0086b3">:config</span>
@@ -261,9 +227,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
           <span style="color:#0086b3">:internal-border-width</span> <span style="color:#099">10</span>))
   (<span style="color:#008080">add-hook</span> <span style="color:#990073">&#39;find-file-hook</span> <span style="color:#900;font-weight:bold">#&#39;</span><span style="color:#008080">toggle-input-method</span>)  <span style="color:#998;font-style:italic">;; 打开文件时默认开启 rime</span>
   )
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 <li>
 <p>配置系统的 rime</p>
 <p>在 emacs 中, 可以通过 <code>M-x rime-open-shema</code>, <code>M-x rime-open-configuration</code> 来打开配置文件的设置。emacs-rime 只是 rime 的前端，所有输入法相关的配置都在系统的 rime 的配置文件中完成。我需要使用的输入法是小鹤双拼，配置方法如下：</p>
@@ -274,19 +238,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </li>
 <li>
 <p>在 <code>~/.config/fcitx/rime/default.custom.yaml</code> 文件中添加小鹤双拼输入方案：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000080">patch</span>:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000080">patch</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#000080">schema_list</span>:<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - schema</span>:<span style="color:#bbb"> </span>double_pinyin_flypy  <span style="color:#bbb"> </span><span style="color:#998;font-style:italic"># 新增小鹤双拼</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - schema</span>:<span style="color:#bbb"> </span>luna_pinyin<span style="color:#bbb">
@@ -294,26 +246,10 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - schema</span>:<span style="color:#bbb"> </span>luna_pinyin_fluency<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - schema</span>:<span style="color:#bbb"> </span>luna_pinyin_simp<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - schema</span>:<span style="color:#bbb"> </span>luna_pinyin_tw<span style="color:#bbb">
-</span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></code></pre></div></li>
 <li>
 <p>单独配置小鹤双拼的输入设置，在 <code>~/.config/fcitx/rime/double-pinyin-flypy.custom.yaml</code> 中配置：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000080">patch</span>:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000080">patch</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#000080">switches</span>:<span style="color:#bbb">                   </span><span style="color:#998;font-style:italic"># 注意缩进</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - name</span>:<span style="color:#bbb"> </span>ascii_mode<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#000080">reset</span>:<span style="color:#bbb"> </span><span style="color:#099">0</span><span style="color:#bbb">                </span><span style="color:#998;font-style:italic"># reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态</span><span style="color:#bbb">
@@ -323,9 +259,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span style="color:#bbb"></span><span style="color:#000080">​    - name</span>:<span style="color:#bbb"> </span>simplification<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#000080">reset</span>:<span style="color:#bbb"> </span><span style="color:#099">1</span><span style="color:#bbb">                </span><span style="color:#998;font-style:italic"># 增加这一行：默认启用「繁→簡」转换。</span><span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#000080">states</span>:<span style="color:#bbb"> </span>[<span style="color:#bbb"> </span>漢字, 汉字 ]<span style="color:#bbb">
-</span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></code></pre></div></li>
 </ul>
 </li>
 </ol>

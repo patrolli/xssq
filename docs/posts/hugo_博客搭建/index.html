@@ -196,15 +196,8 @@
 <p>直接在官网下载 Hugo 的安装包</p>
 <h3 id="本地创建">本地创建</h3>
 <p>根据官网的 <a href="https://gohugo.io/getting-started/quick-start/">quick start</a>, 创建一个 site 只需如下几个命令</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="部署到-github-pages">部署到 github pages</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server
+</code></pre></div><h3 id="部署到-github-pages">部署到 github pages</h3>
 <p>github pages 有两种形式，一种是针对用户的 pages: <!-- raw HTML omitted -->.github.io，另一种是针对项目的 pages: <!-- raw HTML omitted -->.github.io/projectxx. 无论如何，首先要在 github 上创建一个 <!-- raw HTML omitted -->.github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。
 根据 <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub</a> 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：</p>
 <ul>
@@ -224,41 +217,20 @@
 <li>修改 config.toml 文件（这一步很关键）</li>
 </ul>
 <!-- raw HTML omitted -->
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#d14">&#34;https://patrolli.github.io/xssq/&#34;</span>  <span style="color:#998;font-style:italic"># 设置为 github pages 发布的地址</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#d14">&#34;https://patrolli.github.io/xssq/&#34;</span>  <span style="color:#998;font-style:italic"># 设置为 github pages 发布的地址</span>
 publishDir = <span style="color:#d14">&#34;docs&#34;</span>  <span style="color:#998;font-style:italic"># 将生成的静态页面文件夹设置到 docs 下，而不是 publish</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+</code></pre></div><ul>
 <li>将本地文件 push 到远程，这一步写在脚本里，在本地完成修改后一键部署到远程</li>
 </ul>
 <!-- raw HTML omitted -->
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
 </span><span style="color:#999;font-weight:bold;font-style:italic"></span>
 hugo
 
 git add .
 git commit -m <span style="color:#d14">&#34;updates </span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span>
 git push origin master
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="todo">Todo</h3>
+</code></pre></div><h3 id="todo">Todo</h3>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 图片管理</li>
 <li>主题美化完善</li>

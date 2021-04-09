@@ -13,7 +13,7 @@ summaryLength = 48
 
 [markup]
   [markup.highlight]
-    lineNos = true
+    lineNos = false
     style = "github"
 
 # [menu]

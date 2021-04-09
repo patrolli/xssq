@@ -184,25 +184,13 @@
         <div class="post-content">
             <h2 id="两种工作流">两种工作流</h2>
 <p>ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">+++
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">+++
 title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34;
 author = [&#34;LAPTOP-4COO4EVU&#34;]
 categories = [&#34;computer&#34;]
 draft = false
 +++
-</code></pre></td></tr></table>
-</div>
-</div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
+</code></pre></div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
 <p>所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。</p>
 <h2 id="文件元信息设置">文件元信息设置</h2>
 <p>在 hugo 的 markdown 元信息配置中，通常需要涉及：</p>
