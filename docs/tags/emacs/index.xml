@@ -13,8 +13,7 @@
       <pubDate>Sat, 10 Apr 2021 00:37:09 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</guid>
-      <description>Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
-;; 检测文件是否已经被导出 hugo (defun lxs-org-is-hugo-file-p (fPath) &amp;#34;Predict if the org file has been converted into hugo&amp;#34; (with-temp-buffer (let ((keyline &amp;#34;#+HUGO_DRAFT: false\n&amp;#34;)) (insert-file-contents fPath) (and (search-forward keyline nil t) t) ) )) (defun lxs-list-org-in-directory (dPath) &amp;#34;list org files under a directory path&amp;#34; (directory-files-recursively dPath &amp;#34;\.</description>
+      <description>Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs.</description>
     </item>
     
     <item>
@@ -25,7 +24,7 @@
       <guid>https://patrolli.github.io/xssq/posts/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
       <description>基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
-hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .github.io，另一种是针对项目的 pages: .github.io/projectxx. 无论如何，首先要在 github 上创建一个 .github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。 根据 Host on GitHub 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：</description>
+hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .</description>
     </item>
     
     <item>
@@ -36,9 +35,7 @@ hugo server 部署到 github pages github pages 有两种形式，一种是针�
       <guid>https://patrolli.github.io/xssq/posts/2021-02-17-18-48/</guid>
       <description>配置 emacs rime 安装   安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime
 sudo apt install librime-dev
-  安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装
-  配置   配置 emacs rime
-(use-package rime :custom (default-input-method &amp;#34;rime&amp;#34;) :config (setq default-input-method &amp;#34;rime&amp;#34; rime-show-candidate &amp;#39;posframe);; (setq rime-user-data-dir &amp;#34;~/.config/fcitx/rime&amp;#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &amp;#34;M-j&amp;#34;) &amp;#39;rime-force-enable) (setq rime-disable-predicates &amp;#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &amp;#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &amp;#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &amp;#34;#333333&amp;#34; :foreground-color &amp;#34;#dcdccc&amp;#34; :font &amp;#34;WenQuanYi Micro Hei Mono-14&amp;#34; :internal-border-width 10)) (add-hook &amp;#39;find-file-hook #&amp;#39;toggle-input-method) ;; 打开文件时默认开启 rime )   配置系统的 rime</description>
+  安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装</description>
     </item>
     
     <item>

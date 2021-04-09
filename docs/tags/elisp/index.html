@@ -82,8 +82,7 @@
         </date>
         
         <div class="post-content">
-            Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
-;; 检测文件是否已经被导出 hugo (defun lxs-org-is-hugo-file-p (fPath) &#34;Predict if the org file has been converted into hugo&#34; (with-temp-buffer (let ((keyline &#34;#+HUGO_DRAFT: false\n&#34;)) (insert-file-contents fPath) (and (search-forward keyline nil t) t) ) )) (defun lxs-list-org-in-directory (dPath) &#34;list org files under a directory path&#34; (directory-files-recursively dPath &#34;\.……
+            Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs.……
             <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/">阅读全文</a></p>
         </div>
     </article>
