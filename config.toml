@@ -5,7 +5,7 @@ title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
 theme = "maupassant"
-summaryLength = 140
+summaryLength = 48
 [params]
   author = "patrolli"
   toc = true
