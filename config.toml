@@ -9,6 +9,7 @@ theme = "maupassant"
 [params]
   author = "patrolli"
   toc = true
+  summaryLength = 140
 
 [markup]
   [markup.highlight]

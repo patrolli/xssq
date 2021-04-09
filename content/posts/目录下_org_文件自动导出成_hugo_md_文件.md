@@ -1,14 +1,14 @@
 +++
 title = "目录下 org 文件自动导出成 hugo md 文件"
 author = ["Li Xunsong"]
-lastmod = 2021-04-10T00:35:25+08:00
+lastmod = 2021-04-10T00:37:09+08:00
 tags = ["emacs", "elisp"]
 draft = false
 +++
 
 ## Intro {#intro}
 
-目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 `C-c C-e`, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
+目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 `C-c C-e`, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来**直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出**，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
 
 ```emacs-lisp
 ;; 检测文件是否已经被导出 hugo

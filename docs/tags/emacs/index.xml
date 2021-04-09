@@ -6,11 +6,11 @@
     <description>Recent content in emacs on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Apr 2021 00:35:25 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2021 00:37:09 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>目录下 org 文件自动导出成 hugo md 文件</title>
       <link>https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</link>
-      <pubDate>Sat, 10 Apr 2021 00:35:25 +0800</pubDate>
+      <pubDate>Sat, 10 Apr 2021 00:37:09 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/posts/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</guid>
       <description>Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
