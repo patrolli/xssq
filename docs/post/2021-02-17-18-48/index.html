@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
 
     
+        <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/github_chroma.css">
+    
 
     
 
@@ -38,7 +40,7 @@
     
 <meta property="og:title" content="配置 emacs-rime" />
 <meta property="og:description"
-      content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装
+      content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装 配置 配置 emacs rime (use-package rime :custom (default-input-method &amp;#34;rime&amp;#34;) :config (setq default-input-method &amp;#34;rime&amp;#34; rime-show-candidate &amp;#39;posframe);; (setq rime-user-data-dir &amp;#34;~/.config/fcitx/rime&amp;#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &amp;#34;M-j&amp;#34;) &amp;#39;rime-force-enable) (setq rime-disable-predicates &amp;#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &amp;#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &amp;#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &amp;#34;#333333&amp;#34; :foreground-color &amp;#34;#dcdccc&amp;#34; :font &amp;#34;WenQuanYi Micro Hei Mono-14&amp;#34; :internal-border-width 10)) (add-hook &amp;#39;find-file-hook #&amp;#39;toggle-input-method) ;; 打开文件时默认开启 rime ) 配置系统的 rime
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/2021-02-17-18-48/" />
@@ -67,7 +69,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置 emacs-rime"/>
-<meta name="twitter:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装
+<meta name="twitter:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装 配置 配置 emacs rime (use-package rime :custom (default-input-method &amp;#34;rime&amp;#34;) :config (setq default-input-method &amp;#34;rime&amp;#34; rime-show-candidate &amp;#39;posframe);; (setq rime-user-data-dir &amp;#34;~/.config/fcitx/rime&amp;#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &amp;#34;M-j&amp;#34;) &amp;#39;rime-force-enable) (setq rime-disable-predicates &amp;#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &amp;#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &amp;#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &amp;#34;#333333&amp;#34; :foreground-color &amp;#34;#dcdccc&amp;#34; :font &amp;#34;WenQuanYi Micro Hei Mono-14&amp;#34; :internal-border-width 10)) (add-hook &amp;#39;find-file-hook #&amp;#39;toggle-input-method) ;; 打开文件时默认开启 rime ) 配置系统的 rime
 "/>
 
 </head>

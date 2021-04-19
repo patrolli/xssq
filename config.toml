@@ -4,8 +4,9 @@ defaultContentLanguage = "en"                             # en / zh-cn / ... (Th
 title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
+
 theme = "hugo-onyx-theme"
-summaryLength = 20
+
 
 
 enableEmoji = true
@@ -23,7 +24,15 @@ pygmentsUseClasses = true
 
   # Go date formats: https://golang.org/pkg/time/#pkg-constants
   dateform = "Mon Jan 2, 2006"
+#  images = ["/favicon-196x196.png"] # Used in twitter_cards.html partial
 
+  custom_css = [ # Chroma GitHub theme
+                 "css/github_chroma.css" # Needs pygmentsUseClasses to be true
+               ]
+  custom_css_absolute = [ # Iosevka fonts
+                          # "https://cdn.rawgit.com/kaushalmodi/iosevka-mirror/v1.13.2/iosevka.css"
+                        ]
+  custom_js  = []
 
 
 [params.sidebar]
