@@ -1,6 +1,5 @@
 baseURL = "https://patrolli.github.io/xssq/"
-languageCode = "en"
-defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
+
 title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
@@ -9,14 +8,17 @@ theme = "hugo-onyx-theme"
 
 
 
-enableEmoji = true
+enableGitInfo = true
+
 disableFastRender = true        # Hugo 0.30
-# Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
-pygmentsCodefences = true
-pygmentsUseClasses = true
+
+pygmentsCodeFences = true       # This applies to Chroma too.
+pygmentsUseClasses = true       # This applies to Chroma too.
+
+enableEmoji = true
 
 [Author]
-  name = "patrolli"
+  name = "Kaushal Modi"
 
 [params]
   name = "Onyx"
@@ -24,6 +26,11 @@ pygmentsUseClasses = true
 
   # Go date formats: https://golang.org/pkg/time/#pkg-constants
   dateform = "Mon Jan 2, 2006"
+
+  github_user = "kaushalmodi"
+  github_repo = "hugo-onyx-theme"
+  github_banner = true
+
 #  images = ["/favicon-196x196.png"] # Used in twitter_cards.html partial
 
   custom_css = [ # Chroma GitHub theme
@@ -34,11 +41,12 @@ pygmentsUseClasses = true
                         ]
   custom_js  = []
 
+  # favicon = "favicon.ico"
 
 [params.sidebar]
   logo = "favicon.ico"
 
-  github_button  = false
+  github_button  = true
   travis_button  = false
   codecov_button = false
   gratipay = ""

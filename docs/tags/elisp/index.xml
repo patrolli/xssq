@@ -5,7 +5,6 @@
     <link>https://patrolli.github.io/xssq/tags/elisp/</link>
     <description>Recent content in elisp on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
     <lastBuildDate>Sat, 10 Apr 2021 00:37:09 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/elisp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>目录下 org 文件自动导出成 hugo md 文件</title>
