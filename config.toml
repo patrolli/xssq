@@ -4,7 +4,7 @@ defaultContentLanguage = "en"                             # en / zh-cn / ... (Th
 title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
-theme = "ananke"
+theme = "even"
 summaryLength = 20
 
 [languages.en]
@@ -12,6 +12,11 @@ summaryLength = 20
 
 [author]                  # essential                     # 必需
   name = "patrolli"
+
+[sitemap]                 # essential                     # 必需
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
 
 [params]
   toc = true
