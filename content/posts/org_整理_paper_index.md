@@ -1,6 +1,7 @@
 +++
 title = "org 整理 paper_index"
 author = ["Li Xunsong"]
+tags = ["emacs", "orgmode", "elisp"]
 draft = false
 +++
 

@@ -17,5 +17,14 @@
 +++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false +++ 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</description>
     </item>
     
+    <item>
+      <title>org 整理 paper_index</title>
+      <link>https://patrolli.github.io/xssq/posts/org_%E6%95%B4%E7%90%86_paper_index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/posts/org_%E6%95%B4%E7%90%86_paper_index/</guid>
+      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下：</description>
+    </item>
+    
   </channel>
 </rss>
