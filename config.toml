@@ -30,7 +30,7 @@ summaryLength = 20
   name = "This is Home"
   weight = 10
   identifier = "home"
-  url = "/"
+  url = "/xssq/"
 [[menu.main]]
   name = "Archives"
   weight = 20
