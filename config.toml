@@ -4,7 +4,7 @@ defaultContentLanguage = "en"                             # en / zh-cn / ... (Th
 title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
-theme = "anake"
+theme = "ananke"
 summaryLength = 20
 
 [languages.en]

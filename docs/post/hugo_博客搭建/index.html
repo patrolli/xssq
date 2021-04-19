@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>hugo 博客搭建 | patrolli</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
+本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
+hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .">
+    <meta name="generator" content="Hugo 0.79.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://patrolli.github.io/xssq/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="hugo 博客搭建" />
+<meta property="og:description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
+本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
+hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" />
+<meta property="article:published_time" content="2021-04-09T19:46:58+08:00" />
+<meta property="article:modified_time" content="2021-04-09T19:46:58+08:00" />
+<meta itemprop="name" content="hugo 博客搭建">
+<meta itemprop="description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
+本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
+hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .">
+<meta itemprop="dateModified" content="2021-04-09T19:46:58+08:00" />
+<meta itemprop="wordCount" content="229">
+
+
+
+<meta itemprop="keywords" content="emacs,blog," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo 博客搭建"/>
+<meta name="twitter:description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
+本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
+hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: ."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://patrolli.github.io/xssq/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        patrolli
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://patrolli.github.io/xssq/xssq/" title="This is Home page">
+              This is Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://patrolli.github.io/xssq/xssq/post/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://patrolli.github.io/xssq/xssq/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://patrolli.github.io/xssq/xssq/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/&amp;text=hugo%20%e5%8d%9a%e5%ae%a2%e6%90%ad%e5%bb%ba" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/&amp;title=hugo%20%e5%8d%9a%e5%ae%a2%e6%90%ad%e5%bb%ba" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">hugo 博客搭建</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Li Xunsong
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-04-09T19:46:58+08:00">April 9, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="基本安装与使用">基本安装与使用</h2>
+<h3 id="hugo-安装">Hugo 安装</h3>
+<p>直接在官网下载 Hugo 的安装包</p>
+<h3 id="本地创建">本地创建</h3>
+<p>根据官网的 <a href="https://gohugo.io/getting-started/quick-start/">quick start</a>, 创建一个 site 只需如下几个命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server
+</code></pre></div><h3 id="部署到-github-pages">部署到 github pages</h3>
+<p>github pages 有两种形式，一种是针对用户的 pages: <!-- raw HTML omitted -->.github.io，另一种是针对项目的 pages: <!-- raw HTML omitted -->.github.io/projectxx. 无论如何，首先要在 github 上创建一个 <!-- raw HTML omitted -->.github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。
+根据 <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub</a> 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：</p>
+<ul>
+<li>在 github 创建一个仓库，不要添加 .gitignore 和 README.md</li>
+<li>在仓库页面的 setting 中，找到 github pages 的设置，将发布的 source 设置为 master 分支的 docs 文件夹
+<img src="https://patrolli.github.io/xssq/img/capture_2020_12_25_10_29_00.png" alt="">
+<img src="https://patrolli.github.io/xssq/img/capture_2020_12_25_10_29_40.png" alt=""></li>
+<li>将本地的 hugo site 的根目录 (demo) 与远程仓库关联
+<ul>
+<li><code>git remote add origin xxx</code></li>
+</ul>
+</li>
+<li>修改 config.toml 文件（这一步很关键）</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://patrolli.github.io/xssq/&#34;</span>  <span style="color:#75715e"># 设置为 github pages 发布的地址</span>
+<span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;docs&#34;</span>  <span style="color:#75715e"># 将生成的静态页面文件夹设置到 docs 下，而不是 publish</span>
+</code></pre></div><ul>
+<li>将本地文件 push 到远程，这一步写在脚本里，在本地完成修改后一键部署到远程</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+hugo
+
+git add .
+git commit -m <span style="color:#e6db74">&#34;updates </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+git push origin master
+</code></pre></div><h3 id="todo">Todo</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 图片管理</li>
+<li>主题美化完善</li>
+<li>结合 emacs orgmode 的工作流</li>
+</ul>
+<h3 id="emacs-orgmode-easy-hugo-ox-hugo-工作流">emacs orgmode easy-hugo ox-hugo 工作流</h3>
+<p>目前在 emacs 中使用 hugo 的工作流：</p>
+<ul>
+<li>使用 org-roam 来记录笔记</li>
+<li>使用 yasnippet 来为这个 org 文件增加必要的导出头文件信息</li>
+<li>使用 ox-hugo 将这个 org 文件导出到博客目录下 (content/posts), 并将 org 文件转换成 md 文件，文件名与 org 文件一致</li>
+<li>发布，使用 easy-hugo 可以将博文发布到 github pages 上，或者手动执行 deploy.sh 脚本</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li><input disabled="" type="checkbox"> 对于已经发布的笔记文件，如果进行了修改，在修改保存后自动导出并部署</li>
+</ul>
+<h3 id="issues">issues</h3>
+<ul>
+<li>hugo 图片显示问题：
+如果 hugo 的 basedir 包含了子文件夹，例如 &lsquo;localhost:1313/foo/my-hugo/&rsquo;, 那么图片这些静态文件的路径将会是 &lsquo;localhost:1313/foo/img.jpg&rsquo;, 而将那个子文件夹给忽略了。参考：<a href="https://discourse.gohugo.io/t/best-way-to-reference-an-image-in-static-directory-when-baseurl-could-contain-a-sub-directory/15461">Best way to reference an image in `/static` directory when baseURL could contain a sub-directory? - support - HUGO</a>. 这里我是在 config.toml 文件中设置 <code>canonifyURLs = true</code>, 然后能够正常显式图片了。</li>
+</ul>
+<h2 id="ref">Ref</h2>
+<ul>
+<li><a href="https://gohugo.io/getting-started/quick-start/">official quick start</a></li>
+<li><a href="http://blog.jiayuanzhang.com/post/blog-with-ox-hugo/">使用 Emacs + ox-hugo 来写博客</a></li>
+<li><a href="https://www.xianmin.org/post/ox-hugo/">博客写作流程之工具篇： emacs, orgmode, hugo &amp; ox-hugo</a></li>
+<li><a href="https://liujiacai.net/blog/2020/12/05/hexo-to-hugo/">博客系统迁移：Hexo 到 Hugo</a></li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://patrolli.github.io/xssq/tags/emacs" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">emacs</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://patrolli.github.io/xssq/tags/blog" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">blog</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://patrolli.github.io/xssq/post/2021-02-17-18-48/">配置 emacs-rime</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://patrolli.github.io/xssq/post/hugo-workflow/">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/">目录下 org 文件自动导出成 hugo md 文件</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/">org 整理 paper_index</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://patrolli.github.io/xssq/" >
+    &copy;  patrolli 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://patrolli.github.io/xssq/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
