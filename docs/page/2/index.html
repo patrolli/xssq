@@ -1,27 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<meta name="generator" content="Hugo 0.79.0" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>MachineLearning | patrolli</title>
-    <meta property="og:title" content="MachineLearning - patrolli">
-    <meta property="og:type" content="article">
-        
-        
+    <title>patrolli | </title>
+    <meta property="og:title" content="patrolli | ">
+    <meta property="og:type" content="website">
     <meta name="Keywords" content="">
-    <meta name="description" content="MachineLearning">
-        
-    <meta name="author" content="">
-    <meta property="og:url" content="https://patrolli.github.io/xssq/tags/machinelearning/">
+    <meta name="description" content="">
+    <meta property="og:url" content="https://patrolli.github.io/xssq/">
     <link rel="shortcut icon" href='https://patrolli.github.io/xssq/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/normalize.css'>
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://patrolli.github.io/xssq/tags/machinelearning/index.xml" title="patrolli" />
+    <link rel="alternate" type="application/rss+xml+xml" href="https://patrolli.github.io/xssq/index.xml" title="patrolli" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -39,15 +36,17 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <a id="logo" href="https://patrolli.github.io/xssq/">
-                        patrolli
-                    </a>
+                    <h1>
+                        <a id="logo" href="https://patrolli.github.io/xssq/">
+                            patrolli
+                        </a>
+                    </h1>
                 
                 
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://patrolli.github.io/xssq/">首页</a>
+                    <a class="current" href="https://patrolli.github.io/xssq/">首页</a>
                     
                 </nav>
             </div>
@@ -63,64 +62,45 @@
                     
 <div class="res-cons">
     
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">MachineLearning</span>
-        的文章
-    </h3>
-    
-
-    
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">混合高斯分布</a>
+                <a href="https://patrolli.github.io/xssq/posts/org_%E6%95%B4%E7%90%86_paper_index/" title="org 整理 paper_index">org 整理 paper_index</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2021年4月9日
+            1年1月1日
         </date>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
-            
-        </div>
-        
         <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">阅读全文</a></p>
+            Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下：……
         </div>
+        <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/org_%E6%95%B4%E7%90%86_paper_index/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">EM算法</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月9日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
-            
-        </div>
-        
-        <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">阅读全文</a></p>
-        </div>
-    </article>
-    
-
     
 
 
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="https://patrolli.github.io/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="https://patrolli.github.io/">1</a>
+    </li>
+    
+    <li  class="current">
+        <a href="https://patrolli.github.io/page/2/">2</a>
+    </li>
+    
+
+    
+</ol>
 
 
 

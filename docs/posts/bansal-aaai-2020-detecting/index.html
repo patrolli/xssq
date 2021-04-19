@@ -7,21 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>MachineLearning | patrolli</title>
-    <meta property="og:title" content="MachineLearning - patrolli">
+    <title>Detecting human-object interactions via functional generalization | patrolli</title>
+    <meta property="og:title" content="Detecting human-object interactions via functional generalization - patrolli">
     <meta property="og:type" content="article">
         
         
     <meta name="Keywords" content="">
-    <meta name="description" content="MachineLearning">
+    <meta name="description" content="Detecting human-object interactions via functional generalization">
+        <meta name="author" content="[Li Xunsong]">
         
-    <meta name="author" content="">
-    <meta property="og:url" content="https://patrolli.github.io/xssq/tags/machinelearning/">
+    <meta property="og:url" content="https://patrolli.github.io/xssq/posts/bansal-aaai-2020-detecting/">
     <link rel="shortcut icon" href='https://patrolli.github.io/xssq/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/normalize.css'>
     <link rel="stylesheet" href='https://patrolli.github.io/xssq/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://patrolli.github.io/xssq/tags/machinelearning/index.xml" title="patrolli" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -62,68 +61,166 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">MachineLearning</span>
-        的文章
-    </h3>
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-    
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#comment">Comment</a></li>
+    <li><a href="#ref">Ref</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">混合高斯分布</a>
-            </h1>
+            <h1 class="post-title">Detecting human-object interactions via functional generalization</h1>
         </header>
         <date class="post-meta meta-date">
-            2021年4月9日
+            1年1月1日
         </date>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
-            
-        </div>
+        
         
         <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">阅读全文</a></p>
+            <h2 id="motivation">Motivation</h2>
+<ul>
+<li>HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。</li>
+<li>功能相似的物体，会出现在相近的 interaction 中。例如，eat &lt;burger, hot dog, sandwitch, pizza&gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。</li>
+<li>这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier. 在判定物体 &ldquo;功能相似&rdquo; 时，引入了一些先验知识 (common sense), 最后将功能相似定义为物体的 visual appearance 和 semantic representation 结合到一起来判定物体之间是否具有相似的功能。如果具有了相似的功能，那么物体就可能出现在同一个 HoI label 中。</li>
+</ul>
+<h2 id="method">Method</h2>
+<ul>
+<li>框图：
+
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_10_21_52_16.png" />   
+    </li>
+<li>generalization 模块：
+
+        <img class="mx-auto" alt="" src="https://patrolli.github.io/xssq/img/capture_2021_04_10_21_52_34.png" />   
+    
+这里将相似的物体进行替换，替换的只是物体 word embedding 的输入部分，其他部分的输入保持不变，仍是从 HoI 图片样本中得到的。#+HUGO_BASE_DIR: /mnt/c/Users/lixun/Documents/xssq-blog</li>
+</ul>
+<h2 id="comment">Comment</h2>
+<ul>
+<li>如何定义功能相似的 object?</li>
+<li>如何做到 zero-shot?</li>
+<li>提到了对 dataset bias 的定义 (<!-- raw HTML omitted --><!-- raw HTML omitted -->Zhao-emnlp-2017-men<!-- raw HTML omitted --><!-- raw HTML omitted -->)，构建了一个 bias dataset. 具体而言，考虑一个 &lt;object, predicate&gt; pairs 的集合，然后对每个 pair q_i, 考虑两种情况：1. bias against the pair 2. bias towards the pair. 第一种情况，将数据集中全部包含 pair q_i 的样本去掉（相当于从来没有看见过 q_i），然后保留所有包含物体 o_i 的样本（物体 o_i 在其他的动作 (predicate) 之中）。第二种情况，去掉所有包含物体 o_i 的样本，除了是 q_i 这个 pair 的（相当于只见过物体 o_i 出现在 q_i 这个 pair 中）。</li>
+</ul>
+<h2 id="ref">Ref</h2>
+<ul>
+<li><a href="https://patrolli.github.io/xssq/posts/xie-aaai-2021-decaug/">Decaug: augmenting HOI detection via decomposition</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">EM算法</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月9日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://patrolli.github.io/xssq/categories/academic'>Academic</a>
-            
-        </div>
-        
-        <div class="post-content">
-            ……
-            <p class="readmore"><a href="https://patrolli.github.io/xssq/posts/em%E7%AE%97%E6%B3%95/">阅读全文</a></p>
-        </div>
-    </article>
     
 
     
-
-
-
-
-
+    
 </div>
 
                     <footer id="footer">
@@ -146,6 +243,16 @@
 </footer>
 
 
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='https://patrolli.github.io/xssq/js/totop.js?v=0.0.0' async=""></script>
