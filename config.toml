@@ -6,6 +6,7 @@ canonifyURLs = true
 publishDir = "docs"
 theme = "even"
 summaryLength = 20
+hasCJKLanguage = true
 
 [languages.en]
   languageCode = "zh-cn"

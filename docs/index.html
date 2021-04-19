@@ -132,7 +132,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs.
+      Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/" class="read-more-link">Read more...</a>
@@ -174,9 +174,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
-本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
-hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .
+      基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="read-more-link">Read more...</a>
@@ -195,10 +193,7 @@ hugo server 部署到 github pages github pages 有两种形式，一种是针�
   
   <div class="post-content">
     <div class="post-summary">
-      从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;)
-  解压文件
-unzip -u ttf-iosevka-5.2.1.zip -d iosevka   放到系统的字体目录：
-sudo cp -r ~/temp/iosevka /usr/share/fonts/   重新刷新字体缓存
+      从 github 的代码仓库中下载 zip 文件，放到一个临时
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/" class="read-more-link">Read more...</a>
@@ -219,7 +214,7 @@ sudo cp -r ~/temp/iosevka /usr/share/fonts/   重新刷新字体缓存
   
   <div class="post-content">
     <div class="post-summary">
-      Xie-aaai-2021-decaugMotivation  设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。  Method  首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s: 论文主要是通过 object state 和 spatial relationship 进行样本增强 论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;.
+      Xie-aaai-2021-decaugMotivation 设计一种数据增强的方法 (pixel-l
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/" class="read-more-link">Read more...</a>
@@ -259,7 +254,7 @@ sudo cp -r ~/temp/iosevka /usr/share/fonts/   重新刷新字体缓存
   
   <div class="post-content">
     <div class="post-summary">
-      使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi  ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif   将视频转换成图片
+      使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi ffmpeg -f image2 -i
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/ffmpeg/" class="read-more-link">Read more...</a>
@@ -278,9 +273,7 @@ sudo cp -r ~/temp/iosevka /usr/share/fonts/   重新刷新字体缓存
   
   <div class="post-content">
     <div class="post-summary">
-      配置 emacs rime 安装   安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime
-sudo apt install librime-dev
-  安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装
+      配置 emacs rime 安装 安装 librime, 其他系统参考：emac
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/2021-02-17-18-48/" class="read-more-link">Read more...</a>
@@ -301,8 +294,7 @@ sudo apt install librime-dev
   
   <div class="post-content">
     <div class="post-summary">
-      两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：
-+++ title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34; author = [&#34;LAPTOP-4COO4EVU&#34;] categories = [&#34;computer&#34;] draft = false +++ 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
+      两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/hugo-workflow/" class="read-more-link">Read more...</a>
@@ -321,7 +313,7 @@ sudo apt install librime-dev
   
   <div class="post-content">
     <div class="post-summary">
-      Motivation  HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相似的物体，会出现在相近的 interaction 中。例如，eat &lt;burger, hot dog, sandwitch, pizza&gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。 这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier.
+      Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/" class="read-more-link">Read more...</a>
