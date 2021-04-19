@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    
+    
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
+    
+
+    <meta name="generator" content="Hugo 0.79.0" />
+
+    <title>ubuntu 安装 iosevka 字体 &mdash; patrolli</title>
+
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
+
+    
+
+    
+
+    
+        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
+    
+
+    
+
+    
+    
+<meta property="og:title" content="ubuntu 安装 iosevka 字体" />
+<meta property="og:description"
+      content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/" />
+
+
+    
+        <meta property="article:published_time" content="2021-04-09T19:46:58&#43;08:00"/>
+    
+    
+        <meta property="article:modified_time" content="2021-04-09T19:46:58&#43;08:00"/>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ubuntu 安装 iosevka 字体"/>
+<meta name="twitter:description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存
+"/>
+
+</head>
+
+    <body>
+	<div class="document">
+	    <div class="documentwrapper">
+		<div class="bodywrapper">
+		    <div class="body">
+                        
+                            
+                                <div class="toc">
+                                    <nav id="TableOfContents"></nav>
+                                    <a href="#" class="back-to-top">Back to top</a>
+                                </div>
+                            
+                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<script>
+ (function() {
+     var $toc = $('#TableOfContents');
+     if ($toc.length > 0) {
+         var $window = $(window);
+
+         function onScroll(){
+             var currentScroll = $window.scrollTop();
+             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
+             var id = "";
+             h.each(function (i, e) {
+                 e = $(e);
+                 if (e.offset().top - 10 <= currentScroll) {
+                     id = e.attr('id');
+                 }
+             });
+             var current = $toc.find('a.current');
+             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
+
+             current.each(function (i, e) {
+                 $(e).removeClass('current').siblings('ul').hide();
+             });
+             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                 $(e).children('a').addClass('current').siblings('ul').show();
+             });
+         }
+
+         $window.on('scroll', onScroll);
+         $(document).ready(function() {
+             $toc.find('a').parent('li').find('ul').hide();
+             onScroll();
+             document.getElementsByClassName('toc')[0].style.display = '';
+         });
+     }
+ })();
+</script>
+
+                        
+
+			
+
+<h1>ubuntu 安装 iosevka 字体</h1>
+
+<div>
+    
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+
+    
+    
+        <span class="post-date">Fri Apr 9, 2021</span>
+    
+
+
+    <div class="clear-float"></div>
+    
+    <div class="clear-float"></div>
+</div>
+
+<div class="post">
+    
+
+    <ul>
+<li>
+<p>从 <a href="https://github.com/be5invis/Iosevka/releases">github</a> 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;)</p>
+</li>
+<li>
+<p>解压文件</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">unzip -u ttf-iosevka-5.2.1.zip -d iosevka
+</code></pre></div></li>
+<li>
+<p>放到系统的字体目录：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sudo cp -r ~/temp/iosevka /usr/share/fonts/
+</code></pre></div></li>
+<li>
+<p>重新刷新字体缓存</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">fc-cache -fv
+</code></pre></div></li>
+<li>
+<p>Ref:</p>
+<ul>
+<li><a href="https://shreyas.ragavan.co/docs/linux-notes/">Linux notes | Shreyas Ragavan</a></li>
+</ul>
+</li>
+</ul>
+
+
+</div>
+
+
+
+			
+			
+		    </div>
+		</div>
+	    </div>
+
+	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebarwrapper">
+        <p class="logo">
+            <a href="https://patrolli.github.io/xssq/">
+                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
+                
+                <br />
+                <span class="logo logo-name">Onyx</span>
+            </a>
+        </p>
+
+        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
+        
+
+        
+
+        
+
+        
+
+
+        
+
+    </div>
+</div>
+<div class="clearer"></div>
+
+	    <div class="footer">
+    
+        
+            This site is generated using
+        
+        <a href="https://gohugo.io/">Hugo 0.79.0</a>
+	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
+    
+</div>
+
+
+
+
+	    
+
+            
+
+	    
+	</div>
+    </body>
+</html>

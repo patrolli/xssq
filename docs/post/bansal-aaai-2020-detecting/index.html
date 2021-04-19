@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    
+    
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
+    
+
+    <meta name="generator" content="Hugo 0.79.0" />
+
+    <title>Detecting human-object interactions via functional generalization &mdash; patrolli</title>
+
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
+
+    
+
+    
+
+    
+        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
+    
+
+    
+
+    
+    
+<meta property="og:title" content="Detecting human-object interactions via functional generalization" />
+<meta property="og:description"
+      content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相似的物体，会出现在相近的 interaction 中。例如，eat &amp;lt;burger, hot dog, sandwitch, pizza&amp;gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。 这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/" />
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Detecting human-object interactions via functional generalization"/>
+<meta name="twitter:description" content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相似的物体，会出现在相近的 interaction 中。例如，eat &amp;lt;burger, hot dog, sandwitch, pizza&amp;gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。 这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier.
+"/>
+
+</head>
+
+    <body>
+	<div class="document">
+	    <div class="documentwrapper">
+		<div class="bodywrapper">
+		    <div class="body">
+                        
+                            
+                                <div class="toc">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#comment">Comment</a></li>
+    <li><a href="#ref">Ref</a></li>
+  </ul>
+</nav>
+                                    <a href="#" class="back-to-top">Back to top</a>
+                                </div>
+                            
+                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<script>
+ (function() {
+     var $toc = $('#TableOfContents');
+     if ($toc.length > 0) {
+         var $window = $(window);
+
+         function onScroll(){
+             var currentScroll = $window.scrollTop();
+             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
+             var id = "";
+             h.each(function (i, e) {
+                 e = $(e);
+                 if (e.offset().top - 10 <= currentScroll) {
+                     id = e.attr('id');
+                 }
+             });
+             var current = $toc.find('a.current');
+             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
+
+             current.each(function (i, e) {
+                 $(e).removeClass('current').siblings('ul').hide();
+             });
+             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                 $(e).children('a').addClass('current').siblings('ul').show();
+             });
+         }
+
+         $window.on('scroll', onScroll);
+         $(document).ready(function() {
+             $toc.find('a').parent('li').find('ul').hide();
+             onScroll();
+             document.getElementsByClassName('toc')[0].style.display = '';
+         });
+     }
+ })();
+</script>
+
+                        
+
+			
+
+<h1>Detecting human-object interactions via functional generalization</h1>
+
+<div>
+    
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+
+    
+
+    <div class="clear-float"></div>
+    
+    <div class="clear-float"></div>
+</div>
+
+<div class="post">
+    
+
+    <h2 id="motivation">Motivation&nbsp;<a class="headline-hash" href="#motivation">#</a> </h2>
+<ul>
+<li>HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。</li>
+<li>功能相似的物体，会出现在相近的 interaction 中。例如，eat &lt;burger, hot dog, sandwitch, pizza&gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。</li>
+<li>这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier. 在判定物体 &ldquo;功能相似&rdquo; 时，引入了一些先验知识 (common sense), 最后将功能相似定义为物体的 visual appearance 和 semantic representation 结合到一起来判定物体之间是否具有相似的功能。如果具有了相似的功能，那么物体就可能出现在同一个 HoI label 中。</li>
+</ul>
+<h2 id="method">Method&nbsp;<a class="headline-hash" href="#method">#</a> </h2>
+<ul>
+<li>框图：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_04_10_21_52_16.png" alt=""></li>
+<li>generalization 模块：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_04_10_21_52_34.png" alt="">
+这里将相似的物体进行替换，替换的只是物体 word embedding 的输入部分，其他部分的输入保持不变，仍是从 HoI 图片样本中得到的。#+HUGO_BASE_DIR: /mnt/c/Users/lixun/Documents/xssq-blog</li>
+</ul>
+<h2 id="comment">Comment&nbsp;<a class="headline-hash" href="#comment">#</a> </h2>
+<ul>
+<li>如何定义功能相似的 object?</li>
+<li>如何做到 zero-shot?</li>
+<li>提到了对 dataset bias 的定义 (<!-- raw HTML omitted --><!-- raw HTML omitted -->Zhao-emnlp-2017-men<!-- raw HTML omitted --><!-- raw HTML omitted -->)，构建了一个 bias dataset. 具体而言，考虑一个 &lt;object, predicate&gt; pairs 的集合，然后对每个 pair q_i, 考虑两种情况：1. bias against the pair 2. bias towards the pair. 第一种情况，将数据集中全部包含 pair q_i 的样本去掉（相当于从来没有看见过 q_i），然后保留所有包含物体 o_i 的样本（物体 o_i 在其他的动作 (predicate) 之中）。第二种情况，去掉所有包含物体 o_i 的样本，除了是 q_i 这个 pair 的（相当于只见过物体 o_i 出现在 q_i 这个 pair 中）。</li>
+</ul>
+<h2 id="ref">Ref&nbsp;<a class="headline-hash" href="#ref">#</a> </h2>
+<ul>
+<li><a href="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/">Decaug: augmenting HOI detection via decomposition</a></li>
+</ul>
+
+
+</div>
+
+
+
+			
+			
+		    </div>
+		</div>
+	    </div>
+
+	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebarwrapper">
+        <p class="logo">
+            <a href="https://patrolli.github.io/xssq/">
+                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
+                
+                <br />
+                <span class="logo logo-name">Onyx</span>
+            </a>
+        </p>
+
+        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
+        
+
+        
+
+        
+
+        
+
+
+        
+
+    </div>
+</div>
+<div class="clearer"></div>
+
+	    <div class="footer">
+    
+        
+            This site is generated using
+        
+        <a href="https://gohugo.io/">Hugo 0.79.0</a>
+	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
+    
+</div>
+
+
+
+
+	    
+
+            
+
+	    
+	</div>
+    </body>
+</html>

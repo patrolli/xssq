@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    
+    
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
+    
+
+    <meta name="generator" content="Hugo 0.79.0" />
+
+    <title>org 整理 paper_index &mdash; patrolli</title>
+
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
+
+    
+
+    
+
+    
+        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
+    
+
+    
+
+    
+    
+<meta property="og:title" content="org 整理 paper_index" />
+<meta property="og:description"
+      content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下：
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/" />
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="org 整理 paper_index"/>
+<meta name="twitter:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下：
+"/>
+
+</head>
+
+    <body>
+	<div class="document">
+	    <div class="documentwrapper">
+		<div class="bodywrapper">
+		    <div class="body">
+                        
+                            
+                                <div class="toc">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#outro">Outro</a></li>
+  </ul>
+</nav>
+                                    <a href="#" class="back-to-top">Back to top</a>
+                                </div>
+                            
+                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<script>
+ (function() {
+     var $toc = $('#TableOfContents');
+     if ($toc.length > 0) {
+         var $window = $(window);
+
+         function onScroll(){
+             var currentScroll = $window.scrollTop();
+             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
+             var id = "";
+             h.each(function (i, e) {
+                 e = $(e);
+                 if (e.offset().top - 10 <= currentScroll) {
+                     id = e.attr('id');
+                 }
+             });
+             var current = $toc.find('a.current');
+             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
+
+             current.each(function (i, e) {
+                 $(e).removeClass('current').siblings('ul').hide();
+             });
+             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                 $(e).children('a').addClass('current').siblings('ul').show();
+             });
+         }
+
+         $window.on('scroll', onScroll);
+         $(document).ready(function() {
+             $toc.find('a').parent('li').find('ul').hide();
+             onScroll();
+             document.getElementsByClassName('toc')[0].style.display = '';
+         });
+     }
+ })();
+</script>
+
+                        
+
+			
+
+<h1>org 整理 paper_index</h1>
+
+<div>
+    
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+
+    
+
+    <div class="clear-float"></div>
+    
+    <div class="clear-float"></div>
+</div>
+
+<div class="post">
+    
+
+    <h2 id="intro">Intro&nbsp;<a class="headline-hash" href="#intro">#</a> </h2>
+<p>花了一些时间用 elisp 写了一个函数，将 <a href="">paper-index</a> 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (<code>org-tags-views</code>), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 <code>Un-archieve</code> 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 <code>Un-archieve</code> 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 <code>Un-archieve</code> 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 <code>Un-archieve</code> 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 <code>Un-archieve</code> 下面有效）。代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">save-excursion</span>
+  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">tags</span> <span class="p">(</span><span class="nv">org-get-tags</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))</span>
+	<span class="p">(</span><span class="nv">headline</span>  <span class="p">(</span><span class="nf">nth</span> <span class="mi">4</span> <span class="p">(</span><span class="nv">org-heading-components</span><span class="p">)))</span>
+	<span class="nv">remove-flag</span><span class="p">)</span>
+    <span class="c1">;; if the headline has no tag and being under &#34;Un-archieve&#34;</span>
+    <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">and</span> <span class="p">(</span><span class="nf">eq</span> <span class="mi">0</span> <span class="p">(</span><span class="nf">length</span> <span class="nv">tags</span><span class="p">))</span>  <span class="p">(</span><span class="nb">progn</span>
+				       <span class="p">(</span><span class="nb">save-excursion</span>
+				       <span class="p">(</span><span class="nv">outline-up-heading</span> <span class="mi">1</span><span class="p">)</span>
+				       <span class="p">(</span><span class="nf">string-equal</span> <span class="s">&#34;Un-archieve&#34;</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">4</span> <span class="p">(</span><span class="nv">org-heading-components</span><span class="p">))))))</span>
+      <span class="p">(</span><span class="nv">org-cut-subtree</span><span class="p">))</span>
+    <span class="c1">;; process each tag</span>
+    <span class="p">(</span><span class="nb">while</span> <span class="nv">tags</span>
+	<span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">tag</span> <span class="p">(</span><span class="nf">nth</span> <span class="mi">0</span> <span class="nv">tags</span><span class="p">))</span>
+	      <span class="p">(</span><span class="nv">remove-flag</span> <span class="no">nil</span><span class="p">))</span>
+	  <span class="p">(</span><span class="nb">save-excursion</span>
+	    <span class="c1">;; if exist the level-1 headline of this tag</span>
+	    <span class="c1">;;;; narrow region to search the title under this tag headline</span>
+	    <span class="c1">;;;;;; if title exist</span>
+	    <span class="c1">;;;;;;;; prepare for remove the tag of current entry (set remove-flag)</span>
+	    <span class="c1">;;;;;; else</span>
+	    <span class="c1">;;;;;;;; insert this title under the tag headline</span>
+	    <span class="c1">;; else</span>
+	    <span class="c1">;;;; insert this new tag headline</span>
+	    <span class="c1">;;;; insert title under this new headline</span>
+	    <span class="c1">;; if remove-tag</span>
+	    <span class="c1">;;;; remove tag for current entry</span>
+	  <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nv">org-ql-select</span> <span class="p">(</span><span class="nf">buffer-name</span><span class="p">)</span>
+		<span class="o">`</span><span class="p">(</span><span class="nb">and</span> <span class="p">(</span><span class="nv">level</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nv">heading</span> <span class="o">,</span><span class="nv">tag</span><span class="p">)))</span>
+	      <span class="p">(</span><span class="nb">progn</span>
+		<span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">start</span> <span class="p">(</span><span class="nf">re-search-forward</span> <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;^* &#34;</span> <span class="nv">tag</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))</span>
+		      <span class="p">(</span><span class="nv">end</span> <span class="p">(</span><span class="nf">re-search-forward</span> <span class="s">&#34;^* .*\n&#34;</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)))</span>
+		  <span class="p">(</span><span class="nb">save-restriction</span>
+		    <span class="p">(</span><span class="nb">setq</span> <span class="nv">start</span> <span class="p">(</span><span class="nb">if</span> <span class="nv">start</span> <span class="nv">start</span> <span class="mi">1</span><span class="p">))</span>
+		    <span class="p">(</span><span class="nb">setq</span> <span class="nv">end</span> <span class="p">(</span><span class="nb">if</span> <span class="nv">end</span> <span class="nv">end</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">)))</span>
+		    <span class="p">(</span><span class="nf">narrow-to-region</span> <span class="nv">start</span> <span class="nv">end</span><span class="p">)</span>
+		    <span class="p">(</span><span class="nf">goto-char</span> <span class="p">(</span><span class="nf">point-min</span><span class="p">))</span>
+		    <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">re-search-forward</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;^** %s&#34;</span> <span class="p">(</span><span class="nf">regexp-quote</span> <span class="nv">headline</span><span class="p">))</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span> <span class="c1">;; no such titles under this tag headline</span>
+			<span class="c1">;; remove the tag of current entry headline</span>
+			<span class="p">(</span><span class="nb">progn</span>
+			  <span class="p">(</span><span class="nb">setq</span> <span class="nv">remove-flag</span> <span class="no">t</span><span class="p">)</span>
+			  <span class="p">)</span>
+		      <span class="p">(</span><span class="nb">progn</span>
+			<span class="p">(</span><span class="nf">goto-char</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">))</span>
+			<span class="p">(</span><span class="nf">forward-line</span> <span class="mi">-1</span><span class="p">)</span>
+			<span class="p">(</span><span class="nf">insert</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;** %s\n&#34;</span> <span class="nv">headline</span><span class="p">)))</span>
+		      <span class="p">)</span>
+		    <span class="p">)</span>
+		  <span class="p">))</span>
+	    <span class="p">(</span><span class="nb">progn</span>
+	      <span class="p">(</span><span class="nv">end-of-buffer</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nf">forward-line</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nf">insert</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;* %s\n&#34;</span> <span class="nv">tag</span><span class="p">))</span>
+	      <span class="p">(</span><span class="nf">forward-line</span> <span class="mi">2</span><span class="p">)</span>
+	      <span class="p">(</span><span class="nf">insert</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;** %s\n&#34;</span> <span class="nv">headline</span><span class="p">))</span>
+	      <span class="p">)</span>
+	    <span class="p">)</span>
+	  <span class="p">)</span>
+	  <span class="p">(</span><span class="nb">if</span> <span class="nv">remove-flag</span>
+	      <span class="p">(</span><span class="nv">org-toggle-tag</span> <span class="nv">tag</span> <span class="ss">&#39;off</span><span class="p">))</span>
+	<span class="p">)</span>
+	<span class="p">(</span><span class="nb">setq</span> <span class="nv">tags</span> <span class="p">(</span><span class="nf">cdr</span> <span class="nv">tags</span><span class="p">))</span>
+	<span class="p">)</span>
+    <span class="p">)))</span>
+</code></pre></div><h2 id="outro">Outro&nbsp;<a class="headline-hash" href="#outro">#</a> </h2>
+<p>为了写这个函数花费了许多功夫，主要还是自己对 elisp 不太熟悉，以及 org-mode 的 api, 在网上用关键词查找自己想要的功能，很难找到有效的答案，后面发现 org mode 的源码里面每个函数的实现其实就很具有参考价值，之后可以多看源码来熟悉对 org mode 的 hack. 另外，在搜索和处理文本时，正则表达式也是威力巨大的武器，我也还不太会用，还需要花一些功夫去深入地学习。</p>
+
+
+</div>
+
+
+
+			
+			
+		    </div>
+		</div>
+	    </div>
+
+	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebarwrapper">
+        <p class="logo">
+            <a href="https://patrolli.github.io/xssq/">
+                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
+                
+                <br />
+                <span class="logo logo-name">Onyx</span>
+            </a>
+        </p>
+
+        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
+        
+
+        
+
+        
+
+        
+
+
+        
+
+    </div>
+</div>
+<div class="clearer"></div>
+
+	    <div class="footer">
+    
+        
+            This site is generated using
+        
+        <a href="https://gohugo.io/">Hugo 0.79.0</a>
+	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
+    
+</div>
+
+
+
+
+	    
+
+            
+
+	    
+	</div>
+    </body>
+</html>

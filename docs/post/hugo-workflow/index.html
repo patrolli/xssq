@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    
+    
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
+    
+
+    <meta name="generator" content="Hugo 0.79.0" />
+
+    <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流 &mdash; patrolli</title>
+
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
+    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
+
+    
+
+    
+
+    
+        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
+    
+
+    
+
+    
+    
+<meta property="og:title" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流" />
+<meta property="og:description"
+      content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： &#43;&#43;&#43; title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false &#43;&#43;&#43; 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/hugo-workflow/" />
+
+
+    
+        <meta property="article:published_time" content="2021-02-11T17:51:00&#43;08:00"/>
+    
+    
+        <meta property="article:modified_time" content="2021-02-11T17:53:27&#43;08:00"/>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流"/>
+<meta name="twitter:description" content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： &#43;&#43;&#43; title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false &#43;&#43;&#43; 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
+"/>
+
+</head>
+
+    <body>
+	<div class="document">
+	    <div class="documentwrapper">
+		<div class="bodywrapper">
+		    <div class="body">
+                        
+                            
+                                <div class="toc">
+                                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#两种工作流">两种工作流</a></li>
+    <li><a href="#文件元信息设置">文件元信息设置</a></li>
+  </ul>
+</nav>
+                                    <a href="#" class="back-to-top">Back to top</a>
+                                </div>
+                            
+                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<script>
+ (function() {
+     var $toc = $('#TableOfContents');
+     if ($toc.length > 0) {
+         var $window = $(window);
+
+         function onScroll(){
+             var currentScroll = $window.scrollTop();
+             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
+             var id = "";
+             h.each(function (i, e) {
+                 e = $(e);
+                 if (e.offset().top - 10 <= currentScroll) {
+                     id = e.attr('id');
+                 }
+             });
+             var current = $toc.find('a.current');
+             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
+
+             current.each(function (i, e) {
+                 $(e).removeClass('current').siblings('ul').hide();
+             });
+             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                 $(e).children('a').addClass('current').siblings('ul').show();
+             });
+         }
+
+         $window.on('scroll', onScroll);
+         $(document).ready(function() {
+             $toc.find('a').parent('li').find('ul').hide();
+             onScroll();
+             document.getElementsByClassName('toc')[0].style.display = '';
+         });
+     }
+ })();
+</script>
+
+                        
+
+			
+
+<h1>hugo&amp;org-mode&amp;ox-hugo 的博客工作流</h1>
+
+<div>
+    
+    
+    
+    <span class="author">&mdash;
+        
+            patrolli
+        
+    </span>
+
+
+
+    
+    
+        <span class="post-date">Thu Feb 11, 2021</span>
+    
+
+
+    <div class="clear-float"></div>
+    
+    <div class="clear-float"></div>
+</div>
+
+<div class="post">
+    
+
+    <h2 id="两种工作流">两种工作流&nbsp;<a class="headline-hash" href="#两种工作流">#</a> </h2>
+<p>ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">+++
+title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34;
+author = [&#34;LAPTOP-4COO4EVU&#34;]
+categories = [&#34;computer&#34;]
+draft = false
++++
+</code></pre></div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
+<p>所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。</p>
+<h2 id="文件元信息设置">文件元信息设置&nbsp;<a class="headline-hash" href="#文件元信息设置">#</a> </h2>
+<p>在 hugo 的 markdown 元信息配置中，通常需要涉及：</p>
+<ul>
+<li>title</li>
+<li>tag</li>
+<li>author</li>
+<li>created time</li>
+<li>last modified time</li>
+<li>categories</li>
+<li>draft</li>
+</ul>
+<p>将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：</p>
+<dl>
+<dt>HUGO_SECTION</dt>
+<dd>section 的定义可以参考 <a href="https://gohugo.io/content-management/sections/">Content Sections | Hugo</a>. 在 &ldquo;/content&rdquo; 目录下的一级目录，以及目录中含有 &ldquo;_index.md&rdquo; 的文件夹都被视作 section. 我的理解是 section 可以对博文进行一些分组，便于我们管理。</dd>
+<dt>HUGO_BASE_DIR</dt>
+<dd>Hugo site 的 root dir. 指定了这个路径后，在导出时，ox-hugo 就会找到这个目录下的 &ldquo;/content&rdquo; 文件夹，将导出的 md 文件放到对应位置。（如果是将 headline 导出，那么需要为这个 headline 设置 <code>EXPORT_FILE_NAME</code> 的 property.）</dd>
+</dl>
+
+
+</div>
+
+
+
+			
+			
+		    </div>
+		</div>
+	    </div>
+
+	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebarwrapper">
+        <p class="logo">
+            <a href="https://patrolli.github.io/xssq/">
+                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
+                
+                <br />
+                <span class="logo logo-name">Onyx</span>
+            </a>
+        </p>
+
+        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
+        
+
+        
+
+        
+
+        
+
+
+        
+
+    </div>
+</div>
+<div class="clearer"></div>
+
+	    <div class="footer">
+    
+        
+            This site is generated using
+        
+        <a href="https://gohugo.io/">Hugo 0.79.0</a>
+	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
+    
+</div>
+
+
+
+
+	    
+
+            
+
+	    
+	</div>
+    </body>
+</html>
