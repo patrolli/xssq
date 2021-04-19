@@ -12,7 +12,7 @@ hasCJKLanguage = true
   languageCode = "zh-cn"
 
 [author]                  # essential                     # 必需
-  name = "patrolli"
+  name = "Li Xunsong"
 
 [sitemap]                 # essential                     # 必需
   changefreq = "weekly"
