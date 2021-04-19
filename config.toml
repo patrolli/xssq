@@ -25,7 +25,7 @@ summaryLength = 20
   name = "Archives"
   weight = 20
   identifier = "archives"
-  url = "/post/"
+  url = "/"
 [[menu.main]]
   name = "Tags"
   weight = 30
