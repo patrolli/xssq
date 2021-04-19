@@ -1,6 +1,5 @@
 +++
 title = "hugo 博客搭建"
-author = ["Li Xunsong"]
 lastmod = 2021-04-09T19:46:58+08:00
 tags = ["emacs", "blog"]
 categories = ["emacs"]
