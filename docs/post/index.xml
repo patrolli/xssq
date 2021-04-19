@@ -5,6 +5,7 @@
     <link>https://patrolli.github.io/xssq/post/</link>
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sat, 10 Apr 2021 00:37:09 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>目录下 org 文件自动导出成 hugo md 文件</title>
@@ -12,8 +13,7 @@
       <pubDate>Sat, 10 Apr 2021 00:37:09 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</guid>
-      <description>Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：
-;; 检测文件是否已经被导出 hugo (defun lxs-org-is-hugo-file-p (fPath) &amp;#34;Predict if the org file has been converted into hugo&amp;#34; (with-temp-buffer (let ((keyline &amp;#34;#+HUGO_DRAFT: false\n&amp;#34;)) (insert-file-contents fPath) (and (search-forward keyline nil t) t) ) )) (defun lxs-list-org-in-directory (dPath) &amp;#34;list org files under a directory path&amp;#34; (directory-files-recursively dPath &amp;#34;\.</description>
+      <description>Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些</description>
     </item>
     
     <item>
@@ -31,10 +31,7 @@
       <pubDate>Fri, 09 Apr 2021 19:46:58 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
-      <description>基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包
-本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令
-hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .github.io，另一种是针对项目的 pages: .github.io/projectxx. 无论如何，首先要在 github 上创建一个 .github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。 根据 Host on GitHub 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：
- 在 github 创建一个仓库，不要添加 .gitignore 和 README.md 在仓库页面的 setting 中，找到 github pages 的设置，将发布的 source 设置为 master 分支的 docs 文件夹  将本地的 hugo site 的根目录 (demo) 与远程仓库关联  git remote add origin xxx   修改 config.</description>
+      <description>基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的</description>
     </item>
     
     <item>
@@ -43,12 +40,7 @@ hugo server 部署到 github pages github pages 有两种形式，一种是针�
       <pubDate>Fri, 09 Apr 2021 19:46:58 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</guid>
-      <description>  从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;)
-  解压文件
-unzip -u ttf-iosevka-5.2.1.zip -d iosevka   放到系统的字体目录：
-sudo cp -r ~/temp/iosevka /usr/share/fonts/   重新刷新字体缓存
-fc-cache -fv   Ref:
- Linux notes | Shreyas Ragavan    </description>
+      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
     </item>
     
     <item>
@@ -57,7 +49,7 @@ fc-cache -fv   Ref:
       <pubDate>Fri, 09 Apr 2021 19:46:57 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</guid>
-      <description>Xie-aaai-2021-decaugMotivation  设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论文是将同一个类别的物体相互替换，并且通过人体的 pose, 建模了每种 HOI 下物体可能出现的位置，对物体可能出现的位置也进行了增强。  Method  首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s: 论文主要是通过 object state 和 spatial relationship 进行样本增强 论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&amp;quot;.</description>
+      <description>Xie-aaai-2021-decaug Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，</description>
     </item>
     
     <item>
@@ -75,8 +67,7 @@ fc-cache -fv   Ref:
       <pubDate>Fri, 09 Apr 2021 19:46:57 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ffmpeg/</guid>
-      <description> 使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi  ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif   将视频转换成图片
-ffmpeg -i ./video.webm ./video/image%d.jpg   </description>
+      <description>使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi 1 2 ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 1 ffmpeg -i ./video.webm ./video/image%d.jpg</description>
     </item>
     
     <item>
@@ -85,11 +76,7 @@ ffmpeg -i ./video.webm ./video/image%d.jpg   </description>
       <pubDate>Wed, 17 Feb 2021 00:00:00 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/2021-02-17-18-48/</guid>
-      <description>配置 emacs rime 安装   安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime
-sudo apt install librime-dev
-  安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装
-  配置   配置 emacs rime
-(use-package rime :custom (default-input-method &amp;#34;rime&amp;#34;) :config (setq default-input-method &amp;#34;rime&amp;#34; rime-show-candidate &amp;#39;posframe);; (setq rime-user-data-dir &amp;#34;~/.config/fcitx/rime&amp;#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &amp;#34;M-j&amp;#34;) &amp;#39;rime-force-enable) (setq rime-disable-predicates &amp;#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &amp;#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &amp;#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &amp;#34;#333333&amp;#34; :foreground-color &amp;#34;#dcdccc&amp;#34; :font &amp;#34;WenQuanYi Micro Hei Mono-14&amp;#34; :internal-border-width 10)) (add-hook &amp;#39;find-file-hook #&amp;#39;toggle-input-method) ;; 打开文件时默认开启 rime )   配置系统的 rime</description>
+      <description>配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接</description>
     </item>
     
     <item>
@@ -98,11 +85,7 @@ sudo apt install librime-dev
       <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/hugo-workflow/</guid>
-      <description>两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：
-+++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false +++ 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。
-所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。
-文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及：
- title tag author created time last modified time categories draft  将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：</description>
+      <description>两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： 1 2 3 4 5 6 +++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博</description>
     </item>
     
     <item>
@@ -111,7 +94,7 @@ sudo apt install librime-dev
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/</guid>
-      <description>Motivation  HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相似的物体，会出现在相近的 interaction 中。例如，eat &amp;lt;burger, hot dog, sandwitch, pizza&amp;gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。 这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier. 在判定物体 &amp;ldquo;功能相似&amp;rdquo; 时，引入了一些先验知识 (common sense), 最后将功能相似定义为物体的 visual appearance 和 semantic representation 结合到一起来判定物体之间是否具有相似的功能。如果具有了相似的功能，那么物体就可能出现在同一个 HoI label 中。  Method  框图：  generalization 模块： 这里将相似的物体进行替换，替换的只是物体 word embedding 的输入部分，其他部分的输入保持不变，仍是从 HoI 图片样本中得到的。#+HUGO_BASE_DIR: /mnt/c/Users/lixun/Documents/xssq-blog  Comment  如何定义功能相似的 object? 如何做到 zero-shot?</description>
+      <description>Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相</description>
     </item>
     
     <item>
@@ -120,8 +103,7 @@ sudo apt install librime-dev
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</guid>
-      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下：
-(defun lxs/org-refile-headline-by-tag () (interactive) (save-excursion (let ((tags (org-get-tags nil t)) (headline (nth 4 (org-heading-components))) remove-flag) ;; if the headline has no tag and being under &amp;#34;Un-archieve&amp;#34; (when (and (eq 0 (length tags)) (progn (save-excursion (outline-up-heading 1) (string-equal &amp;#34;Un-archieve&amp;#34; (nth 4 (org-heading-components)))))) (org-cut-subtree)) ;; process each tag (while tags (let* ((tag (nth 0 tags)) (remove-flag nil)) (save-excursion ;; if exist the level-1 headline of this tag ;;;; narrow region to search the title under this tag headline ;;;;;; if title exist ;;;;;;;; prepare for remove the tag of current entry (set remove-flag) ;;;;;; else ;;;;;;;; insert this title under the tag headline ;; else ;;;; insert this new tag headline ;;;; insert title under this new headline ;; if remove-tag ;;;; remove tag for current entry (if (org-ql-select (buffer-name) `(and (level 1) (heading ,tag))) (progn (let ((start (re-search-forward (concat &amp;#34;^* &amp;#34; tag &amp;#34;\n&amp;#34;) nil t)) (end (re-search-forward &amp;#34;^* .</description>
+      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做</description>
     </item>
     
   </channel>

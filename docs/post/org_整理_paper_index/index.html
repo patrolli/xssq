@@ -1,139 +1,134 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    <meta charset="utf-8">
-    
-    
-    
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>org 整理 paper_index - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    
-    <meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
-        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
-    
 
-    <meta name="generator" content="Hugo 0.79.0" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做" /><meta name="keywords" content="Hugo, theme, even" />
 
-    <title>org 整理 paper_index &mdash; patrolli</title>
 
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
 
-    
-        <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/github_chroma.css">
-    
 
-    
 
-    
-        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
-    
 
-    
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
 
-    
-    
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
 <meta property="og:title" content="org 整理 paper_index" />
-<meta property="og:description"
-      content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下： (defun lxs/org-refile-headline-by-tag () (interactive) (save-excursion (let ((tags (org-get-tags nil t)) (headline (nth 4 (org-heading-components))) remove-flag) ;; if the headline has no tag and being under &amp;#34;Un-archieve&amp;#34; (when (and (eq 0 (length tags)) (progn (save-excursion (outline-up-heading 1) (string-equal &amp;#34;Un-archieve&amp;#34; (nth 4 (org-heading-components)))))) (org-cut-subtree)) ;; process each tag (while tags (let* ((tag (nth 0 tags)) (remove-flag nil)) (save-excursion ;; if exist the level-1 headline of this tag ;;;; narrow region to search the title under this tag headline ;;;;;; if title exist ;;;;;;;; prepare for remove the tag of current entry (set remove-flag) ;;;;;; else ;;;;;;;; insert this title under the tag headline ;; else ;;;; insert this new tag headline ;;;; insert title under this new headline ;; if remove-tag ;;;; remove tag for current entry (if (org-ql-select (buffer-name) `(and (level 1) (heading ,tag))) (progn (let ((start (re-search-forward (concat &amp;#34;^* &amp;#34; tag &amp;#34;\n&amp;#34;) nil t)) (end (re-search-forward &amp;#34;^* .
-" />
+<meta property="og:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/" />
 
+<meta itemprop="name" content="org 整理 paper_index">
+<meta itemprop="description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做">
 
-    
-    
-
-
-
+<meta itemprop="wordCount" content="926">
 
 
 
-
-
-
-
-    
-
-
-
-
-    <meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="emacs,orgmode,elisp," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="org 整理 paper_index"/>
-<meta name="twitter:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (org-tags-views), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 Un-archieve 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 Un-archieve 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 Un-archieve 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 Un-archieve 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 Un-archieve 下面有效）。代码如下： (defun lxs/org-refile-headline-by-tag () (interactive) (save-excursion (let ((tags (org-get-tags nil t)) (headline (nth 4 (org-heading-components))) remove-flag) ;; if the headline has no tag and being under &amp;#34;Un-archieve&amp;#34; (when (and (eq 0 (length tags)) (progn (save-excursion (outline-up-heading 1) (string-equal &amp;#34;Un-archieve&amp;#34; (nth 4 (org-heading-components)))))) (org-cut-subtree)) ;; process each tag (while tags (let* ((tag (nth 0 tags)) (remove-flag nil)) (save-excursion ;; if exist the level-1 headline of this tag ;;;; narrow region to search the title under this tag headline ;;;;;; if title exist ;;;;;;;; prepare for remove the tag of current entry (set remove-flag) ;;;;;; else ;;;;;;;; insert this title under the tag headline ;; else ;;;; insert this new tag headline ;;;; insert title under this new headline ;; if remove-tag ;;;; remove tag for current entry (if (org-ql-select (buffer-name) `(and (level 1) (heading ,tag))) (progn (let ((start (re-search-forward (concat &amp;#34;^* &amp;#34; tag &amp;#34;\n&amp;#34;) nil t)) (end (re-search-forward &amp;#34;^* .
-"/>
+<meta name="twitter:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
-    <body>
-	<div class="document">
-	    <div class="documentwrapper">
-		<div class="bodywrapper">
-		    <div class="body">
-                        
-                            
-                                <div class="toc">
-                                    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#outro">Outro</a></li>
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
   </ul>
 </nav>
-                                    <a href="#" class="back-to-top">Back to top</a>
-                                </div>
-                            
-                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
-<script>
- (function() {
-     var $toc = $('#TableOfContents');
-     if ($toc.length > 0) {
-         var $window = $(window);
+    </header>
 
-         function onScroll(){
-             var currentScroll = $window.scrollTop();
-             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
-             var id = "";
-             h.each(function (i, e) {
-                 e = $(e);
-                 if (e.offset().top - 10 <= currentScroll) {
-                     id = e.attr('id');
-                 }
-             });
-             var current = $toc.find('a.current');
-             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
-
-             current.each(function (i, e) {
-                 $(e).removeClass('current').siblings('ul').hide();
-             });
-             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-                 $(e).children('a').addClass('current').siblings('ul').show();
-             });
-         }
-
-         $window.on('scroll', onScroll);
-         $(document).ready(function() {
-             $toc.find('a').parent('li').find('ul').hide();
-             onScroll();
-             document.getElementsByClassName('toc')[0].style.display = '';
-         });
-     }
- })();
-</script>
-
-                        
-
-			
-
-<h1>org 整理 paper_index</h1>
-
-<div>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
     
+    <header class="post-header">
+      <h1 class="post-title">org 整理 paper_index</h1>
+      
     
     
     <span class="author">&mdash;
@@ -143,20 +138,101 @@
     </span>
 
 
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
 
-    
-
-    <div class="clear-float"></div>
-    
-    <div class="clear-float"></div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#outro">Outro</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 </div>
-
-<div class="post">
-    
-
-    <h2 id="intro">Intro&nbsp;<a class="headline-hash" href="#intro">#</a> </h2>
+    <div class="post-content">
+      <h2 id="intro">Intro</h2>
 <p>花了一些时间用 elisp 写了一个函数，将 <a href="">paper-index</a> 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (<code>org-tags-views</code>), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 <code>Un-archieve</code> 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 <code>Un-archieve</code> 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 <code>Un-archieve</code> 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 <code>Un-archieve</code> 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 <code>Un-archieve</code> 下面有效）。代码如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
   <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">save-excursion</span>
   <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">tags</span> <span class="p">(</span><span class="nv">org-get-tags</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))</span>
@@ -221,82 +297,115 @@
 	<span class="p">(</span><span class="nb">setq</span> <span class="nv">tags</span> <span class="p">(</span><span class="nf">cdr</span> <span class="nv">tags</span><span class="p">))</span>
 	<span class="p">)</span>
     <span class="p">)))</span>
-</code></pre></div><h2 id="outro">Outro&nbsp;<a class="headline-hash" href="#outro">#</a> </h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="outro">Outro</h2>
 <p>为了写这个函数花费了许多功夫，主要还是自己对 elisp 不太熟悉，以及 org-mode 的 api, 在网上用关键词查找自己想要的功能，很难找到有效的答案，后面发现 org mode 的源码里面每个函数的实现其实就很具有参考价值，之后可以多看源码来熟悉对 org mode 的 hack. 另外，在搜索和处理文本时，正则表达式也是威力巨大的武器，我也还不太会用，还需要花一些功夫去深入地学习。</p>
 
-
-</div>
-
-
-
-			
-			
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-    <div class="sphinxsidebarwrapper">
-        <p class="logo">
-            <a href="https://patrolli.github.io/xssq/">
-                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
-                
-                <br />
-                <span class="logo logo-name">Onyx</span>
-            </a>
-        </p>
-
-        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
-        
-
-        
-    
-
-    
-        <iframe src="https://ghbtns.com/github-btn.html?user=kaushalmodi&repo=hugo-onyx-theme&type=watch&count=true&size=large"
-                style="border: 0; overflow: hidden;" width="200" height="35"
-                sandbox="allow-scripts allow-popups"></iframe>
-        
-    
-
-    
-
-    
-
-
-        
-
-        
-
-
-        
-
     </div>
-</div>
-<div class="clearer"></div>
 
-	    <div class="footer">
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
         
-            This site is generated using
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://patrolli.github.io/xssq/tags/emacs/">emacs</a>
+          <a href="https://patrolli.github.io/xssq/tags/orgmode/">orgmode</a>
+          <a href="https://patrolli.github.io/xssq/tags/elisp/">elisp</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Detecting human-object interactions via functional generalization</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
-        <a href="https://gohugo.io/">Hugo 0.79.0</a>
-	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
-    
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
 
-    <a href="https://github.com/kaushalmodi/hugo-onyx-theme" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://patrolli.github.io/xssq/images/forkme_right_darkblue_ribbon.png" alt="Fork me on GitHub" class="github"/>
-    </a>
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
 
 
 
-	    
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
-            
 
-	    
-	</div>
-    </body>
+
+
+
+
+
+
+</body>
 </html>

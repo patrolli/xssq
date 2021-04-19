@@ -1,143 +1,134 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    <meta charset="utf-8">
-    
-    
-    
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Detecting human-object interactions via functional generalization - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    
-    <meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
-        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
-    
 
-    <meta name="generator" content="Hugo 0.79.0" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相" /><meta name="keywords" content="Hugo, theme, even" />
 
-    <title>Detecting human-object interactions via functional generalization &mdash; patrolli</title>
 
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
 
-    
-        <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/github_chroma.css">
-    
 
-    
 
-    
-        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
-    
 
-    
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
 
-    
-    
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
 <meta property="og:title" content="Detecting human-object interactions via functional generalization" />
-<meta property="og:description"
-      content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相似的物体，会出现在相近的 interaction 中。例如，eat &amp;lt;burger, hot dog, sandwitch, pizza&amp;gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。 这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier. 在判定物体 &amp;ldquo;功能相似&amp;rdquo; 时，引入了一些先验知识 (common sense), 最后将功能相似定义为物体的 visual appearance 和 semantic representation 结合到一起来判定物体之间是否具有相似的功能。如果具有了相似的功能，那么物体就可能出现在同一个 HoI label 中。 Method 框图： generalization 模块： 这里将相似的物体进行替换，替换的只是物体 word embedding 的输入部分，其他部分的输入保持不变，仍是从 HoI 图片样本中得到的。#&#43;HUGO_BASE_DIR: /mnt/c/Users/lixun/Documents/xssq-blog Comment 如何定义功能相似的 object? 如何做到 zero-shot?
-" />
+<meta property="og:description" content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/" />
 
+<meta itemprop="name" content="Detecting human-object interactions via functional generalization">
+<meta itemprop="description" content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相">
 
-    
-    
-        <meta property="article:modified_time" content="2021-04-19T22:09:06&#43;08:00"/>
-    
-
+<meta itemprop="wordCount" content="594">
 
 
 
-
-
-
-
-
-
-    
-
-
-
-
-    <meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Detecting human-object interactions via functional generalization"/>
-<meta name="twitter:description" content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相似的物体，会出现在相近的 interaction 中。例如，eat &amp;lt;burger, hot dog, sandwitch, pizza&amp;gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。 这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier. 在判定物体 &amp;ldquo;功能相似&amp;rdquo; 时，引入了一些先验知识 (common sense), 最后将功能相似定义为物体的 visual appearance 和 semantic representation 结合到一起来判定物体之间是否具有相似的功能。如果具有了相似的功能，那么物体就可能出现在同一个 HoI label 中。 Method 框图： generalization 模块： 这里将相似的物体进行替换，替换的只是物体 word embedding 的输入部分，其他部分的输入保持不变，仍是从 HoI 图片样本中得到的。#&#43;HUGO_BASE_DIR: /mnt/c/Users/lixun/Documents/xssq-blog Comment 如何定义功能相似的 object? 如何做到 zero-shot?
-"/>
+<meta name="twitter:description" content="Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
-    <body>
-	<div class="document">
-	    <div class="documentwrapper">
-		<div class="bodywrapper">
-		    <div class="body">
-                        
-                            
-                                <div class="toc">
-                                    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#motivation">Motivation</a></li>
-    <li><a href="#method">Method</a></li>
-    <li><a href="#comment">Comment</a></li>
-    <li><a href="#ref">Ref</a></li>
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
   </ul>
 </nav>
-                                    <a href="#" class="back-to-top">Back to top</a>
-                                </div>
-                            
-                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
-<script>
- (function() {
-     var $toc = $('#TableOfContents');
-     if ($toc.length > 0) {
-         var $window = $(window);
+    </header>
 
-         function onScroll(){
-             var currentScroll = $window.scrollTop();
-             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
-             var id = "";
-             h.each(function (i, e) {
-                 e = $(e);
-                 if (e.offset().top - 10 <= currentScroll) {
-                     id = e.attr('id');
-                 }
-             });
-             var current = $toc.find('a.current');
-             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
-
-             current.each(function (i, e) {
-                 $(e).removeClass('current').siblings('ul').hide();
-             });
-             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-                 $(e).children('a').addClass('current').siblings('ul').show();
-             });
-         }
-
-         $window.on('scroll', onScroll);
-         $(document).ready(function() {
-             $toc.find('a').parent('li').find('ul').hide();
-             onScroll();
-             document.getElementsByClassName('toc')[0].style.display = '';
-         });
-     }
- })();
-</script>
-
-                        
-
-			
-
-<h1>Detecting human-object interactions via functional generalization</h1>
-
-<div>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
     
+    <header class="post-header">
+      <h1 class="post-title">Detecting human-object interactions via functional generalization</h1>
+      
     
     
     <span class="author">&mdash;
@@ -147,26 +138,38 @@
     </span>
 
 
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        
+        
+      </div>
+    </header>
 
-    
-
-    <div class="clear-float"></div>
-    
-        <span class="post-date"><small>Last modified on Mon Apr 19, 2021</small></span>
-    
-    <div class="clear-float"></div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#comment">Comment</a></li>
+        <li><a href="#ref">Ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 </div>
-
-<div class="post">
-    
-
-    <h2 id="motivation">Motivation&nbsp;<a class="headline-hash" href="#motivation">#</a> </h2>
+    <div class="post-content">
+      <h2 id="motivation">Motivation</h2>
 <ul>
 <li>HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。</li>
 <li>功能相似的物体，会出现在相近的 interaction 中。例如，eat &lt;burger, hot dog, sandwitch, pizza&gt;, 后面的这些物体都是可以说是功能相近，所以他们都可以出现在 eat 这个动作中。</li>
 <li>这篇文章提出一种类似于数据增强的方式，找到很多“功能相似”的 object, 这些 object 可能不在数据集中出现，然后用这些 object 的信息去训练同一个类别的 HoI classifier. 在判定物体 &ldquo;功能相似&rdquo; 时，引入了一些先验知识 (common sense), 最后将功能相似定义为物体的 visual appearance 和 semantic representation 结合到一起来判定物体之间是否具有相似的功能。如果具有了相似的功能，那么物体就可能出现在同一个 HoI label 中。</li>
 </ul>
-<h2 id="method">Method&nbsp;<a class="headline-hash" href="#method">#</a> </h2>
+<h2 id="method">Method</h2>
 <ul>
 <li>框图：
 <img src="https://patrolli.github.io/xssq/img/capture_2021_04_10_21_52_16.png" alt=""></li>
@@ -174,90 +177,123 @@
 <img src="https://patrolli.github.io/xssq/img/capture_2021_04_10_21_52_34.png" alt="">
 这里将相似的物体进行替换，替换的只是物体 word embedding 的输入部分，其他部分的输入保持不变，仍是从 HoI 图片样本中得到的。#+HUGO_BASE_DIR: /mnt/c/Users/lixun/Documents/xssq-blog</li>
 </ul>
-<h2 id="comment">Comment&nbsp;<a class="headline-hash" href="#comment">#</a> </h2>
+<h2 id="comment">Comment</h2>
 <ul>
 <li>如何定义功能相似的 object?</li>
 <li>如何做到 zero-shot?</li>
-<li>提到了对 dataset bias 的定义 (<!-- raw HTML omitted --><!-- raw HTML omitted -->Zhao-emnlp-2017-men<!-- raw HTML omitted --><!-- raw HTML omitted -->)，构建了一个 bias dataset. 具体而言，考虑一个 &lt;object, predicate&gt; pairs 的集合，然后对每个 pair q_i, 考虑两种情况：1. bias against the pair 2. bias towards the pair. 第一种情况，将数据集中全部包含 pair q_i 的样本去掉（相当于从来没有看见过 q_i），然后保留所有包含物体 o_i 的样本（物体 o_i 在其他的动作 (predicate) 之中）。第二种情况，去掉所有包含物体 o_i 的样本，除了是 q_i 这个 pair 的（相当于只见过物体 o_i 出现在 q_i 这个 pair 中）。</li>
+<li>提到了对 dataset bias 的定义 (<sup id="b7530f6aafec3df424a3304572e61591"><a href="#Zhao-emnlp-2017-men" title="Jieyu Zhao, Tianlu Wang, Mark Yatskar, , Vicente Ordonez \&amp; Kai-Wei Chang, Men Also Like Shopping: Reducing Gender Bias  Amplification using Corpus-level Constraints, 2979-2989, in in: {Proceedings of the 2017 Conference on Empirical
+Methods in Natural Language Processing, {EMNLP}
+2017, Copenhagen, Denmark, September 9-11, 2017}, edited by (2017)">Zhao-emnlp-2017-men</a></sup>)，构建了一个 bias dataset. 具体而言，考虑一个 &lt;object, predicate&gt; pairs 的集合，然后对每个 pair q_i, 考虑两种情况：1. bias against the pair 2. bias towards the pair. 第一种情况，将数据集中全部包含 pair q_i 的样本去掉（相当于从来没有看见过 q_i），然后保留所有包含物体 o_i 的样本（物体 o_i 在其他的动作 (predicate) 之中）。第二种情况，去掉所有包含物体 o_i 的样本，除了是 q_i 这个 pair 的（相当于只见过物体 o_i 出现在 q_i 这个 pair 中）。</li>
 </ul>
-<h2 id="ref">Ref&nbsp;<a class="headline-hash" href="#ref">#</a> </h2>
+<h2 id="ref">Ref</h2>
 <ul>
 <li><a href="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/">Decaug: augmenting HOI detection via decomposition</a></li>
 </ul>
 
-
-</div>
-
-
-
-			
-			
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-    <div class="sphinxsidebarwrapper">
-        <p class="logo">
-            <a href="https://patrolli.github.io/xssq/">
-                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
-                
-                <br />
-                <span class="logo logo-name">Onyx</span>
-            </a>
-        </p>
-
-        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
-        
-
-        
-    
-
-    
-        <iframe src="https://ghbtns.com/github-btn.html?user=kaushalmodi&repo=hugo-onyx-theme&type=watch&count=true&size=large"
-                style="border: 0; overflow: hidden;" width="200" height="35"
-                sandbox="allow-scripts allow-popups"></iframe>
-        
-    
-
-    
-
-    
-
-
-        
-
-        
-
-
-        
-
     </div>
-</div>
-<div class="clearer"></div>
 
-	    <div class="footer">
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        0001-01-01
         
-            This site is generated using
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/hugo-workflow/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/">
+            <span class="next-text nav-default">org 整理 paper_index</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
         
-        <a href="https://gohugo.io/">Hugo 0.79.0</a>
-	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
-    
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
 
-    <a href="https://github.com/kaushalmodi/hugo-onyx-theme" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://patrolli.github.io/xssq/images/forkme_right_darkblue_ribbon.png" alt="Fork me on GitHub" class="github"/>
-    </a>
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
 
 
 
-	    
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
-            
 
-	    
-	</div>
-    </body>
+
+
+
+
+
+
+</body>
 </html>

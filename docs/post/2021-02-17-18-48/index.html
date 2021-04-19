@@ -1,149 +1,136 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    <meta charset="utf-8">
-    
-    
-    
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>配置 emacs-rime - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    
-    <meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
-        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
-    
 
-    <meta name="generator" content="Hugo 0.79.0" />
+<meta name="author" content="patrolli" /><meta name="description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接" /><meta name="keywords" content="Hugo, theme, even" />
 
-    <title>配置 emacs-rime &mdash; patrolli</title>
 
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
 
-    
-        <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/github_chroma.css">
-    
 
-    
 
-    
-        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
-    
 
-    
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
 
-    
-    
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/2021-02-17-18-48/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
 <meta property="og:title" content="配置 emacs-rime" />
-<meta property="og:description"
-      content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装 配置 配置 emacs rime (use-package rime :custom (default-input-method &amp;#34;rime&amp;#34;) :config (setq default-input-method &amp;#34;rime&amp;#34; rime-show-candidate &amp;#39;posframe);; (setq rime-user-data-dir &amp;#34;~/.config/fcitx/rime&amp;#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &amp;#34;M-j&amp;#34;) &amp;#39;rime-force-enable) (setq rime-disable-predicates &amp;#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &amp;#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &amp;#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &amp;#34;#333333&amp;#34; :foreground-color &amp;#34;#dcdccc&amp;#34; :font &amp;#34;WenQuanYi Micro Hei Mono-14&amp;#34; :internal-border-width 10)) (add-hook &amp;#39;find-file-hook #&amp;#39;toggle-input-method) ;; 打开文件时默认开启 rime ) 配置系统的 rime
-" />
+<meta property="og:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/2021-02-17-18-48/" />
-
-
-    
-        <meta property="article:published_time" content="2021-02-17T00:00:00&#43;08:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-04-19T22:09:06&#43;08:00"/>
-    
-
-
+<meta property="article:published_time" content="2021-02-17T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-02-17T19:09:08+08:00" />
+<meta itemprop="name" content="配置 emacs-rime">
+<meta itemprop="description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接">
+<meta itemprop="datePublished" content="2021-02-17T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2021-02-17T19:09:08+08:00" />
+<meta itemprop="wordCount" content="708">
 
 
 
-
-
-
-
-
-    
-
-
-
-
-    <meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="emacs," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置 emacs-rime"/>
-<meta name="twitter:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接安装 配置 配置 emacs rime (use-package rime :custom (default-input-method &amp;#34;rime&amp;#34;) :config (setq default-input-method &amp;#34;rime&amp;#34; rime-show-candidate &amp;#39;posframe);; (setq rime-user-data-dir &amp;#34;~/.config/fcitx/rime&amp;#34;) ;; 设置断言，希望达到 pyim 的自动切换中英文的效果 (define-key rime-mode-map (kbd &amp;#34;M-j&amp;#34;) &amp;#39;rime-force-enable) (setq rime-disable-predicates &amp;#39;(rime-predicate-evil-mode-p rime-predicate-after-alphabet-char-p rime-predicate-space-after-cc-p rime-predicate-punctuation-after-space-cc-p rime-predicate-prog-in-code-p rime-predicate-after-ascii-char-p rime-predicate-current-uppercase-letter-p )) ;; 区别显示中英文输入状态 (setq mode-line-mule-info &amp;#39;((:eval (rime-lighter)))) ;; (setq rime-inline-ascii-trigger &amp;#39;shift-l) ;; 设置 posframe 绘制样式 (setq rime-posframe-properties (list :background-color &amp;#34;#333333&amp;#34; :foreground-color &amp;#34;#dcdccc&amp;#34; :font &amp;#34;WenQuanYi Micro Hei Mono-14&amp;#34; :internal-border-width 10)) (add-hook &amp;#39;find-file-hook #&amp;#39;toggle-input-method) ;; 打开文件时默认开启 rime ) 配置系统的 rime
-"/>
+<meta name="twitter:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
-    <body>
-	<div class="document">
-	    <div class="documentwrapper">
-		<div class="bodywrapper">
-		    <div class="body">
-                        
-                            
-                                <div class="toc">
-                                    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#配置-emacs-rime">配置 emacs rime</a>
-      <ul>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#配置">配置</a></li>
-        <li><a href="#与-pyim-的比较">与 pyim 的比较</a></li>
-        <li><a href="#参考">参考</a></li>
-      </ul>
-    </li>
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
   </ul>
 </nav>
-                                    <a href="#" class="back-to-top">Back to top</a>
-                                </div>
-                            
-                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
-<script>
- (function() {
-     var $toc = $('#TableOfContents');
-     if ($toc.length > 0) {
-         var $window = $(window);
+    </header>
 
-         function onScroll(){
-             var currentScroll = $window.scrollTop();
-             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
-             var id = "";
-             h.each(function (i, e) {
-                 e = $(e);
-                 if (e.offset().top - 10 <= currentScroll) {
-                     id = e.attr('id');
-                 }
-             });
-             var current = $toc.find('a.current');
-             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
-
-             current.each(function (i, e) {
-                 $(e).removeClass('current').siblings('ul').hide();
-             });
-             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-                 $(e).children('a').addClass('current').siblings('ul').show();
-             });
-         }
-
-         $window.on('scroll', onScroll);
-         $(document).ready(function() {
-             $toc.find('a').parent('li').find('ul').hide();
-             onScroll();
-             document.getElementsByClassName('toc')[0].style.display = '';
-         });
-     }
- })();
-</script>
-
-                        
-
-			
-
-<h1>配置 emacs-rime</h1>
-
-<div>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
     
+    <header class="post-header">
+      <h1 class="post-title">配置 emacs-rime</h1>
+      
     
     
     <span class="author">&mdash;
@@ -153,25 +140,37 @@
     </span>
 
 
+      <div class="post-meta">
+        <span class="post-time"> 2021-02-17 </span>
+        
+        
+      </div>
+    </header>
 
-    
-    
-        <span class="post-date">Wed Feb 17, 2021</span>
-    
-
-
-    <div class="clear-float"></div>
-    
-        <span class="post-date"><small>Last modified on Mon Apr 19, 2021</small></span>
-    
-    <div class="clear-float"></div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#配置-emacs-rime">配置 emacs rime</a>
+          <ul>
+            <li><a href="#安装">安装</a></li>
+            <li><a href="#配置">配置</a></li>
+            <li><a href="#与-pyim-的比较">与 pyim 的比较</a></li>
+            <li><a href="#参考">参考</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 </div>
-
-<div class="post">
-    
-
-    <h2 id="配置-emacs-rime">配置 emacs rime&nbsp;<a class="headline-hash" href="#配置-emacs-rime">#</a> </h2>
-<h3 id="安装">安装&nbsp;<a class="headline-hash" href="#安装">#</a> </h3>
+    <div class="post-content">
+      <h2 id="配置-emacs-rime">配置 emacs rime</h2>
+<h3 id="安装">安装</h3>
 <ol>
 <li>
 <p>安装 librime, 其他系统参考：<a href="https://github.com/DogLooksGood/emacs-rime/blob/master/INSTALLATION.org">emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime</a></p>
@@ -182,11 +181,45 @@
 rime 在 melpa 源中已经发布，故可以直接安装</p>
 </li>
 </ol>
-<h3 id="配置">配置&nbsp;<a class="headline-hash" href="#配置">#</a> </h3>
+<h3 id="配置">配置</h3>
 <ol>
 <li>
 <p>配置 emacs rime</p>
-<div class="highlight"><pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">rime</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">rime</span>
   <span class="nb">:custom</span>
   <span class="p">(</span><span class="nv">default-input-method</span> <span class="s">&#34;rime&#34;</span><span class="p">)</span>
   <span class="nb">:config</span>
@@ -216,7 +249,9 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
           <span class="nb">:internal-border-width</span> <span class="mi">10</span><span class="p">))</span>
   <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;find-file-hook</span> <span class="nf">#&#39;</span><span class="nv">toggle-input-method</span><span class="p">)</span>  <span class="c1">;; 打开文件时默认开启 rime</span>
   <span class="p">)</span>
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>配置系统的 rime</p>
 <p>在 emacs 中, 可以通过 <code>M-x rime-open-shema</code>, <code>M-x rime-open-configuration</code> 来打开配置文件的设置。emacs-rime 只是 rime 的前端，所有输入法相关的配置都在系统的 rime 的配置文件中完成。我需要使用的输入法是小鹤双拼，配置方法如下：</p>
@@ -227,7 +262,19 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </li>
 <li>
 <p>在 <code>~/.config/fcitx/rime/default.custom.yaml</code> 文件中添加小鹤双拼输入方案：</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">double_pinyin_flypy  </span><span class="w"> </span><span class="c"># 新增小鹤双拼</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin</span><span class="w">
@@ -235,10 +282,26 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_fluency</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_simp</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_tw</span><span class="w">
-</span></code></pre></div></li>
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>单独配置小鹤双拼的输入设置，在 <code>~/.config/fcitx/rime/double-pinyin-flypy.custom.yaml</code> 中配置：</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">switches</span><span class="p">:</span><span class="w">                   </span><span class="c"># 注意缩进</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_mode</span><span class="w">
 </span><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">                </span><span class="c"># reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态</span><span class="w">
@@ -248,12 +311,14 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">simplification</span><span class="w">
 </span><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                </span><span class="c"># 增加这一行：默认启用「繁→簡」转换。</span><span class="w">
 </span><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">漢字, 汉字 ]</span><span class="w">
-</span></code></pre></div></li>
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 </li>
 </ol>
-<h3 id="与-pyim-的比较">与 pyim 的比较&nbsp;<a class="headline-hash" href="#与-pyim-的比较">#</a> </h3>
-<h3 id="参考">参考&nbsp;<a class="headline-hash" href="#参考">#</a> </h3>
+<h3 id="与-pyim-的比较">与 pyim 的比较</h3>
+<h3 id="参考">参考</h3>
 <ul>
 <li><a href="https://manateelazycat.github.io/emacs/2020/03/22/emacs-rime.html">折腾emacs-rime</a></li>
 <li><a href="https://github.com/DogLooksGood/emacs-rime#%E4%B8%B4%E6%97%B6%E8%8B%B1%E6%96%87%E6%A8%A1%E5%BC%8F">DogLooksGood/emacs-rime: RIME ㄓ in Emacs</a></li>
@@ -261,79 +326,112 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 <li><a href="https://www.dreamxu.com/install-config-squirrel/">安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel) | 明无梦</a></li>
 </ul>
 
-
-</div>
-
-
-
-			
-			
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-    <div class="sphinxsidebarwrapper">
-        <p class="logo">
-            <a href="https://patrolli.github.io/xssq/">
-                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
-                
-                <br />
-                <span class="logo logo-name">Onyx</span>
-            </a>
-        </p>
-
-        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
-        
-
-        
-    
-
-    
-        <iframe src="https://ghbtns.com/github-btn.html?user=kaushalmodi&repo=hugo-onyx-theme&type=watch&count=true&size=large"
-                style="border: 0; overflow: hidden;" width="200" height="35"
-                sandbox="allow-scripts allow-popups"></iframe>
-        
-    
-
-    
-
-    
-
-
-        
-
-        
-
-
-        
-
     </div>
-</div>
-<div class="clearer"></div>
 
-	    <div class="footer">
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">patrolli</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-02-17
         
-            This site is generated using
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://patrolli.github.io/xssq/tags/emacs/">emacs</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/ffmpeg/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ffmpeg</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="https://patrolli.github.io/xssq/post/hugo-workflow/">
+            <span class="next-text nav-default">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
         
-        <a href="https://gohugo.io/">Hugo 0.79.0</a>
-	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
-    
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
 
-    <a href="https://github.com/kaushalmodi/hugo-onyx-theme" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://patrolli.github.io/xssq/images/forkme_right_darkblue_ribbon.png" alt="Fork me on GitHub" class="github"/>
-    </a>
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
 
 
 
-	    
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
-            
 
-	    
-	</div>
-    </body>
+
+
+
+
+
+
+</body>
 </html>

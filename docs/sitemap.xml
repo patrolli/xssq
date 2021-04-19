@@ -1,139 +1,191 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="https://patrolli.github.io/xssq/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/elisp/</loc>
     <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/emacs/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/categories/academic/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/categories/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/machinelearning/</loc>
     <lastmod>2021-04-09T19:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/</loc>
     <lastmod>2021-04-09T19:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/blog/</loc>
     <lastmod>2021-04-09T19:46:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/categories/emacs/</loc>
     <lastmod>2021-04-09T19:46:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2021-04-09T19:46:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/linux/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</loc>
     <lastmod>2021-04-09T19:46:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/em%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2021-04-09T19:46:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/ffmpeg/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/ffmpeg/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/paperreading/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-04-09T19:46:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/2021-02-17-18-48/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-02-17T19:09:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/categories/computer/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/hugo/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/hugo-workflow/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/orgmode/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/</loc>
-    <lastmod>2021-04-19T22:09:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

@@ -1,176 +1,185 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    <meta charset="utf-8">
-    
-    
-    
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>hugo 博客搭建 - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    
-    <meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
-        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
-    
 
-    <meta name="generator" content="Hugo 0.79.0" />
+<meta name="author" content="olOwOlo" /><meta name="description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的" /><meta name="keywords" content="Hugo, theme, even" />
 
-    <title>hugo 博客搭建 &mdash; patrolli</title>
 
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
 
-    
-        <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/github_chroma.css">
-    
 
-    
 
-    
-        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
-    
 
-    
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
 
-    
-    
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
 <meta property="og:title" content="hugo 博客搭建" />
-<meta property="og:description"
-      content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .github.io，另一种是针对项目的 pages: .github.io/projectxx. 无论如何，首先要在 github 上创建一个 .github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。 根据 Host on GitHub 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下： 在 github 创建一个仓库，不要添加 .gitignore 和 README.md 在仓库页面的 setting 中，找到 github pages 的设置，将发布的 source 设置为 master 分支的 docs 文件夹 将本地的 hugo site 的根目录 (demo) 与远程仓库关联 git remote add origin xxx 修改 config.
-" />
+<meta property="og:description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" />
-
-
-    
-        <meta property="article:published_time" content="2021-04-09T19:46:58&#43;08:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-04-09T19:46:58&#43;08:00"/>
-    
-
+<meta property="article:published_time" content="2021-04-09T19:46:58+08:00" />
+<meta property="article:modified_time" content="2021-04-09T19:46:58+08:00" />
+<meta itemprop="name" content="hugo 博客搭建">
+<meta itemprop="description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的">
+<meta itemprop="dateModified" content="2021-04-09T19:46:58+08:00" />
+<meta itemprop="wordCount" content="792">
 
 
 
-
-
-
-
-
-
-    
-
-
-
-
-    <meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="emacs,blog," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo 博客搭建"/>
-<meta name="twitter:description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: .github.io，另一种是针对项目的 pages: .github.io/projectxx. 无论如何，首先要在 github 上创建一个 .github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。 根据 Host on GitHub 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下： 在 github 创建一个仓库，不要添加 .gitignore 和 README.md 在仓库页面的 setting 中，找到 github pages 的设置，将发布的 source 设置为 master 分支的 docs 文件夹 将本地的 hugo site 的根目录 (demo) 与远程仓库关联 git remote add origin xxx 修改 config.
-"/>
+<meta name="twitter:description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
-
-    <body>
-	<div class="document">
-	    <div class="documentwrapper">
-		<div class="bodywrapper">
-		    <div class="body">
-                        
-                            
-                                <div class="toc">
-                                    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#基本安装与使用">基本安装与使用</a>
-      <ul>
-        <li><a href="#hugo-安装">Hugo 安装</a></li>
-        <li><a href="#本地创建">本地创建</a></li>
-        <li><a href="#部署到-github-pages">部署到 github pages</a></li>
-        <li><a href="#todo">Todo</a></li>
-        <li><a href="#emacs-orgmode-easy-hugo-ox-hugo-工作流">emacs orgmode easy-hugo ox-hugo 工作流</a></li>
-        <li><a href="#issues">issues</a></li>
-      </ul>
-    </li>
-    <li><a href="#ref">Ref</a></li>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
   </ul>
+
+  
+
+
 </nav>
-                                    <a href="#" class="back-to-top">Back to top</a>
-                                </div>
-                            
-                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
-<script>
- (function() {
-     var $toc = $('#TableOfContents');
-     if ($toc.length > 0) {
-         var $window = $(window);
-
-         function onScroll(){
-             var currentScroll = $window.scrollTop();
-             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
-             var id = "";
-             h.each(function (i, e) {
-                 e = $(e);
-                 if (e.offset().top - 10 <= currentScroll) {
-                     id = e.attr('id');
-                 }
-             });
-             var current = $toc.find('a.current');
-             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
-
-             current.each(function (i, e) {
-                 $(e).removeClass('current').siblings('ul').hide();
-             });
-             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-                 $(e).children('a').addClass('current').siblings('ul').show();
-             });
-         }
-
-         $window.on('scroll', onScroll);
-         $(document).ready(function() {
-             $toc.find('a').parent('li').find('ul').hide();
-             onScroll();
-             document.getElementsByClassName('toc')[0].style.display = '';
-         });
-     }
- })();
-</script>
-
-                        
-
-			
-
-<h1>hugo 博客搭建</h1>
-
-<div>
-    
-
-
-    
-    
-        <span class="post-date">Fri Apr 9, 2021</span>
-    
-
-
-    <div class="clear-float"></div>
-    
-    <div class="clear-float"></div>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
 </div>
 
-<div class="post">
-    
 
-    <h2 id="基本安装与使用">基本安装与使用&nbsp;<a class="headline-hash" href="#基本安装与使用">#</a> </h2>
-<h3 id="hugo-安装">Hugo 安装&nbsp;<a class="headline-hash" href="#hugo-安装">#</a> </h3>
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">hugo 博客搭建</h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-09 </span>
+        <div class="post-category">
+            <a href="https://patrolli.github.io/xssq/categories/emacs/"> emacs </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#基本安装与使用">基本安装与使用</a>
+          <ul>
+            <li><a href="#hugo-安装">Hugo 安装</a></li>
+            <li><a href="#本地创建">本地创建</a></li>
+            <li><a href="#部署到-github-pages">部署到 github pages</a></li>
+            <li><a href="#todo">Todo</a></li>
+            <li><a href="#emacs-orgmode-easy-hugo-ox-hugo-工作流">emacs orgmode easy-hugo ox-hugo 工作流</a></li>
+            <li><a href="#issues">issues</a></li>
+          </ul>
+        </li>
+        <li><a href="#ref">Ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="基本安装与使用">基本安装与使用</h2>
+<h3 id="hugo-安装">Hugo 安装</h3>
 <p>直接在官网下载 Hugo 的安装包</p>
-<h3 id="本地创建">本地创建&nbsp;<a class="headline-hash" href="#本地创建">#</a> </h3>
+<h3 id="本地创建">本地创建</h3>
 <p>根据官网的 <a href="https://gohugo.io/getting-started/quick-start/">quick start</a>, 创建一个 site 只需如下几个命令</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">hugo server
-</code></pre></div><h3 id="部署到-github-pages">部署到 github pages&nbsp;<a class="headline-hash" href="#部署到-github-pages">#</a> </h3>
-<p>github pages 有两种形式，一种是针对用户的 pages: <!-- raw HTML omitted -->.github.io，另一种是针对项目的 pages: <!-- raw HTML omitted -->.github.io/projectxx. 无论如何，首先要在 github 上创建一个 <!-- raw HTML omitted -->.github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo server
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="部署到-github-pages">部署到 github pages</h3>
+<p>github pages 有两种形式，一种是针对用户的 pages: <username>.github.io，另一种是针对项目的 pages: <username>.github.io/projectxx. 无论如何，首先要在 github 上创建一个 <username>.github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。
 根据 <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub</a> 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：</p>
 <ul>
 <li>在 github 创建一个仓库，不要添加 .gitignore 和 README.md</li>
@@ -184,27 +193,48 @@
 </li>
 <li>修改 config.toml 文件（这一步很关键）</li>
 </ul>
-<!-- raw HTML omitted -->
-<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://patrolli.github.io/xssq/&#34;</span>  <span class="c"># 设置为 github pages 发布的地址</span>
+<!--listend-->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://patrolli.github.io/xssq/&#34;</span>  <span class="c"># 设置为 github pages 发布的地址</span>
 <span class="nx">publishDir</span> <span class="p">=</span> <span class="s2">&#34;docs&#34;</span>  <span class="c"># 将生成的静态页面文件夹设置到 docs 下，而不是 publish</span>
-</code></pre></div><ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>将本地文件 push 到远程，这一步写在脚本里，在本地完成修改后一键部署到远程</li>
 </ul>
-<!-- raw HTML omitted -->
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+<!--listend-->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
 hugo
 
 git add .
 git commit -m <span class="s2">&#34;updates </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
 git push origin master
-</code></pre></div><h3 id="todo">Todo&nbsp;<a class="headline-hash" href="#todo">#</a> </h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="todo">Todo</h3>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 图片管理</li>
 <li>主题美化完善</li>
 <li>结合 emacs orgmode 的工作流</li>
 </ul>
-<h3 id="emacs-orgmode-easy-hugo-ox-hugo-工作流">emacs orgmode easy-hugo ox-hugo 工作流&nbsp;<a class="headline-hash" href="#emacs-orgmode-easy-hugo-ox-hugo-工作流">#</a> </h3>
+<h3 id="emacs-orgmode-easy-hugo-ox-hugo-工作流">emacs orgmode easy-hugo ox-hugo 工作流</h3>
 <p>目前在 emacs 中使用 hugo 的工作流：</p>
 <ul>
 <li>使用 org-roam 来记录笔记</li>
@@ -216,12 +246,12 @@ git push origin master
 <ul>
 <li><input disabled="" type="checkbox"> 对于已经发布的笔记文件，如果进行了修改，在修改保存后自动导出并部署</li>
 </ul>
-<h3 id="issues">issues&nbsp;<a class="headline-hash" href="#issues">#</a> </h3>
+<h3 id="issues">issues</h3>
 <ul>
 <li>hugo 图片显示问题：
 如果 hugo 的 basedir 包含了子文件夹，例如 &lsquo;localhost:1313/foo/my-hugo/&rsquo;, 那么图片这些静态文件的路径将会是 &lsquo;localhost:1313/foo/img.jpg&rsquo;, 而将那个子文件夹给忽略了。参考：<a href="https://discourse.gohugo.io/t/best-way-to-reference-an-image-in-static-directory-when-baseurl-could-contain-a-sub-directory/15461">Best way to reference an image in `/static` directory when baseURL could contain a sub-directory? - support - HUGO</a>. 这里我是在 config.toml 文件中设置 <code>canonifyURLs = true</code>, 然后能够正常显式图片了。</li>
 </ul>
-<h2 id="ref">Ref&nbsp;<a class="headline-hash" href="#ref">#</a> </h2>
+<h2 id="ref">Ref</h2>
 <ul>
 <li><a href="https://gohugo.io/getting-started/quick-start/">official quick start</a></li>
 <li><a href="http://blog.jiayuanzhang.com/post/blog-with-ox-hugo/">使用 Emacs + ox-hugo 来写博客</a></li>
@@ -229,79 +259,113 @@ git push origin master
 <li><a href="https://liujiacai.net/blog/2020/12/05/hexo-to-hugo/">博客系统迁移：Hexo 到 Hugo</a></li>
 </ul>
 
-
-</div>
-
-
-
-			
-			
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-    <div class="sphinxsidebarwrapper">
-        <p class="logo">
-            <a href="https://patrolli.github.io/xssq/">
-                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
-                
-                <br />
-                <span class="logo logo-name">Onyx</span>
-            </a>
-        </p>
-
-        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
-        
-
-        
-    
-
-    
-        <iframe src="https://ghbtns.com/github-btn.html?user=kaushalmodi&repo=hugo-onyx-theme&type=watch&count=true&size=large"
-                style="border: 0; overflow: hidden;" width="200" height="35"
-                sandbox="allow-scripts allow-popups"></iframe>
-        
-    
-
-    
-
-    
-
-
-        
-
-        
-
-
-        
-
     </div>
-</div>
-<div class="clearer"></div>
 
-	    <div class="footer">
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">olOwOlo</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-04-09
         
-            This site is generated using
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://patrolli.github.io/xssq/tags/emacs/">emacs</a>
+          <a href="https://patrolli.github.io/xssq/tags/blog/">blog</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">混合高斯分布</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/">
+            <span class="next-text nav-default">ubuntu 安装 iosevka 字体</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
         
-        <a href="https://gohugo.io/">Hugo 0.79.0</a>
-	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
-    
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
 
-    <a href="https://github.com/kaushalmodi/hugo-onyx-theme" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://patrolli.github.io/xssq/images/forkme_right_darkblue_ribbon.png" alt="Fork me on GitHub" class="github"/>
-    </a>
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
 
 
 
-	    
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
-            
 
-	    
-	</div>
-    </body>
+
+
+
+
+
+
+</body>
 </html>

@@ -1,143 +1,136 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-    <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
-    <meta charset="utf-8">
-    
-    
-    
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流 - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    
-    <meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
-        <meta name="description" content="A Hugo theme built using the Hugo Alabaster theme as base.">
-    
 
-    <meta name="generator" content="Hugo 0.79.0" />
+<meta name="author" content="patrolli" /><meta name="description" content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： 1 2 3 4 5 6 &#43;&#43;&#43; title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博" /><meta name="keywords" content="Hugo, theme, even" />
 
-    <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流 &mdash; patrolli</title>
 
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/onyx.css" type="text/css" />
 
-    
-        <link rel="stylesheet" href="https://patrolli.github.io/xssq/css/github_chroma.css">
-    
 
-    
 
-    
-        <link rel="shortcut icon" href="https://patrolli.github.io/xssq/favicon.ico" type="image/x-icon"/>
-    
 
-    
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
 
-    
-    
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/hugo-workflow/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
 <meta property="og:title" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流" />
-<meta property="og:description"
-      content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： &#43;&#43;&#43; title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false &#43;&#43;&#43; 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。 所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。 文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及： title tag author created time last modified time categories draft 将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：
-" />
+<meta property="og:description" content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： 1 2 3 4 5 6 &#43;&#43;&#43; title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/hugo-workflow/" />
-
-
-    
-        <meta property="article:published_time" content="2021-02-11T17:51:00&#43;08:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-04-19T22:09:06&#43;08:00"/>
-    
-
-
+<meta property="article:published_time" content="2021-02-11T17:51:00+08:00" />
+<meta property="article:modified_time" content="2021-02-11T17:53:27+08:00" />
+<meta itemprop="name" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流">
+<meta itemprop="description" content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： 1 2 3 4 5 6 &#43;&#43;&#43; title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博">
+<meta itemprop="datePublished" content="2021-02-11T17:51:00+08:00" />
+<meta itemprop="dateModified" content="2021-02-11T17:53:27+08:00" />
+<meta itemprop="wordCount" content="402">
 
 
 
-
-
-
-
-
-    
-
-
-
-
-    <meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="orgmode,emacs,hugo," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo&amp;org-mode&amp;ox-hugo 的博客工作流"/>
-<meta name="twitter:description" content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： &#43;&#43;&#43; title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#34; author = [&amp;#34;LAPTOP-4COO4EVU&amp;#34;] categories = [&amp;#34;computer&amp;#34;] draft = false &#43;&#43;&#43; 这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。 所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。 文件元信息设置 在 hugo 的 markdown 元信息配置中，通常需要涉及： title tag author created time last modified time categories draft 将 org 通过 ox-hugo 导出到 markdown，需要在 org 文件里设置：
-"/>
+<meta name="twitter:description" content="两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： 1 2 3 4 5 6 &#43;&#43;&#43; title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
 </head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
-    <body>
-	<div class="document">
-	    <div class="documentwrapper">
-		<div class="bodywrapper">
-		    <div class="body">
-                        
-                            
-                                <div class="toc">
-                                    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#两种工作流">两种工作流</a></li>
-    <li><a href="#文件元信息设置">文件元信息设置</a></li>
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">Even</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
   </ul>
 </nav>
-                                    <a href="#" class="back-to-top">Back to top</a>
-                                </div>
-                            
-                            <script src="https://patrolli.github.io/xssq/js/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
-<script>
- (function() {
-     var $toc = $('#TableOfContents');
-     if ($toc.length > 0) {
-         var $window = $(window);
+    </header>
 
-         function onScroll(){
-             var currentScroll = $window.scrollTop();
-             var h = $('.body h1, .body h2, .body h3, .body h4, .body h5, .body h6');
-             var id = "";
-             h.each(function (i, e) {
-                 e = $(e);
-                 if (e.offset().top - 10 <= currentScroll) {
-                     id = e.attr('id');
-                 }
-             });
-             var current = $toc.find('a.current');
-             if (current.length == 1 && current.eq(0).attr('href') == '#' + id) return true;
-
-             current.each(function (i, e) {
-                 $(e).removeClass('current').siblings('ul').hide();
-             });
-             $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-                 $(e).children('a').addClass('current').siblings('ul').show();
-             });
-         }
-
-         $window.on('scroll', onScroll);
-         $(document).ready(function() {
-             $toc.find('a').parent('li').find('ul').hide();
-             onScroll();
-             document.getElementsByClassName('toc')[0].style.display = '';
-         });
-     }
- })();
-</script>
-
-                        
-
-			
-
-<h1>hugo&amp;org-mode&amp;ox-hugo 的博客工作流</h1>
-
-<div>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
     
+    <header class="post-header">
+      <h1 class="post-title">hugo&amp;org-mode&amp;ox-hugo 的博客工作流</h1>
+      
     
     
     <span class="author">&mdash;
@@ -147,34 +140,54 @@
     </span>
 
 
+      <div class="post-meta">
+        <span class="post-time"> 2021-02-11 </span>
+        <div class="post-category">
+            <a href="https://patrolli.github.io/xssq/categories/computer/"> computer </a>
+            </div>
+        
+      </div>
+    </header>
 
-    
-    
-        <span class="post-date">Thu Feb 11, 2021</span>
-    
-
-
-    <div class="clear-float"></div>
-    
-        <span class="post-date"><small>Last modified on Mon Apr 19, 2021</small></span>
-    
-    <div class="clear-float"></div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#两种工作流">两种工作流</a></li>
+        <li><a href="#文件元信息设置">文件元信息设置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 </div>
-
-<div class="post">
-    
-
-    <h2 id="两种工作流">两种工作流&nbsp;<a class="headline-hash" href="#两种工作流">#</a> </h2>
+    <div class="post-content">
+      <h2 id="两种工作流">两种工作流</h2>
 <p>ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如：</p>
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">+++
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">+++
 title = &#34;hugo&amp;org-mode&amp;ox-hugo 的博客工作流&#34;
 author = [&#34;LAPTOP-4COO4EVU&#34;]
 categories = [&#34;computer&#34;]
 draft = false
 +++
-</code></pre></div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>这两种 workflow 的主要区别在于，如果是使用 headline, 我们不需要重复地设置 org 文件的 hearder 部分，并且可以利用 headline 的 todo state, tags, property 来设置导出的 markdown 元信息。</p>
 <p>所以，使用 ox-hugo 的关键点在于理解如何在 org 文件中设置这些元信息，以及他们代表的含义。</p>
-<h2 id="文件元信息设置">文件元信息设置&nbsp;<a class="headline-hash" href="#文件元信息设置">#</a> </h2>
+<h2 id="文件元信息设置">文件元信息设置</h2>
 <p>在 hugo 的 markdown 元信息配置中，通常需要涉及：</p>
 <ul>
 <li>title</li>
@@ -193,79 +206,114 @@ draft = false
 <dd>Hugo site 的 root dir. 指定了这个路径后，在导出时，ox-hugo 就会找到这个目录下的 &ldquo;/content&rdquo; 文件夹，将导出的 md 文件放到对应位置。（如果是将 headline 导出，那么需要为这个 headline 设置 <code>EXPORT_FILE_NAME</code> 的 property.）</dd>
 </dl>
 
-
-</div>
-
-
-
-			
-			
-		    </div>
-		</div>
-	    </div>
-
-	    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-    <div class="sphinxsidebarwrapper">
-        <p class="logo">
-            <a href="https://patrolli.github.io/xssq/">
-                <img class="logo" src="https://patrolli.github.io/xssq/favicon.ico" alt="Logo"/>
-                
-                <br />
-                <span class="logo logo-name">Onyx</span>
-            </a>
-        </p>
-
-        <p class="blurb">A Hugo theme built using the Hugo Alabaster theme as base.</p>
-        
-
-        
-    
-
-    
-        <iframe src="https://ghbtns.com/github-btn.html?user=kaushalmodi&repo=hugo-onyx-theme&type=watch&count=true&size=large"
-                style="border: 0; overflow: hidden;" width="200" height="35"
-                sandbox="allow-scripts allow-popups"></iframe>
-        
-    
-
-    
-
-    
-
-
-        
-
-        
-
-
-        
-
     </div>
-</div>
-<div class="clearer"></div>
 
-	    <div class="footer">
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">patrolli</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-02-11
         
-            This site is generated using
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://patrolli.github.io/xssq/tags/orgmode/">orgmode</a>
+          <a href="https://patrolli.github.io/xssq/tags/emacs/">emacs</a>
+          <a href="https://patrolli.github.io/xssq/tags/hugo/">hugo</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/2021-02-17-18-48/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">配置 emacs-rime</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/">
+            <span class="next-text nav-default">Detecting human-object interactions via functional generalization</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
         
-        <a href="https://gohugo.io/">Hugo 0.79.0</a>
-	&plus; <a href="https://github.com/kaushalmodi/hugo-onyx-theme">Onyx</a>
-    
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
 
-    <a href="https://github.com/kaushalmodi/hugo-onyx-theme" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://patrolli.github.io/xssq/images/forkme_right_darkblue_ribbon.png" alt="Fork me on GitHub" class="github"/>
-    </a>
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
 
 
 
-	    
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
-            
 
-	    
-	</div>
-    </body>
+
+
+
+
+
+
+</body>
 </html>
