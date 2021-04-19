@@ -4,12 +4,22 @@ defaultContentLanguage = "en"                             # en / zh-cn / ... (Th
 title = "patrolli"
 canonifyURLs = true
 publishDir = "docs"
-theme = "maupassant"
+theme = "jane"
 summaryLength = 20
-[params]
-  author = "patrolli"
-  toc = true
 
+[languages.en]
+  languageCode = "zh-cn"
+
+[author]                  # essential                     # 必需
+  name = "patrolli"
+
+[sitemap]                 # essential                     # 必需
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  toc = true
 
 [markup]
   [markup.highlight]
