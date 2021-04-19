@@ -3,35 +3,49 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/elisp/</loc>
-    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/emacs/</loc>
-    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</loc>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/orgmode/</loc>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/</loc>
-    <lastmod>2021-04-10T00:37:09+08:00</lastmod>
+    <lastmod>2021-04-20T00:21:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -170,20 +184,7 @@
   </url>
   
   <url>
-    <loc>https://patrolli.github.io/xssq/tags/orgmode/</loc>
-    <lastmod>2021-02-11T17:53:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

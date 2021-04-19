@@ -6,7 +6,16 @@
     <description>Recent content in elisp on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Apr 2021 00:37:09 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/elisp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Apr 2021 00:21:19 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/elisp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>org 整理 paper_index</title>
+      <link>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</link>
+      <pubDate>Tue, 20 Apr 2021 00:21:19 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</guid>
+      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做</description>
+    </item>
+    
     <item>
       <title>目录下 org 文件自动导出成 hugo md 文件</title>
       <link>https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</link>
@@ -14,15 +23,6 @@
       
       <guid>https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</guid>
       <description>Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些</description>
-    </item>
-    
-    <item>
-      <title>org 整理 paper_index</title>
-      <link>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</guid>
-      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做</description>
     </item>
     
   </channel>
