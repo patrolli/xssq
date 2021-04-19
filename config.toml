@@ -21,11 +21,6 @@ summaryLength = 20
 [params]
   toc = true
 
-[markup]
-  [markup.highlight]
-    lineNos = false
-    style = "github"
-
 [[menu.main]]             # config your menu              # 配置目录
   name = "This is Home"
   weight = 10
