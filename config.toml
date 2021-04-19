@@ -20,19 +20,19 @@ summaryLength = 20
   name = "This is Home"
   weight = 10
   identifier = "home"
-  url = "/xssq/"
+  url = "/"
 [[menu.main]]
   name = "Archives"
   weight = 20
   identifier = "archives"
-  url = "/xssq/post/"
+  url = "/post/"
 [[menu.main]]
   name = "Tags"
   weight = 30
   identifier = "tags"
-  url = "/xssq/tags/"
+  url = "/tags/"
 [[menu.main]]
   name = "Categories"
   weight = 40
   identifier = "categories"
-  url = "/xssq/categories/"
+  url = "/categories/"
