@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>orgmode capture for project - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="orgmode capture for project" />
+<meta property="og:description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/" />
+<meta property="article:published_time" content="2021-04-27T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-04-27T22:37:24+08:00" />
+<meta itemprop="name" content="orgmode capture for project">
+<meta itemprop="description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加">
+<meta itemprop="datePublished" content="2021-04-27T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2021-04-27T22:37:24+08:00" />
+<meta itemprop="wordCount" content="649">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="orgmode capture for project"/>
+<meta name="twitter:description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">orgmode capture for project</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-27 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#outro">Outro</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="intro">Intro</h2>
+<p>为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加进这个 org 文件中。在 capture 的时候可以仿照 datetree 的形式，为每个记录添加一个时间戳，方便回顾，例如
+<img src="https://patrolli.github.io/xssq/img/capture_2021_04_27_22_05_35.png" alt="">
+如果存在多个项目，那么就会对应多个 org 文件，一般的 capture 模板都只能针对一个 org file 生效，那么这里我们需要在 capture 的时候，能够对应到多个文件，首先是弹出一个提示框，用于选择项目，然后打开对应的 org 文件，将内容添加到指定位置。在我这里是有两个一级标题，对应 Idea 和 Journal, 每次 capture 都会找到他们下面的 datetree, 然后再添加内容。为了实现在 capture 的时候能够对应到多个文件，就需要自己定义函数来确定 capture 时增添内容的位置。参考 org-capture 的源码，我写了一个函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-find-project-journal-datetree</span> <span class="p">()</span>
+  <span class="c1">;; (interactive)</span>
+  <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">project</span> <span class="p">(</span><span class="nf">completing-read</span> <span class="s">&#34;Choose a project&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;compaction&#34;</span><span class="p">)))</span>
+	<span class="p">(</span><span class="nv">m</span> <span class="p">(</span><span class="nv">org-find-olp</span> <span class="p">(</span><span class="nf">cons</span> <span class="p">(</span><span class="nv">org-capture-expand-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">lxs-home-dir</span> <span class="s">&#34;Documents/&#34;</span> <span class="s">&#34;org/&#34;</span> <span class="s">&#34;org-roam-files/&#34;</span> <span class="nv">project</span> <span class="s">&#34;.org&#34;</span><span class="p">))</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;Journal&#34;</span><span class="p">)))))</span>
+    <span class="p">(</span><span class="nf">set-buffer</span> <span class="p">(</span><span class="nf">marker-buffer</span> <span class="nv">m</span><span class="p">))</span>
+   <span class="c1">;; (org-capture-put-target-region-and-position)</span>
+   <span class="p">(</span><span class="nf">widen</span><span class="p">)</span>
+   <span class="p">(</span><span class="nf">goto-char</span> <span class="nv">m</span><span class="p">)</span>
+   <span class="p">(</span><span class="nf">set-marker</span> <span class="nv">m</span> <span class="no">nil</span><span class="p">)</span>
+   <span class="c1">;; (org-capture-put-target-region-and-position)</span>
+   <span class="p">(</span><span class="nv">org-datetree-find-date-create</span> <span class="p">(</span><span class="nv">calendar-gregorian-from-absolute</span> <span class="p">(</span><span class="nv">org-today</span><span class="p">))</span> <span class="p">(</span><span class="nb">when</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;test&#34;</span><span class="p">)</span> <span class="ss">&#39;subtree-at-point</span><span class="p">))</span>
+   <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-templates</span> <span class="o">`</span><span class="p">(</span><span class="s">&#34;l&#34;</span> <span class="s">&#34;lxs test&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nb">function</span> <span class="nv">lxs/org-find-project-journal-datetree</span><span class="p">)</span> <span class="s">&#34;* %U - %^{heading}\n  %?&#34;</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里的目标文件是根据选择的 project name 来确定的，虽然在这里是硬编码实现，但至少可以对应多个文件，并在 capture 的时候选择一个相应的 project name, 然后将内容 capture 到这个 project name 对应的 org file 中。</p>
+<h2 id="outro">Outro</h2>
+<p>这个功能还有许多可以改进的地方，例如在获取所有 project files 的时候，可以不用现在这样硬编码的方式，而是检索 org-roam-file 中所有标签带有 project 的文件，作为候选，这样就会更加灵活。索引 org-roam 中一个 tag 所对应的 files 需要用到 org-roam-db-query, 这方面没有看到什么参考，怎么去写 org-roam database 的 sql 语句，不过在网上搜到一个可以用的 gist:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">setq</span> <span class="nv">lxs/org-roam</span> <span class="p">(</span><span class="nv">org-roam-db-query</span>
+		<span class="p">[</span><span class="nb">:select</span> <span class="nv">file</span>
+		 <span class="nb">:from</span> <span class="nv">tags</span>
+		 <span class="nb">:where</span> <span class="p">(</span><span class="nv">like</span> <span class="nv">tags</span> <span class="p">(</span><span class="nb">quote</span> <span class="s">&#34;%\&#34;Project\&#34;%&#34;</span><span class="p">))]))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这段代码会返回 tag 带有 Project 的所有 org-roam files, 借助它，可以得到所有 project file 的列表，作为 capture 时目标文件的候选。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-04-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/">
+            <span class="next-text nav-default">org 整理 paper_index</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
