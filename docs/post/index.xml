@@ -6,7 +6,16 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 May 2021 19:48:51 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pandoc</title>
+      <link>https://patrolli.github.io/xssq/post/pandoc/</link>
+      <pubDate>Thu, 06 May 2021 19:48:51 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/pandoc/</guid>
+      <description>在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： 1 pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单</description>
+    </item>
+    
     <item>
       <title>orgmode capture for project</title>
       <link>https://patrolli.github.io/xssq/post/orgmode_capture_for_project/</link>
