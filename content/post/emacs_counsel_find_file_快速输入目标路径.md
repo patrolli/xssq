@@ -2,7 +2,7 @@
 title = "emacs counsel-find-file 快速输入目标路径"
 author = ["Li Xunsong"]
 date = 2021-05-10
-lastmod = 2021-05-11T00:08:28+08:00
+lastmod = 2021-05-11T00:37:25+08:00
 draft = false
 +++
 
@@ -13,3 +13,15 @@ draft = false
 ```emacs-lisp
 (define-abbrev global-abbrev-table "lorg" "mnt/c/Users/lixun/Documents/org/")
 ```
+
+然后在 mini-buffer 中 enable abbrev mode:
+
+```emacs-lisp
+(add-hook
+ 'minibuffer-setup-hook
+ (lambda ()
+   (abbrev-mode 1)
+   (setq local-abbrev-table global-abbrev-table)))
+```
+
+在保存文件或者 find-file 的时候，都会弹出 ivy 的 mini-buffer, 先按两下 /, 将起始的路径变成根目录，然后输入 abbrev 并展开（这里就是输入 "lorg", 然后按空格或者 `expand-abbrev`, 注意如果是空格展开，需要在展开后把后面的空格给去掉），这时 minibuffer 的输入栏就是我们的目标路径，然后按 Tab, 来激活 ivy （会发现这个路径的 text 被渲染了），就到了我们希望的目标路径上。
