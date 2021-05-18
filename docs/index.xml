@@ -6,7 +6,16 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning to detect human-object interactions with knowledge</title>
+      <link>https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/</link>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/</guid>
+      <description>Motivation 关注 HoI 的长尾分布问题 Motivation: HOIs contains intrinsic semantic regularities -&amp;gt; Modeling the underlying regularities among verbs and objects. Method 整体的框架： Knowledge graph 的构建：结点就是 HOI labels 中 verb 和 object 的词语，特征是 Glove 中得到的 semantic embedding. 结点的连接根据</description>
+    </item>
+    
     <item>
       <title>emacs counsel-find-file 快速输入目标路径</title>
       <link>https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/</link>
