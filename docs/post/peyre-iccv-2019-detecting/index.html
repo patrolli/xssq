@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Detecting Unseen Visual Relations Using Analogies - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Motivation 直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training. 之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Detecting Unseen Visual Relations Using Analogies" />
+<meta property="og:description" content="Motivation 直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training. 之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/" />
+<meta property="article:published_time" content="2021-05-19T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-05-21T16:56:56+08:00" />
+<meta itemprop="name" content="Detecting Unseen Visual Relations Using Analogies">
+<meta itemprop="description" content="Motivation 直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training. 之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题">
+<meta itemprop="datePublished" content="2021-05-19T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2021-05-21T16:56:56+08:00" />
+<meta itemprop="wordCount" content="1070">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Detecting Unseen Visual Relations Using Analogies"/>
+<meta name="twitter:description" content="Motivation 直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training. 之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Detecting Unseen Visual Relations Using Analogies</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-19 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#comment">Comment</a></li>
+        <li><a href="#ref">Ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="motivation">Motivation</h2>
+<ul>
+<li>直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training.</li>
+<li>之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题是，visual interaction （predicate）是很难单独被表征的，它往往依赖于物体，并且随着物体的差异会有很大的 appearance variance. 例如检测 ride 这个动作的 detector 是很在 visual difference 很大的 relation: “person ride horse” 和 &ldquo;person ride bus&rdquo;.</li>
+<li>另一种方法是检测整个 triplet, 这里称为 visual phrase. 但这样就需要每个 triplet 都有足够的训练样本来训练每个 visual phrase detector.</li>
+<li>Unseen relations and transfer learning.</li>
+</ul>
+<h2 id="method">Method</h2>
+<ul>
+<li>
+<p>visual phrase embedding: 对于 subject, object, predicate 以及 triplet 都会有这样一个 embedding, 它是将 visual embedding 和 word semantic embedding 结合到一起到一个 embedding space.</p>
+</li>
+<li>
+<p>Model overview:
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_19_10_46_59.png" alt=""></p>
+</li>
+<li>
+<p>将 visual phrase embedding 迁移到 unseen triplets 上。这种迁移可以达到将 knowledge 迁移到 unseen 的组合上的目的。</p>
+<p>unseen triplet 的 visual phrase embedding 是怎么得到的？</p>
+</li>
+<li>
+<p>整体的思路，对于一个 HOI label, 它是一个 triplet, 由 <subject-predicate-object> 三部分组成。这篇文章的主要目标是学到每个 triplet 的 visual-phrase embedding, 这个 embedding space 中既有 language 的 knowledge, 也有来自图片样本的 visual knowledge. 而对于没有见过的 triplet, 就将从见过的 triplet 学习到的 visual embedding 迁移到这些没有见过的 triplet 上。</p>
+</li>
+<li>
+<p>对于 unseen 的 triplets, 只有在测试的时候会给出样本，在训练的时候是没有样本的，只有一个标签，即这个 triplet 的描述。</p>
+</li>
+<li>
+<p>对于 senn 的 triplets 的训练和测试：</p>
+<ul>
+<li>
+<p>训练：拉近 triplet 的 visual feature 和其 language feature 的距离，拉远和无关 triplet 的 language feature 的距离：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_15_46_18.png" alt=""></p>
+</li>
+<li>
+<p>测试：直接度量每个 triplet 的 language feature 和 candidate pair 的 visual feature 之间的距离：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_15_47_56.png" alt=""></p>
+</li>
+<li>
+<p>需要注意的是，从图中也可以看出，每个 triplet 会有 4 中 language feature, 分别是 subject, object, predicate 以及整体的 visual phrase embedding, 用到的 visual feature 也不相同，但在最后测试的时候只会用到 visual phrase embedding. 单独的这几个 embedding 学习的含义和作用是什么？embedding 之间的参数是共享的吗？</p>
+</li>
+</ul>
+</li>
+<li>
+<p>到 unseen triplet 的迁移</p>
+<ul>
+<li>
+<p>整体的形式
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_16_11_50.png" alt="">
+这里 t' 是 unseen triplet, w^vp 表示 visual phrase embedding, 最后的这一项就是用来捕获两个 triplet 之间的差异，来将 seen triplet 迁移到 unseen triplet.</p>
+</li>
+<li>
+<p>\(\Gamma\) 的具体形式：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_16_15_03.png" alt="">
+它的输入是 subject, object, predicate 的 visual phrase, 尽管 triplet t' 是 unseen 的，但将它拆分成的这三个部分都是 seen 的。并且这里只是 language faeture, 如果两个 triplet 分别是 &ldquo;(person, ride, horse)&rdquo; 和 &ldquo;(person, ride, camel)&rdquo;, 那么输入就会变成：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_16_29_04.png" alt=""></p>
+</li>
+<li>
+<p>只 transfer 彼此相似的 triplet
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_16_31_21.png" alt="">
+度量 triplet 之间的相似性，具体就是比较每个 subject, object, predicate 之间的相似性，然后做一个加权求和，得到 triplet 之间的相似性，然后选出相似性最大的几个 triplet 来做 transfer</p>
+</li>
+<li>
+<p>\(\Gamma\) 的学习
+这个 \(\Gamma\) 的学习是在训练集上进行，不涉及到测试的 unseen triplet. 对于 training batch 中的每个 triplet t', 找到一堆相关的 triplet t 组成 pair. Q 是整个 (t, t') 的 pair. 优化的 loss function 是：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_16_40_26.png" alt="">
+v<sub>i</sub><sup>vp</sup> 是 target triplet 的 visual feature, \(w_{t}^{vp}+\Gamma(t,t')\) 是从 triplet t 迁移过来的 visual phrase embedding. 这个 loss 的目的是让 targe triplet 的 visual feature 和它从 match 的 triplet t 迁移得到的 visual phrase feature 尽可能接近，而远离不 match 的 triplet 迁移。</p>
+</li>
+<li>
+<p>测试时一个 unseen triplet 的表征：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_05_21_16_48_37.png" alt="">
+unseen triplet u 从与他相邻的几个 triplet 的 visual phrase embedding 中迁移并加权得到</p>
+</li>
+<li>
+<p>训练策略
+先训练 embedding function, 包括 subject, object, predicate 和 visual phrase. 然后固定 s, o, p, fintune vp. 这时再开始训练 \(\Gamma\), 并且训练 \(\Gamma\) 的 loss 只用于更新 \(\Gamma\) 函数，而不参与到 visual phrase embedding 的参数更新中。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="comment">Comment</h2>
+<h2 id="ref">Ref</h2>
+<ul>
+<li>和 <a href="https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/">Learning to detect human-object interactions with knowledge</a> 这篇有点类似，都借助了外部的 language knowledge.</li>
+<li><sup id="dc30305955ab8c5ecc17ee9d4397fa21"><a href="#Chao-wacv-2018-learning" title="Yu-Wei Chao, Yunfan Liu, Xieyang Liu, , Huayi Zeng \&amp; Jia Deng, Learning to Detect Human-Object Interactions, 381-389, in in: {2018 {IEEE} Winter Conference on Applications of
+Computer Vision, {WACV} 2018, Lake Tahoe, NV, USA,
+March 12-15, 2018}, edited by (2018)">Chao-wacv-2018-learning</a></sup></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-05-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/">
+            <span class="next-text nav-default">Learning to detect human-object interactions with knowledge</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
