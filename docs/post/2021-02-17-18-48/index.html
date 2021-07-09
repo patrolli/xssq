@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.79.0 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/2021-02-17-18-48/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2021-02-17T19:09:08+08:00" />
 <meta itemprop="name" content="配置 emacs-rime">
 <meta itemprop="description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接">
-<meta itemprop="datePublished" content="2021-02-17T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2021-02-17T19:09:08+08:00" />
-<meta itemprop="wordCount" content="708">
+<meta itemprop="datePublished" content="2021-02-17T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-02-17T19:09:08&#43;08:00" />
+<meta itemprop="wordCount" content="707">
 
 
 
-<meta itemprop="keywords" content="emacs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="emacs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置 emacs-rime"/>
 <meta name="twitter:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接"/>
 
@@ -274,14 +273,14 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">double_pinyin_flypy  </span><span class="w"> </span><span class="c"># 新增小鹤双拼</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">cangjie5</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_fluency</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_simp</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_tw</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">patch</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">schema_list</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="k">​    - schema</span><span class="p">:</span><span class="w"> </span>double_pinyin_flypy<span class="w">   </span><span class="c"># 新增小鹤双拼</span><span class="w">
+</span><span class="w"></span><span class="k">​    - schema</span><span class="p">:</span><span class="w"> </span>luna_pinyin<span class="w">
+</span><span class="w"></span><span class="k">​    - schema</span><span class="p">:</span><span class="w"> </span>cangjie5<span class="w">
+</span><span class="w"></span><span class="k">​    - schema</span><span class="p">:</span><span class="w"> </span>luna_pinyin_fluency<span class="w">
+</span><span class="w"></span><span class="k">​    - schema</span><span class="p">:</span><span class="w"> </span>luna_pinyin_simp<span class="w">
+</span><span class="w"></span><span class="k">​    - schema</span><span class="p">:</span><span class="w"> </span>luna_pinyin_tw<span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -301,16 +300,16 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">switches</span><span class="p">:</span><span class="w">                   </span><span class="c"># 注意缩进</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_mode</span><span class="w">
-</span><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">                </span><span class="c"># reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态</span><span class="w">
-</span><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">中文, 西文 ]  </span><span class="w"> </span><span class="c"># 选择输入方案后通常需要立即输入中文，故重设 ascii_mode = 0</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">full_shape</span><span class="w">
-</span><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">半角, 全角 ]  </span><span class="w"> </span><span class="c"># 而全／半角则可沿用之前方案的用法。</span><span class="w">
-</span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">simplification</span><span class="w">
-</span><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                </span><span class="c"># 增加这一行：默认启用「繁→簡」转换。</span><span class="w">
-</span><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">漢字, 汉字 ]</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">patch</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">switches</span><span class="p">:</span><span class="w">                   </span><span class="c"># 注意缩进</span><span class="w">
+</span><span class="w"></span><span class="k">​    - name</span><span class="p">:</span><span class="w"> </span>ascii_mode<span class="w">
+</span><span class="w">      </span><span class="k">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">                </span><span class="c"># reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态</span><span class="w">
+</span><span class="w">      </span><span class="k">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>中文<span class="p">,</span><span class="w"> </span>西文<span class="w"> </span><span class="p">]</span><span class="w">   </span><span class="c"># 选择输入方案后通常需要立即输入中文，故重设 ascii_mode = 0</span><span class="w">
+</span><span class="w"></span><span class="k">​    - name</span><span class="p">:</span><span class="w"> </span>full_shape<span class="w">
+</span><span class="w">      </span><span class="k">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>半角<span class="p">,</span><span class="w"> </span>全角<span class="w"> </span><span class="p">]</span><span class="w">   </span><span class="c"># 而全／半角则可沿用之前方案的用法。</span><span class="w">
+</span><span class="w"></span><span class="k">​    - name</span><span class="p">:</span><span class="w"> </span>simplification<span class="w">
+</span><span class="w">      </span><span class="k">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                </span><span class="c"># 增加这一行：默认启用「繁→簡」转换。</span><span class="w">
+</span><span class="w">      </span><span class="k">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>漢字<span class="p">,</span><span class="w"> </span>汉字<span class="w"> </span><span class="p">]</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div></li>

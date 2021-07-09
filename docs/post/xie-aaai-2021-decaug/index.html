@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.79.0 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,12 @@
 <meta property="article:modified_time" content="2021-04-09T19:46:57+08:00" />
 <meta itemprop="name" content="Decaug: augmenting HOI detection via decomposition">
 <meta itemprop="description" content="Xie-aaai-2021-decaug Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，">
-<meta itemprop="dateModified" content="2021-04-09T19:46:57+08:00" />
+<meta itemprop="dateModified" content="2021-04-09T19:46:57&#43;08:00" />
 <meta itemprop="wordCount" content="1017">
 
 
 
-<meta itemprop="keywords" content="PaperReading," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="PaperReading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Decaug: augmenting HOI detection via decomposition"/>
 <meta name="twitter:description" content="Xie-aaai-2021-decaug Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，"/>
 
@@ -176,7 +175,7 @@
 <li>首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s:
 <img src="https://patrolli.github.io/xssq/img/capture_2021_04_03_19_25_13.png" alt="">
 论文主要是通过 object state 和 spatial relationship 进行样本增强</li>
-<li>论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;. （在论文中，主要是用什么信息描述 object state?）</li>
+<li>论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&rdquo;. （在论文中，主要是用什么信息描述 object state?）</li>
 <li>这里贴物体的要求：1. 保持物体的 state 2. 增强后的图片要 realistic</li>
 <li>首先判断图中的物体是否可以替换。这里考虑如果一个物体和其他物体的遮挡交错 (interlock) 较为严重时，就不进行替换。论文设计了一个名为 &ldquo;instance interlocking ratio&rdquo; 的指标来进行判断。公式为：</li>
 </ul>

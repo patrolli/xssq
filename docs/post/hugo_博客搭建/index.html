@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.79.0 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,12 @@
 <meta property="article:modified_time" content="2021-04-09T19:46:58+08:00" />
 <meta itemprop="name" content="hugo 博客搭建">
 <meta itemprop="description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的">
-<meta itemprop="dateModified" content="2021-04-09T19:46:58+08:00" />
+<meta itemprop="dateModified" content="2021-04-09T19:46:58&#43;08:00" />
 <meta itemprop="wordCount" content="792">
 
 
 
-<meta itemprop="keywords" content="emacs,blog," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="emacs,blog," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo 博客搭建"/>
 <meta name="twitter:description" content="基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的"/>
 
@@ -249,7 +248,7 @@ git push origin master
 <h3 id="issues">issues</h3>
 <ul>
 <li>hugo 图片显示问题：
-如果 hugo 的 basedir 包含了子文件夹，例如 &lsquo;localhost:1313/foo/my-hugo/&rsquo;, 那么图片这些静态文件的路径将会是 &lsquo;localhost:1313/foo/img.jpg&rsquo;, 而将那个子文件夹给忽略了。参考：<a href="https://discourse.gohugo.io/t/best-way-to-reference-an-image-in-static-directory-when-baseurl-could-contain-a-sub-directory/15461">Best way to reference an image in `/static` directory when baseURL could contain a sub-directory? - support - HUGO</a>. 这里我是在 config.toml 文件中设置 <code>canonifyURLs = true</code>, 然后能够正常显式图片了。</li>
+如果 hugo 的 basedir 包含了子文件夹，例如 &lsquo;localhost:1313/foo/my-hugo/', 那么图片这些静态文件的路径将会是 &lsquo;localhost:1313/foo/img.jpg&rsquo;, 而将那个子文件夹给忽略了。参考：<a href="https://discourse.gohugo.io/t/best-way-to-reference-an-image-in-static-directory-when-baseurl-could-contain-a-sub-directory/15461">Best way to reference an image in `/static` directory when baseURL could contain a sub-directory? - support - HUGO</a>. 这里我是在 config.toml 文件中设置 <code>canonifyURLs = true</code>, 然后能够正常显式图片了。</li>
 </ul>
 <h2 id="ref">Ref</h2>
 <ul>

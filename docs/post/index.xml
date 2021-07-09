@@ -6,7 +6,20 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 May 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jul 2021 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bipartite graph network with adaptive message passing for unbiased scene graph generation</title>
+      <link>https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/</link>
+      <pubDate>Sun, 04 Jul 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/</guid>
+      <description>Motivation Method Comment Ref </description>
+    </item>
+    
     <item>
       <title>Detecting Unseen Visual Relations Using Analogies</title>
       <link>https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/</link>
@@ -94,7 +107,7 @@
       <pubDate>Fri, 09 Apr 2021 19:46:58 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</guid>
-      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
+      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;ldquo;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
     </item>
     
     <item>
