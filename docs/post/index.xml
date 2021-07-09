@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Representing videos as discriminative sub-graphs for action recognition</title>
+      <link>https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/</guid>
+      <description>Motivation 首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的</description>
+    </item>
+    
+    <item>
       <title>Detecting Unseen Visual Relations Using Analogies</title>
       <link>https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/</link>
       <pubDate>Wed, 19 May 2021 00:00:00 +0800</pubDate>

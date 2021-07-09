@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Bipartite graph network with adaptive message passing for unbiased scene graph generation - patrolli</title>
+  <title>Representing videos as discriminative sub-graphs for action recognition - patrolli</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Li Xunsong" /><meta name="description" content="Motivation Method Comment Ref " /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Motivation 首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/" />
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/" />
 <link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Bipartite graph network with adaptive message passing for unbiased scene graph generation" />
-<meta property="og:description" content="Motivation Method Comment Ref " />
+<meta property="og:title" content="Representing videos as discriminative sub-graphs for action recognition" />
+<meta property="og:description" content="Motivation 首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/" />
-<meta property="article:published_time" content="2021-07-04T00:00:00+08:00" />
-<meta property="article:modified_time" content="2021-07-09T17:32:37+08:00" />
-<meta itemprop="name" content="Bipartite graph network with adaptive message passing for unbiased scene graph generation">
-<meta itemprop="description" content="Motivation Method Comment Ref ">
-<meta itemprop="datePublished" content="2021-07-04T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-07-09T17:32:37&#43;08:00" />
-<meta itemprop="wordCount" content="4">
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/" />
+<meta property="article:published_time" content="2021-07-01T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-07-09T17:34:01+08:00" />
+<meta itemprop="name" content="Representing videos as discriminative sub-graphs for action recognition">
+<meta itemprop="description" content="Motivation 首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的">
+<meta itemprop="datePublished" content="2021-07-01T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-07-09T17:34:01&#43;08:00" />
+<meta itemprop="wordCount" content="448">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bipartite graph network with adaptive message passing for unbiased scene graph generation"/>
-<meta name="twitter:description" content="Motivation Method Comment Ref "/>
+<meta name="twitter:title" content="Representing videos as discriminative sub-graphs for action recognition"/>
+<meta name="twitter:description" content="Motivation 首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,7 +128,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Bipartite graph network with adaptive message passing for unbiased scene graph generation</h1>
+      <h1 class="post-title">Representing videos as discriminative sub-graphs for action recognition</h1>
       
     
     
@@ -140,7 +140,7 @@
 
 
       <div class="post-meta">
-        <span class="post-time"> 2021-07-04 </span>
+        <span class="post-time"> 2021-07-01 </span>
         
         
       </div>
@@ -154,7 +154,12 @@
     <li>
       <ul>
         <li><a href="#motivation">Motivation</a></li>
-        <li><a href="#method">Method</a></li>
+        <li><a href="#method">Method</a>
+          <ul>
+            <li><a href="#spatio-temporal-complete-graph">spatio-temporal complete graph</a></li>
+            <li><a href="#discriminative-sub-graphs">Discriminative sub-graphs</a></li>
+          </ul>
+        </li>
         <li><a href="#comment">Comment</a></li>
         <li><a href="#ref">Ref</a></li>
       </ul>
@@ -165,9 +170,25 @@
 </div>
     <div class="post-content">
       <h2 id="motivation">Motivation</h2>
+<p>首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的。</p>
+<p>这篇文章将整个视频中的所有实体看成一个 graph, 希望找到不同动作中最具有判别性的 sub-graphs.</p>
 <h2 id="method">Method</h2>
+<h3 id="spatio-temporal-complete-graph">spatio-temporal complete graph</h3>
+<ul>
+<li>要对视频采集多个 clip, 在每个 clip-level 得到 actor/object 的 tubelets. 这里的 temporal 的单位应该是 clip, 而不是传统的 frame.</li>
+<li><strong>Graph node</strong> 在每个 clip 中，定义 M 个 tubelets, 即关注当前 clip 中的 M 个实体。他们作为 graph 的结点，具体的表征是利用他们的 visual semantic feature (利用 bounding box 对 3D CNN 输出的 feature map 进行 ROI Align) 和 coordinates feature. 他们的 coordinates feature 是将所有帧的 coordinates 拼接到一起然后再送到 MLP 中表征。</li>
+<li><strong>Graph edge</strong> graph 中所有的结点是 dense connected 的。所以对于每两个结点，他们之间边的定义为结点之间语义的相似度，以及他们坐标的相对变化。</li>
+</ul>
+<h3 id="discriminative-sub-graphs">Discriminative sub-graphs</h3>
+<ul>
+<li>基于一个 complete graph, 可以得到结点数量不同的 sub-graphs, 在如此多的 sub-graph 中，论文希望找到最具代表性的这些 sub-graph 的 prototype, 于是使用 GMM 来进行聚类，学习每一个动作类别的高斯混合分布的参数</li>
+<li>虽然这里 formulate 出来了一个 graph, 但是并没有用到 graph 相关的方法，只是将每个 sub-graph 中所有结点和边简单地 concat 起来，作为这个 sub-graph 的表征，然后进行 GMM 的学习</li>
+</ul>
 <h2 id="comment">Comment</h2>
 <h2 id="ref">Ref</h2>
+<ul>
+<li>Recurrent tubelet proposal and recognition networks for action detection</li>
+</ul>
 
     </div>
 
@@ -190,9 +211,13 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
-        <a class="next" href="https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/">
-            <span class="next-text nav-default">Representing videos as discriminative sub-graphs for action recognition</span>
+        <a class="prev" href="https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Bipartite graph network with adaptive message passing for unbiased scene graph generation</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/">
+            <span class="next-text nav-default">Detecting Unseen Visual Relations Using Analogies</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
