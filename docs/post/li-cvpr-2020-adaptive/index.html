@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Adaptive interaction modeling via graph operations search - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Motivation 之前建模 action 中的 interaction 的工作都是设计了 fix 的 structure 来建模这些 interaction, 但视频中的 interction 具有不同的复杂性和特性，有些是场景的变化相关，有些是物体之间的复杂交互，所以" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/li-cvpr-2020-adaptive/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Adaptive interaction modeling via graph operations search" />
+<meta property="og:description" content="Motivation 之前建模 action 中的 interaction 的工作都是设计了 fix 的 structure 来建模这些 interaction, 但视频中的 interction 具有不同的复杂性和特性，有些是场景的变化相关，有些是物体之间的复杂交互，所以" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/li-cvpr-2020-adaptive/" />
+<meta property="article:published_time" content="2021-07-09T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-07-10T17:16:25+08:00" />
+<meta itemprop="name" content="Adaptive interaction modeling via graph operations search">
+<meta itemprop="description" content="Motivation 之前建模 action 中的 interaction 的工作都是设计了 fix 的 structure 来建模这些 interaction, 但视频中的 interction 具有不同的复杂性和特性，有些是场景的变化相关，有些是物体之间的复杂交互，所以">
+<meta itemprop="datePublished" content="2021-07-09T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-07-10T17:16:25&#43;08:00" />
+<meta itemprop="wordCount" content="940">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Adaptive interaction modeling via graph operations search"/>
+<meta name="twitter:description" content="Motivation 之前建模 action 中的 interaction 的工作都是设计了 fix 的 structure 来建模这些 interaction, 但视频中的 interction 具有不同的复杂性和特性，有些是场景的变化相关，有些是物体之间的复杂交互，所以"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Adaptive interaction modeling via graph operations search</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-09 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#method">Method</a>
+          <ul>
+            <li><a href="#定义的几种-graph-的基本操作">定义的几种 graph 的基本操作</a></li>
+            <li><a href="#结构搜索">结构搜索</a></li>
+          </ul>
+        </li>
+        <li><a href="#comment">Comment</a></li>
+        <li><a href="#ref">Ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="motivation">Motivation</h2>
+<ul>
+<li>之前建模 action 中的 interaction 的工作都是设计了 fix 的 structure 来建模这些 interaction, 但视频中的 interction 具有不同的复杂性和特性，有些是场景的变化相关，有些是物体之间的复杂交互，所以为了建模这些不同性质的 interaction, 需要设计能够自适应调整的网络结构。</li>
+<li>这篇文章定义了几种基本的图运算来建模视频中的 interation, 然后使用 NAS 来搜索建模不同视频 interaction 所需要的基本图运算的结构，来达到他们针对不同性质的 interaction 自适应调整网络结构的目的。</li>
+</ul>
+<h2 id="method">Method</h2>
+<h3 id="定义的几种-graph-的基本操作">定义的几种 graph 的基本操作</h3>
+<ol>
+<li>Feature aggregation
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_30_38.png" alt="">
+类似于 GAE, α<sub>ij</sub> 表示结点 i 和结点 j 之间的 affinity (近似). 每个结点通过建模与其他结点的依赖关系来增强自身的特征表达。</li>
+<li>Difference propagation
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_33_53.png" alt="">
+显式地将两个结点之间特征的差异进行 message propagation. 这样来建模 objects 的变化或者差异。</li>
+<li>Temporal convolution
+前面两种操作没有考虑结点的时间顺序，这里 temporal convolution 就是为了显式地建模时序上的信息。具体操作是，对于第 t 帧的结点 i, 找到它在每帧上面最近的结点（这里的近是通过结点之间 inner product 来度量的），然后将他们组成一个序列：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_39_38.png" alt="">
+在这个序列上使用 temporal convolution, 得到的这个特征作为结点 i 在 temporal 上的信息：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_50_09.png" alt=""></li>
+<li>Background incorporation
+这里认为 background 的信息对于识别 interaction 也是有帮助的，例如 object 可能会与 background 产生 interaction. 所以对每一帧的结点 i, 计算它和这一帧的 feature map 不同 grid 特征的响应，然后做聚合：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_53_27.png" alt="">
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_53_40.png" alt=""></li>
+<li>Node attention
+由于会检测出上百个结点，但不是所有结点对于识别 interaction 是有贡献的，因此使用 attention 的方法来削弱那些 outlier 的结点。这里认为 outlier 的结点是那些有很少的相似结点，并且在位置上和其他结点的对应关系不是常规的，依据这个规则来设置每个结点的 attention weight, 公式如下：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_16_58_37.png" alt="">
+这里 w_i 是每个结点的 attention weight, w_i 的计算是通过 a_i 和 s_i 来计算的。a_i 是结点 i 和它前 M 个相似的结点的 affinity score, s_i 是结点 i 和它前 M 个相似结点的相对位置。把这两个信息作为输入，来输出每个结点的 attention weight, 这和之前对 outlier 结点的定义是一致的。</li>
+</ol>
+<h3 id="结构搜索">结构搜索</h3>
+<ul>
+<li>注意每种操作都是将输入 x_i 转换成 z_i</li>
+<li>在结构搜索的时候使用了 DARTS, 从一个 cell 到另一个 cell 得到的结果 (intermediate representation) 是上面定义的几种基本图的操作的 softmax 的加权和：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_17_09_47.png" alt="">
+而这个加权的系数 α_o 由原始的输入视频特征决定：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_17_10_36.png" alt="">
+这样就达到论文最初的动机，希望根据对不同视频中的 interaction 使用不同的网络结构去建模。而最后搜索出来的结构是对所有操作的系数取 argmax:
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_17_12_11.png" alt=""></li>
+<li>为了防止在搜索结构的时候只偏向某几种 operation, 再加了一个 diversity regularization:
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_17_15_04.png" alt=""></li>
+</ul>
+<h2 id="comment">Comment</h2>
+<ul>
+<li>
+<p>graph 中的结点是每帧的 ROI 吗？是</p>
+</li>
+<li>
+<p>实验是在 something-something 上面进行的，实验结果：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_17_15_41.png" alt=""></p>
+</li>
+<li>
+<p>几种 basic graph operation 的实验结果：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_10_17_13_25.png" alt=""></p>
+</li>
+</ul>
+<h2 id="ref">Ref</h2>
+<ul>
+<li>DARTS: <a href="https://zhuanlan.zhihu.com/p/156832334">薰风读论文|DARTS—年轻人的第一个NAS模型 - 知乎</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-07-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/">
+            <span class="next-text nav-default">Bipartite graph network with adaptive message passing for unbiased scene graph generation</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
