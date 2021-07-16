@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>End-to-end object detection with transformers - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Motivation 首篇将 transformer 用在 detection 任务上的工作 使用 transformer 来做 detection 任务，有什么优势的地方？ Method 总体架构是一个 encoder-decoder, 并且和之前的检测方法不同，DETR 可以直接输出对所有检测框" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/carion-eccv-2020-end/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="End-to-end object detection with transformers" />
+<meta property="og:description" content="Motivation 首篇将 transformer 用在 detection 任务上的工作 使用 transformer 来做 detection 任务，有什么优势的地方？ Method 总体架构是一个 encoder-decoder, 并且和之前的检测方法不同，DETR 可以直接输出对所有检测框" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/carion-eccv-2020-end/" />
+<meta property="article:published_time" content="2021-07-15T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-07-16T10:05:35+08:00" />
+<meta itemprop="name" content="End-to-end object detection with transformers">
+<meta itemprop="description" content="Motivation 首篇将 transformer 用在 detection 任务上的工作 使用 transformer 来做 detection 任务，有什么优势的地方？ Method 总体架构是一个 encoder-decoder, 并且和之前的检测方法不同，DETR 可以直接输出对所有检测框">
+<meta itemprop="datePublished" content="2021-07-15T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-07-16T10:05:35&#43;08:00" />
+<meta itemprop="wordCount" content="773">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="End-to-end object detection with transformers"/>
+<meta name="twitter:description" content="Motivation 首篇将 transformer 用在 detection 任务上的工作 使用 transformer 来做 detection 任务，有什么优势的地方？ Method 总体架构是一个 encoder-decoder, 并且和之前的检测方法不同，DETR 可以直接输出对所有检测框"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">End-to-end object detection with transformers</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#comment">Comment</a></li>
+        <li><a href="#ref">Ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="motivation">Motivation</h2>
+<ul>
+<li>首篇将 transformer 用在 detection 任务上的工作</li>
+<li>使用 transformer 来做 detection 任务，有什么优势的地方？</li>
+</ul>
+<h2 id="method">Method</h2>
+<ul>
+<li>
+<p>总体架构是一个 encoder-decoder, 并且和之前的检测方法不同，DETR 可以直接输出对所有检测框的预测结果，没有后处理的步骤 (NMS).</p>
+<figure>
+    <img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_09_23_53.png" width="800px"/> 
+</figure>
+
+</li>
+<li>
+<p>首先是 encoder 部分，输入图片经过 CNN 得到 dxHxW 的 feature map, 然后将每个 grid 作为一个向量，组成 encoder 的输入序列。为了保留每个 grid vector 的空间位置信息，会加上固定的 position encoding. 然后是一般的 encoder 处理，self-attention + norm + FFN (Feedforward network). Encoder 和 Decoder 的结构如下：<br>
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_09_38_23.png" alt=""></p>
+</li>
+<li>
+<p>在 Decoder 部分，会输入 N 个 object query, N 的数量设定为远大于图片中最多检测目标的数量。每个 object query 实际是一个需要学习的 embedding, 他们起到的物理意义，我看一些文章的说法是类比于传统目标检测的 anchor, 也就是学到了目标的位置信息 (这里还是有一些疑惑).</p>
+</li>
+<li>
+<p>Set prediction loss: loss 的设计是 DETR 的重点，在 DETR 中，目标检测任务被 formulate 成两个集合的匹配问题。首先模型会预测 N 个结果，而 ground truth 包含 M 个结果，并且 N&raquo;M. 首先让预测和 ground truth 集合大小一致，即在 ground truth 的集合中 pad N-M 个 no-object class. 然后这里的优化目标就是要让预测的集合与 ground truth 的集合匹配。第一步是利用<a href="">匈牙利算法</a>，找到一个匹配，也就是找到预测集合的每一个 object query 对应的 ground truth 集合中的一个结果<br>
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_09_51_07.png" alt=""><br>
+具体这个 L_match 的定义为，c_i 是 ground truth 集合中，第 i 个元素的标签，而 σ 则是一种匹配，利用这个 match loss 来找到 optimal 的匹配：<br>
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_09_57_56.png" alt=""><br>
+第二步是根据找到的匹配，来计算 loss, 这个 loss 是指对物体的类别预测、对 bbox 的回归的修正:<br>
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_10_01_50.png" alt=""><br>
+对 bounding box 的 loss 具体是：<br>
+<img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_10_02_25.png" alt=""><br>
+对坐标值进行 L1 的约束，并且考虑不同大小的 bbox 可能在 L1 上差距较大，而实际大的 bbox 和小的 bbox 的相对误差是差不多的，所以通过 IoU 加上了一个约束</p>
+</li>
+</ul>
+<h2 id="comment">Comment</h2>
+<ul>
+<li>对应于传统目标检测的 RoI 特征，在 DETR 中是哪部分包含了检测物体特征和信息？似乎是每个 object query 看作一个 anchor, 它可以去和全局的 image 信息 (由 encoder 编码) 去求 attention 的响应，这样每个 object query 通过 multi-head attention 和 ffn 后，会计算得到一个 feature, 这个 feature 就包含了物体的 RoI 信息。</li>
+<li>Encoder 输出的结果是一个序列还是一个整体的表征？一个序列是说输入是 HxW 个 grid vector, 输出也是 HxW 个 grid vector.</li>
+</ul>
+<h2 id="ref">Ref</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-07-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/li-cvpr-2020-adaptive/">
+            <span class="next-text nav-default">Adaptive interaction modeling via graph operations search</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
