@@ -6,10 +6,19 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Aug 2021 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PPDM: parallel point detection and matching for real-time human-object interaction detection</title>
+      <link>https://patrolli.github.io/xssq/post/ppdm_parallel_point_detection_and_matching_for_real_time_human_object_interaction_detection/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/ppdm_parallel_point_detection_and_matching_for_real_time_human_object_interaction_detection/</guid>
+      <description>Motivation Method 总体框图 Point-dection 预测三种 box: human,object,intertion box. 每个 box 预测他们的中心点、size 以及偏移。对于中心点的预测，转换成 key-point estimation 的做法，将每个 ground truth 点转换成一个 heatmap, 然后预测的</description>
+    </item>
     
     <item>
       <title>End-to-end object detection with transformers</title>
