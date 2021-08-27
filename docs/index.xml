@@ -6,10 +6,19 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 02 Aug 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Aug 2021 11:48:50 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pytorch geometric</title>
+      <link>https://patrolli.github.io/xssq/post/pytorch_geometric/</link>
+      <pubDate>Fri, 27 Aug 2021 11:48:50 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/pytorch_geometric/</guid>
+      <description>Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax</description>
+    </item>
     
     <item>
       <title>PPDM: parallel point detection and matching for real-time human-object interaction detection</title>

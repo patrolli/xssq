@@ -3,14 +3,21 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-08-03T11:39:33+08:00</lastmod>
+    <lastmod>2021-08-27T11:48:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-08-03T11:39:33+08:00</lastmod>
+    <lastmod>2021-08-27T11:48:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/pytorch_geometric/</loc>
+    <lastmod>2021-08-27T11:48:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
