@@ -137,7 +137,7 @@ out = net(x, edge_index)
 学习 pyg 官方库中对各种 graph layer 的实现
 
 
-### [GraphSAGE]({{<relref "graphsage.md#" >}}) {#graphsage--graphsage-dot-md}
+### [GraphSAGE]({{<relref "graphsage" >}}) {#graphsage--graphsage-dot-md}
 
 
 ## <span class="org-todo todo TODO">TODO</span> 对于 bipartite graph 如何使用 {#对于-bipartite-graph-如何使用}
