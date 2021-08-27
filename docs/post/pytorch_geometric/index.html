@@ -43,11 +43,11 @@
 <meta property="og:description" content="Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/pytorch_geometric/" />
-<meta property="article:published_time" content="2021-08-27T11:48:50+08:00" />
-<meta property="article:modified_time" content="2021-08-27T11:48:50+08:00" />
+<meta property="article:published_time" content="2021-08-27T13:24:53+08:00" />
+<meta property="article:modified_time" content="2021-08-27T13:24:53+08:00" />
 <meta itemprop="name" content="pytorch geometric">
 <meta itemprop="description" content="Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax">
-<meta itemprop="dateModified" content="2021-08-27T11:48:50&#43;08:00" />
+<meta itemprop="dateModified" content="2021-08-27T13:24:53&#43;08:00" />
 <meta itemprop="wordCount" content="973">
 
 
@@ -158,7 +158,7 @@
         <li><a href="#basic-message-passing-network">Basic Message Passing Network</a></li>
         <li><a href="#pyg-官方库中的-graph-convolutional-layer">pyg 官方库中的 Graph convolutional layer</a>
           <ul>
-            <li><a href="#graphsage--graphsage-dot-md"><a href="graphsage.md">GraphSAGE</a></a></li>
+            <li><a href="#graphsage--graphsage-dot-md"><a href="HAHAHUGOSHORTCODE-s0-HBHB">GraphSAGE</a></a></li>
           </ul>
         </li>
         <li><a href="#对于-bipartite-graph-如何使用"><span class="org-todo todo TODO">TODO</span> 对于 bipartite graph 如何使用</a></li>
@@ -370,7 +370,7 @@ pip install torch-geometric
 <p><code>update()</code> 函数的原型是： <code>update(inputs: torch.Tensor) → torch.Tensor</code>, 它接受的第一个参数 <code>inputs</code> 是每个结点聚合后的 message, 其大小为 <code>(N, dim)</code>, N 是结点数目。另外还可以接受传给 <code>propagate()</code> 的任意参数，例如我们这里的 <code>edge_index</code>, <code>lxs</code>.</p>
 <h2 id="pyg-官方库中的-graph-convolutional-layer">pyg 官方库中的 Graph convolutional layer</h2>
 <p>学习 pyg 官方库中对各种 graph layer 的实现</p>
-<h3 id="graphsage--graphsage-dot-md"><a href="graphsage.md">GraphSAGE</a></h3>
+<h3 id="graphsage--graphsage-dot-md"><a href="https://patrolli.github.io/xssq/post/graphsage/">GraphSAGE</a></h3>
 <h2 id="对于-bipartite-graph-如何使用"><span class="org-todo todo TODO">TODO</span> 对于 bipartite graph 如何使用</h2>
 <p>source 结点和 target 结点的参数要不一样
 pyg 中不同 GNN layer 对具有不同属性的图的支持可以在<a href="https://pytorch-geometric.readthedocs.io/en/latest/notes/cheatsheet.html?highlight=bipartite#hypergraph-neural-network-operators">这里看到</a>：
@@ -398,13 +398,9 @@ pyg 中不同 GNN layer 对具有不同属性的图的支持可以在<a href="ht
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="https://patrolli.github.io/xssq/post/graphsage/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">GraphSAGE</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="https://patrolli.github.io/xssq/post/ppdm_parallel_point_detection_and_matching_for_real_time_human_object_interaction_detection/">
-            <span class="next-text nav-default">PPDM: parallel point detection and matching for real-time human-object interaction detection</span>
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/graphsage/">
+            <span class="next-text nav-default">GraphSAGE</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

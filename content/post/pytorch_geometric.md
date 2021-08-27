@@ -1,7 +1,7 @@
 +++
 title = "pytorch geometric"
 author = ["Li Xunsong"]
-lastmod = 2021-08-27T11:48:50+08:00
+lastmod = 2021-08-27T13:24:53+08:00
 draft = false
 +++
 
@@ -137,7 +137,7 @@ out = net(x, edge_index)
 学习 pyg 官方库中对各种 graph layer 的实现
 
 
-### [GraphSAGE](graphsage.md) {#graphsage--graphsage-dot-md}
+### [GraphSAGE]({{<relref "graphsage.md#" >}}) {#graphsage--graphsage-dot-md}
 
 
 ## <span class="org-todo todo TODO">TODO</span> 对于 bipartite graph 如何使用 {#对于-bipartite-graph-如何使用}

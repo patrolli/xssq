@@ -6,10 +6,19 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Aug 2021 11:50:05 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Aug 2021 13:24:53 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pytorch geometric</title>
+      <link>https://patrolli.github.io/xssq/post/pytorch_geometric/</link>
+      <pubDate>Fri, 27 Aug 2021 13:24:53 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/pytorch_geometric/</guid>
+      <description>Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax</description>
+    </item>
     
     <item>
       <title>GraphSAGE</title>
@@ -18,15 +27,6 @@
       
       <guid>https://patrolli.github.io/xssq/post/graphsage/</guid>
       <description>pyg 中的实现 message propagation 的公式： 实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57</description>
-    </item>
-    
-    <item>
-      <title>pytorch geometric</title>
-      <link>https://patrolli.github.io/xssq/post/pytorch_geometric/</link>
-      <pubDate>Fri, 27 Aug 2021 11:48:50 +0800</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/post/pytorch_geometric/</guid>
-      <description>Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax</description>
     </item>
     
     <item>
