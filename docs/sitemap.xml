@@ -2,15 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://patrolli.github.io/xssq/post/emacs_%E5%9C%A8_org_mode_%E4%B8%AD%E8%A1%A5%E5%85%A8%E7%AC%A6%E5%8F%B7/</loc>
+    <lastmod>2021-09-06T22:53:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-08-27T13:39:18+08:00</lastmod>
+    <lastmod>2021-09-06T22:53:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-08-27T13:39:18+08:00</lastmod>
+    <lastmod>2021-09-06T22:53:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
