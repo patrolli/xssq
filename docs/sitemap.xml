@@ -10,14 +10,14 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-09-06T22:53:29+08:00</lastmod>
+    <lastmod>2021-09-06T23:09:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-09-06T22:53:29+08:00</lastmod>
+    <lastmod>2021-09-06T23:09:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,6 +32,13 @@
   <url>
     <loc>https://patrolli.github.io/xssq/post/graphsage/</loc>
     <lastmod>2021-08-27T11:50:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/</loc>
+    <lastmod>2021-09-06T23:09:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
