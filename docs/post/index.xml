@@ -6,10 +6,19 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 13:50:42 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Towards compositional action recognition with spatio-temporal graph neural network</title>
+      <link>https://patrolli.github.io/xssq/post/xie-arxiv-2021-towards/</link>
+      <pubDate>Tue, 07 Sep 2021 13:50:42 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/xie-arxiv-2021-towards/</guid>
+      <description>Motivation 将动作中的每一帧看作一个 scene graph, 通过这个 scene graph 可以得到动作中物体和人之间的交互关系，将这些 intermediate 的关系组合到一起，再去识别动作，这在 Ji-cvpr-2020-action 中被提出。 这篇</description>
+    </item>
     
     <item>
       <title>emacs 在 org-mode 中补全符号</title>
