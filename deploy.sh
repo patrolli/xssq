@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hugo
+hugo --buildFuture
 
 git add .
 git commit -m "updates $(date)"
