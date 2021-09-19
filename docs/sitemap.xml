@@ -3,14 +3,21 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-09-07T13:50:42+08:00</lastmod>
+    <lastmod>2021-09-19T17:34:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-09-07T13:50:42+08:00</lastmod>
+    <lastmod>2021-09-19T17:34:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/python_classmethod_%E5%92%8C_staticmethod/</loc>
+    <lastmod>2021-09-19T17:34:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -39,6 +46,13 @@
   <url>
     <loc>https://patrolli.github.io/xssq/post/graphsage/</loc>
     <lastmod>2021-08-27T11:50:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/beta_binomial%E5%85%B1%E8%BD%AD/</loc>
+    <lastmod>2021-09-07T14:00:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
