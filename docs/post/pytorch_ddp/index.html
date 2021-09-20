@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>pytorch ddp - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/pytorch_ddp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="pytorch ddp" />
+<meta property="og:description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/pytorch_ddp/" />
+<meta property="article:published_time" content="2021-09-20T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-09-20T23:46:18+08:00" />
+<meta itemprop="name" content="pytorch ddp">
+<meta itemprop="description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16">
+<meta itemprop="datePublished" content="2021-09-20T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-09-20T23:46:18&#43;08:00" />
+<meta itemprop="wordCount" content="1196">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="pytorch ddp"/>
+<meta name="twitter:description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">pytorch ddp</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-20 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一些基本术语">一些基本术语</a></li>
+        <li><a href="#有哪些改动">有哪些改动？</a>
+          <ul>
+            <li><a href="#导入">导入</a></li>
+            <li><a href="#ddp-backend-初始化">DDP backend 初始化</a></li>
+            <li><a href="#将模型放到-gpu-上">将模型放到 GPU 上</a></li>
+            <li><a href="#定义模型">定义模型</a></li>
+            <li><a href="#定义数据-loader">定义数据 loader</a></li>
+            <li><a href="#打印">打印</a></li>
+            <li><a href="#调用方式">调用方式</a></li>
+          </ul>
+        </li>
+        <li><a href="#ref">Ref</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="一些基本术语">一些基本术语</h2>
+<p>假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。</p>
+<ul>
+<li>world_size: 全局的并行数，这里就是 16</li>
+<li>rank: 表示当前进程的序号，对于 world_size=16 的情况，就是 0,1,2,&hellip;,15. rank=0 的进程是 master 进程</li>
+<li>local_rank: 在每台机器上的进程序号。机器一上有 0,&hellip;,8, 机器二上也有 0,&hellip;,8.</li>
+</ul>
+<p>CUDA_VISIBLE_DEVICES=4,5 python -m torch.distributed.launch &ndash;nproc_per_node 2  &ndash;master_port=$RANDOM ddp_demo.py</p>
+<h2 id="有哪些改动">有哪些改动？</h2>
+<h3 id="导入">导入</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.distributed</span> <span class="kn">as</span> <span class="nn">dist</span>
+<span class="kn">from</span> <span class="nn">torch.nn.parallel</span> <span class="kn">import</span> <span class="n">DistributedDataParallel</span> <span class="k">as</span> <span class="n">DDP</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ddp-backend-初始化">DDP backend 初始化</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="n">local_rank</span><span class="p">)</span>  <span class="c1"># 指定使用哪块 GPU</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">init_process_group</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;nccl&#39;</span><span class="p">)</span>  <span class="c1"># 默认</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="将模型放到-gpu-上">将模型放到 GPU 上</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="定义模型">定义模型</h3>
+<p><code>model = DDP(model, device_ids=[local_rank], output_device=local_rank)</code></p>
+<p><code>local_rank</code> 需要我们手动传入，每份程序都应该接收 <code>local_rank</code> 的命令行参数，因此需要将 <code>local_rank</code> 作为 argparse 中的一个参数，保证在启动程序的时候能够接收这个参数。然后将模型包装一下就可以了。</p>
+<h3 id="定义数据-loader">定义数据 loader</h3>
+<p>在 <code>Dataparallel</code> 中，只有一个进程，所以是先切分好数据，然后分配到每张卡上。但在 <code>DDP</code> 中，每个进程会复制一份代码执行，也就是每个进程都会用同一份数据。如果一个 epoch 有一万个数据，那么过一遍 epoch 实际上过了 16 万个数据。因此需要单独设计 <code>sampler</code>, 来保证各个进程的数据不相同，并且保证一个 epoch 还是一万个数据。<code>DDP</code> 中提供了这样一个 <code>sampler</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">my_trainset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># 新增1：使用DistributedSampler，DDP帮我们把细节都封装起来了。用，就完事儿！</span>
+<span class="n">train_sampler</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">distributed</span><span class="o">.</span><span class="n">DistributedSampler</span><span class="p">(</span><span class="n">my_trainset</span><span class="p">)</span>
+<span class="c1"># 需要注意的是，这里的batch_size指的是每个进程下的batch_size。也就是说，总batch_size是这里的batch_size再乘以并行数(world_size)。</span>
+<span class="n">trainloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">my_trainset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">train_sampler</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="c1"># 新增2：设置sampler的epoch，DistributedSampler需要这个来维持各个进程之间的相同随机数种子</span>
+    <span class="n">trainloader</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">set_epoch</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+    <span class="c1"># 后面这部分，则与原来完全一致了。</span>
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">trainloader</span><span class="p">:</span>
+	<span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+	<span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+	<span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+	<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">ddp_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+	<span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>两个注意点：1. batch_size 的大小。总的 batch size 是进程数*每个进程的 batch size. 2. 每个 epoch 需要调用 <code>.sampler.set_epoch()</code></p>
+<h3 id="打印">打印</h3>
+<p><code>DDP</code> 在梯度反传的时候和单卡的梯度反传是一样的，直接在代码里面 <code>loss.backward()</code> 就可以了。但在打印的时候，我们可能需要汇总一下所有进程的 loss, 不然打印的是在每个进程上算出来的 loss. 另外，可以把 io 这些事情都交给 master 进程，因此，在执行打印等 io 操作时，可以先判断进程的 rank, 然后执行操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">reduce_mean</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">nprocs</span><span class="p">):</span>
+    <span class="n">rt</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+    <span class="n">dist</span><span class="o">.</span><span class="n">all_reduce</span><span class="p">(</span><span class="n">rt</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">ReduceOp</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
+    <span class="n">rt</span> <span class="o">/=</span> <span class="n">nprocs</span>
+    <span class="k">return</span> <span class="n">rt</span>
+
+<span class="c1"># 这个 reduced_loss 只用来计数，不会 backward</span>
+<span class="n">reduced_loss</span> <span class="o">=</span> <span class="n">reduce_mean</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">nprocs</span><span class="p">)</span>
+<span class="n">losses</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">reduced_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">global_img_tensors</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="c1"># 保存模型的时候，也可以只在 master 进程进行</span>
+<span class="k">if</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">module</span><span class="p">,</span> <span class="s2">&#34;saved_model.ckpt&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="调用方式">调用方式</h3>
+<ul>
+<li>使用 <code>torch.distributed.launch</code> 来启动训练</li>
+<li>一些参数：
+<ul>
+<li>nnodes: 有多少台机器</li>
+<li>node_rank: 当前是哪台机器</li>
+<li>nproc_per_node: 每台机器上多少的进程</li>
+</ul>
+</li>
+</ul>
+<p><code>torch.distirbuted.launch</code> 会启动 n 个进程，并且给每个进程一个 <code>--local_rank=i</code> 的参数。</p>
+<h4 id="单机多卡的启动">单机多卡的启动</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 假设我们只用4,5,6,7号卡</span>
+<span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">&#34;4,5,6,7&#34;</span> python -m torch.distributed.launch --nproc_per_node <span class="m">4</span> main.py
+<span class="c1"># 假如我们还有另外一个实验要跑，也就是同时跑两个不同实验。</span>
+<span class="c1">#    这时，为避免master_port冲突，我们需要指定一个新的。这里我随便敲了一个。</span>
+<span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">&#34;4,5,6,7&#34;</span> python -m torch.distributed.launch --nproc_per_node <span class="m">4</span> <span class="se">\
+</span><span class="se"></span>    --master_port <span class="m">53453</span> main.py
+</code></pre></td></tr></table>
+</div>
+</div><p>Note: 如果要在一台机器上跑多个实验，这里的 <code>master_port</code> 参数需要单独指定，不然端口会冲突。一个方式是在这里设置一个随机数，每次实验就随机指定一个端口。</p>
+<h2 id="ref">Ref</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/178402798">[原创][深度][PyTorch] DDP系列第一篇：入门教程 - 知乎</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-09-20
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/python_classmethod_%E5%92%8C_staticmethod/">
+            <span class="next-text nav-default">python classmethod 和 staticmethod</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

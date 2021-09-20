@@ -6,10 +6,19 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Sep 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pytorch ddp</title>
+      <link>https://patrolli.github.io/xssq/post/pytorch_ddp/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/pytorch_ddp/</guid>
+      <description>一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16</description>
+    </item>
     
     <item>
       <title>python classmethod 和 staticmethod</title>
