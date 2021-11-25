@@ -17,7 +17,7 @@
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/awesome_action_recognition/</guid>
-      <description>Egocentric Interactive Prototype Learning for Egocentric Action Recognition Wang-iccv-2021-interactive Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与</description>
+      <description>Egocentric Interactive Prototype Learning for Egocentric Action Recognition Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与动</description>
     </item>
     
     <item>
