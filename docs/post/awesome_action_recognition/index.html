@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>awesome action recognition - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Egocentric Interactive Prototype Learning for Egocentric Action Recognition Wang-iccv-2021-interactive Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/awesome_action_recognition/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="awesome action recognition" />
+<meta property="og:description" content="Egocentric Interactive Prototype Learning for Egocentric Action Recognition Wang-iccv-2021-interactive Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/awesome_action_recognition/" />
+<meta property="article:published_time" content="2021-10-18T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-11-25T15:15:20+08:00" />
+<meta itemprop="name" content="awesome action recognition">
+<meta itemprop="description" content="Egocentric Interactive Prototype Learning for Egocentric Action Recognition Wang-iccv-2021-interactive Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与">
+<meta itemprop="datePublished" content="2021-10-18T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-11-25T15:15:20&#43;08:00" />
+<meta itemprop="wordCount" content="583">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="awesome action recognition"/>
+<meta name="twitter:description" content="Egocentric Interactive Prototype Learning for Egocentric Action Recognition Wang-iccv-2021-interactive Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">awesome action recognition</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-10-18 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#egocentric">Egocentric</a>
+          <ul>
+            <li><a href="#interactive-prototype-learning-for-egocentric-action-recognition">Interactive Prototype Learning for Egocentric Action Recognition <sup id="7156c407d19ca4cb40f050896110163c"><a href="#Wang-iccv-2021-interactive" title="Wang, Zhu, Wang \&amp; Yang, Interactive Prototype Learning for Egocentric Action Recognition, 8168-8177, in in: {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, edited by (2021)">Wang-iccv-2021-interactive</a></sup></a></li>
+          </ul>
+        </li>
+        <li><a href="#self-supervised">Self-supervised</a>
+          <ul>
+            <li><a href="#motion-augmented-self-training-for-video-recognition-at-smaller-scale">Motion-Augmented Self-Training for Video Recognition at Smaller Scale <sup id="648ab569badf98ef96215cb8669e62af"><a href="#Gavrilyuk-iccv-2021-motion" title="Gavrilyuk, Jain, Karmanov \&amp; Snoek, Motion-Augmented Self-Training for Video Recognition at Smaller Scale, 10429-10438, in in: {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, edited by (2021)">Gavrilyuk-iccv-2021-motion</a></sup></a></li>
+          </ul>
+        </li>
+        <li><a href="#zero-shot">Zero-shot</a>
+          <ul>
+            <li><a href="#rethinking-zero-shot-video-classification-end-to-end-training-for-realistic-applications-sup-id6e5658d65ba0025cc64b470dbe76261ea-hrefbrattoli-cvpr-2020-rethinking-titlebiagio-brattoli-joseph-tighe-fedor-zhdanov--pietro-perona-amp-krzysztof-chalupka-rethinking-zero-shot-video-classification--end-to-end-training-for-realistic-applications-4612-4622-in-in-2020-ieeecvf-conference-on-computer-vision-and">Rethinking Zero-Shot Video Classification: End-to-End Training for Realistic Applications <sup id="6e5658d65ba0025cc64b470dbe76261e">&lt;a href=&rdquo;#Brattoli-cvpr-2020-rethinking&rdquo; title=&quot;Biagio Brattoli, Joseph Tighe, Fedor Zhdanov, , Pietro Perona &amp;amp; Krzysztof Chalupka, Rethinking Zero-Shot Video Classification:  End-to-End Training for Realistic Applications, 4612-4622, in in: {2020 {IEEE/CVF} Conference on Computer Vision and</a></li>
+            <li><a href="#reformulating-zero-shot-action-recognition-for-multi-label-actions">Reformulating Zero-shot Action Recognition for Multi-label Actions <sup id="53b9ec4c67e78f69a329c0513909a036"><a href="#Kerrigan-nips-2021-reformulating" title="Kerrigan, Duarte, Rawat \&amp; Shah, Reformulating Zero-shot Action Recognition for Multi-label Actions, in in: {Thirty-Fifth Conference on Neural Information Processing Systems}, edited by (2021)">Kerrigan-nips-2021-reformulating</a></sup></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="egocentric">Egocentric</h2>
+<h3 id="interactive-prototype-learning-for-egocentric-action-recognition">Interactive Prototype Learning for Egocentric Action Recognition <sup id="7156c407d19ca4cb40f050896110163c"><a href="#Wang-iccv-2021-interactive" title="Wang, Zhu, Wang \&amp; Yang, Interactive Prototype Learning for Egocentric Action Recognition, 8168-8177, in in: {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, edited by (2021)">Wang-iccv-2021-interactive</a></sup></h3>
+<p>Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与动作相关的 noun feature, 抑制无关的 noun feature.</p>
+<p>思想是利用 verb 去得到 action-centric object feature, 提高对物体的分类准确率，进而提高对 action 的识别。</p>
+<p><img src="https://patrolli.github.io/xssq/img/capture_2021_10_18_20_24_37.png" alt="">
+<img src="C:%5CUsers%5Clixun%5CDocuments%5Corg%5Cstatic%5Cimg%5Ccapture_2021_10_18_20_24_37.png" alt=""></p>
+<h2 id="self-supervised">Self-supervised</h2>
+<h3 id="motion-augmented-self-training-for-video-recognition-at-smaller-scale">Motion-Augmented Self-Training for Video Recognition at Smaller Scale <sup id="648ab569badf98ef96215cb8669e62af"><a href="#Gavrilyuk-iccv-2021-motion" title="Gavrilyuk, Jain, Karmanov \&amp; Snoek, Motion-Augmented Self-Training for Video Recognition at Smaller Scale, 10429-10438, in in: {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}, edited by (2021)">Gavrilyuk-iccv-2021-motion</a></sup></h3>
+<p>从小规模的视频数据集，例如 HMDB51, UCF101 上面得到提取光流作为 motion 信息，然后训练一个以光流为输入的 model, 用这个训好的 motion model, 在更大的 source dataset (Kinetics) 上面通过聚类的方式得到视频的伪标签，然后去训练以 RGB 为输入的 model. 这一步的训练就不需要 source dataset 的监督信息。最后把这个训练好的 RGB model 用到下游的任务 (target dataset).</p>
+<p><img src="https://patrolli.github.io/xssq/img/capture_2021_10_25_19_51_46.png" alt="">
+<img src="C:%5CUsers%5Clixun%5CDocuments%5Corg%5Cstatic%5Cimg%5Ccapture_2021_10_25_19_51_46.png" alt=""></p>
+<h2 id="zero-shot">Zero-shot</h2>
+<p>数据集和结果：</p>
+<ol>
+<li>UCF-101
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Top-1</th>
+<th>Top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PS-ZSAR <sup id="53b9ec4c67e78f69a329c0513909a036"><a href="#Kerrigan-nips-2021-reformulating" title="Kerrigan, Duarte, Rawat \&amp; Shah, Reformulating Zero-shot Action Recognition for Multi-label Actions, in in: {Thirty-Fifth Conference on Neural Information Processing Systems}, edited by (2021)">Kerrigan-nips-2021-reformulating</a></sup></td>
+<td>40.1</td>
+<td>66.3</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>HMDB
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Top-1</th>
+<th>Top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PS-ZSAR <sup id="53b9ec4c67e78f69a329c0513909a036"><a href="#Kerrigan-nips-2021-reformulating" title="Kerrigan, Duarte, Rawat \&amp; Shah, Reformulating Zero-shot Action Recognition for Multi-label Actions, in in: {Thirty-Fifth Conference on Neural Information Processing Systems}, edited by (2021)">Kerrigan-nips-2021-reformulating</a></sup></td>
+<td>27.3</td>
+<td>55.7</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>RareAct
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Top-1</th>
+<th>Top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PS-ZSAR <sup id="53b9ec4c67e78f69a329c0513909a036"><a href="#Kerrigan-nips-2021-reformulating" title="Kerrigan, Duarte, Rawat \&amp; Shah, Reformulating Zero-shot Action Recognition for Multi-label Actions, in in: {Thirty-Fifth Conference on Neural Information Processing Systems}, edited by (2021)">Kerrigan-nips-2021-reformulating</a></sup></td>
+<td>11.5</td>
+<td>32.8</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="rethinking-zero-shot-video-classification-end-to-end-training-for-realistic-applications-sup-id6e5658d65ba0025cc64b470dbe76261ea-hrefbrattoli-cvpr-2020-rethinking-titlebiagio-brattoli-joseph-tighe-fedor-zhdanov--pietro-perona-amp-krzysztof-chalupka-rethinking-zero-shot-video-classification--end-to-end-training-for-realistic-applications-4612-4622-in-in-2020-ieeecvf-conference-on-computer-vision-and">Rethinking Zero-Shot Video Classification: End-to-End Training for Realistic Applications <sup id="6e5658d65ba0025cc64b470dbe76261e">&lt;a href=&rdquo;#Brattoli-cvpr-2020-rethinking&rdquo; title=&quot;Biagio Brattoli, Joseph Tighe, Fedor Zhdanov, , Pietro Perona &amp;amp; Krzysztof Chalupka, Rethinking Zero-Shot Video Classification:  End-to-End Training for Realistic Applications, 4612-4622, in in: {2020 {IEEE/CVF} Conference on Computer Vision and</h3>
+<pre><code>              Pattern Recognition, {CVPR} 2020, Seattle, WA, USA,
+              June 13-19, 2020}, edited by (2020)&quot;&gt;Brattoli-cvpr-2020-rethinking&lt;/a&gt;&lt;/sup&gt; {#rethinking-zero-shot-video-classification-end-to-end-training-for-realistic-applications-sup-id-6e5658d65ba0025cc64b470dbe76261e-sup}
+</code></pre>
+<p>主要贡献: 1. 在 ZSAR 中首次提出 end-to-end 的模型，把 3D-CNN 也拿来训练，而之前的方法都是固定它 2. 标准化了 ZSAR 的评估 setting. 更现实的场景是，在 kinetic 上面训练模型，然后在其他数据集 (HMDB, UCF) 上面测试，并且将有 overlap 的类别从训练集中剔出掉。</p>
+<h3 id="reformulating-zero-shot-action-recognition-for-multi-label-actions">Reformulating Zero-shot Action Recognition for Multi-label Actions <sup id="53b9ec4c67e78f69a329c0513909a036"><a href="#Kerrigan-nips-2021-reformulating" title="Kerrigan, Duarte, Rawat \&amp; Shah, Reformulating Zero-shot Action Recognition for Multi-label Actions, in in: {Thirty-Fifth Conference on Neural Information Processing Systems}, edited by (2021)">Kerrigan-nips-2021-reformulating</a></sup></h3>
+<p>在 zero-shot 的时候，能够预测一个 video 的多个 action 标签。两个创新点，1. 将分类的函数从找与 video 最近邻的 label word embedding 换成学习一个 score function, 将 video 和每个 label word embedding 送到 function 中进行打分；2. 不固定 text embedding, 在学习的时候 refine 标签的语义嵌入。</p>
+<p>这篇主要是 follow <sup id="6e5658d65ba0025cc64b470dbe76261e"><a href="#Brattoli-cvpr-2020-rethinking" title="Biagio Brattoli, Joseph Tighe, Fedor Zhdanov, , Pietro Perona \&amp; Krzysztof Chalupka, Rethinking Zero-Shot Video Classification:  End-to-End Training for Realistic Applications, 4612-4622, in in: {2020 {IEEE/CVF} Conference on Computer Vision and
+Pattern Recognition, {CVPR} 2020, Seattle, WA, USA,
+June 13-19, 2020}, edited by (2020)">Brattoli-cvpr-2020-rethinking</a></sup>, 改进的地方似乎就是把 text embedding 这里也变成了一个可学习的，而不是固定住。就这也能发 nips&hellip;</p>
+<p>网络：</p>
+<p><img src="https://patrolli.github.io/xssq/img/capture_2021_11_23_14_00_19.png" alt="">
+<img src="C:%5CUsers%5Clixun%5CDocuments%5Corg%5Cstatic%5Cimg%5Ccapture_2021_11_23_14_00_19.png" alt=""></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-11-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/pytorch_ddp/">
+            <span class="next-text nav-default">pytorch ddp</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
