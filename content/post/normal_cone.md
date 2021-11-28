@@ -2,7 +2,7 @@
 title = "cones"
 author = ["Li Xunsong"]
 date = 2021-11-28
-lastmod = 2021-11-28T12:03:19+08:00
+lastmod = 2021-11-28T12:07:01+08:00
 draft = false
 +++
 
@@ -19,10 +19,12 @@ draft = false
 ## Polar cone {#polar-cone}
 
 定义:
-![](/img/capture_2021_11_28_11_37_16.png)
+
+{{< figure src="/img/capture_2021_11_28_11_37_16.png" >}}
 
 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。
-![](/img/capture_2021_11_28_11_37_36.png)
+
+{{< figure src="/img/capture_2021_11_28_11_37_36.png" >}}
 
 
 ## Tanget cone {#tanget-cone}
