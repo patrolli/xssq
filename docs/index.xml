@@ -6,10 +6,19 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Nov 2021 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cones</title>
+      <link>https://patrolli.github.io/xssq/post/normal_cone/</link>
+      <pubDate>Sun, 28 Nov 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/normal_cone/</guid>
+      <description>Cone 锥 Convex cone 凸锥 Polar cone 定义: 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。 Tanget cone 对于给出的集合，</description>
+    </item>
     
     <item>
       <title>awesome action recognition</title>

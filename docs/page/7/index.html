@@ -122,95 +122,19 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/">Detecting Unseen Visual Relations Using Analogies</a></h1>
+    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/">Detecting human-object interactions via functional generalization</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-05-19 </span>
+      <span class="post-time"> 0001-01-01 </span>
       
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Motivation 直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training. 之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题
+      Motivation HOI 任务中，所有可能的 HOI 会随着 object 和 predicates 的数目增长而指数性地增长，但数据集中的训练样本并不能提供全部可能的 HOI, 这导致 HOI label 会有长尾分布的问题。 功能相
     </div>
     <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/">Learning to detect human-object interactions with knowledge</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-05-18 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Motivation 关注 HoI 的长尾分布问题 Motivation: HOIs contains intrinsic semantic regularities -&gt; Modeling the underlying regularities among verbs and objects. Method 整体的框架： Knowledge graph 的构建：结点就是 HOI labels 中 verb 和 object 的词语，特征是 Glove 中得到的 semantic embedding. 结点的连接根据
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/">emacs counsel-find-file 快速输入目标路径</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-05-10 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/pandoc/">pandoc</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-05-06 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： 1 pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/pandoc/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/">orgmode capture for project</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-04-27 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/" class="read-more-link">Read more...</a>
+      <a href="https://patrolli.github.io/xssq/post/bansal-aaai-2020-detecting/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -218,14 +142,11 @@
     </section>
   
   <nav class="pagination">
-    <a class="prev" href="https://patrolli.github.io/xssq/page/3/">
+    <a class="prev" href="https://patrolli.github.io/xssq/page/6/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text">Prev</span>
       </a>
-    <a class="next" href="https://patrolli.github.io/xssq/page/5/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
+    
   </nav>
         </div>
         

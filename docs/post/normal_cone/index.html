@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>cones - patrolli</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Li Xunsong" /><meta name="description" content="Cone 锥 Convex cone 凸锥 Polar cone 定义: 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。 Tanget cone 对于给出的集合，" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://patrolli.github.io/xssq/post/normal_cone/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://patrolli.github.io/xssq/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://patrolli.github.io/xssq/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://patrolli.github.io/xssq/favicon-16x16.png">
+<link rel="manifest" href="https://patrolli.github.io/xssq/manifest.json">
+<link rel="mask-icon" href="https://patrolli.github.io/xssq/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="cones" />
+<meta property="og:description" content="Cone 锥 Convex cone 凸锥 Polar cone 定义: 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。 Tanget cone 对于给出的集合，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/normal_cone/" />
+<meta property="article:published_time" content="2021-11-28T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-11-28T12:03:19+08:00" />
+<meta itemprop="name" content="cones">
+<meta itemprop="description" content="Cone 锥 Convex cone 凸锥 Polar cone 定义: 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。 Tanget cone 对于给出的集合，">
+<meta itemprop="datePublished" content="2021-11-28T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-11-28T12:03:19&#43;08:00" />
+<meta itemprop="wordCount" content="251">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="cones"/>
+<meta name="twitter:description" content="Cone 锥 Convex cone 凸锥 Polar cone 定义: 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。 Tanget cone 对于给出的集合，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://patrolli.github.io/xssq/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="https://patrolli.github.io/xssq/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="https://patrolli.github.io/xssq/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="https://patrolli.github.io/xssq/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://patrolli.github.io/xssq/" class="logo">isq</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://patrolli.github.io/xssq/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">cones</h1>
+      
+    
+    
+    <span class="author">&mdash;
+        
+            Li Xunsong
+        
+    </span>
+
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-28 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cone-锥">Cone 锥</a></li>
+        <li><a href="#convex-cone-凸锥">Convex cone 凸锥</a></li>
+        <li><a href="#polar-cone">Polar cone</a></li>
+        <li><a href="#tanget-cone">Tanget cone</a></li>
+        <li><a href="#normal-cone">Normal cone</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="cone-锥">Cone 锥</h2>
+<figure>
+    <img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_11_32_42.png"/> 
+</figure>
+
+<h2 id="convex-cone-凸锥">Convex cone 凸锥</h2>
+<figure>
+    <img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_11_33_02.png"/> 
+</figure>
+
+<h2 id="polar-cone">Polar cone</h2>
+<p>定义:
+<img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_11_37_16.png" alt=""></p>
+<p>从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。
+<img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_11_37_36.png" alt=""></p>
+<h2 id="tanget-cone">Tanget cone</h2>
+<figure>
+    <img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_11_45_40.png"/> 
+</figure>
+
+<p>对于给出的集合，Tanget cone 定义为:</p>
+<ol>
+<li>如果点在集合内部，那么它的 Tanget cone 是任意的 (整个空间)</li>
+<li>如果点在集合的包络面上，那么 Tanget cone 是半平面</li>
+<li>如果是在 x3 那个点，那么 Tanget cone 是集合的边界</li>
+</ol>
+<p>问题：</p>
+<ul>
+<li>给出的这个集合要是一个 cone 吗？</li>
+<li>Tanget cone 也是一个 cone? 如何验证它满足 cone 的定义呢？</li>
+</ul>
+<h2 id="normal-cone">Normal cone</h2>
+<figure>
+    <img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_11_51_23.png"/> 
+</figure>
+
+<ul>
+<li>Normal cone 是 Tanget cone 的 <a href="#polar-cone">polar cone</a>.</li>
+<li>如果点在内部，那么为 0</li>
+<li>如果在包络面上，那么就是垂直切线的方向</li>
+<li>如果在 x3 这个点上，就是图中红线画的区域</li>
+</ul>
+<p>一个更加正式的定义：
+<img src="https://patrolli.github.io/xssq/img/capture_2021_11_28_12_01_12.png" alt=""></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Li Xunsong</span>
+
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-11-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="https://patrolli.github.io/xssq/post/awesome_action_recognition/">
+            <span class="next-text nav-default">awesome action recognition</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/patrolli" class="iconfont icon-github" title="github"></a>
+  <a href="https://patrolli.github.io/xssq/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
