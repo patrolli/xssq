@@ -6,10 +6,19 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Nov 2021 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Nov 2021 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>emacs 的文献管理</title>
+      <link>https://patrolli.github.io/xssq/post/emacs_%E7%9A%84%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/emacs_%E7%9A%84%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</guid>
+      <description>搜集 bib 在 emacs 中，可以通过 dblp-lookup 输入论文标题名来得到 bibtex 信息，然后手动复制粘贴到自己的 .bib 文件中。如果查询不到，就直接从 Google scholar, arxiv 上面复制 bibtex 信息。 可以用 bu-make-field-keywords 对</description>
+    </item>
     
     <item>
       <title>cones</title>
