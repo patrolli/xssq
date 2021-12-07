@@ -6,11 +6,7 @@
     <description>Recent content in PaperReading on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Apr 2021 19:46:57 +0800</lastBuildDate>
-    
-	<atom:link href="https://patrolli.github.io/xssq/tags/paperreading/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 09 Apr 2021 19:46:57 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/paperreading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decaug: augmenting HOI detection via decomposition</title>
       <link>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</link>

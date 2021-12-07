@@ -6,15 +6,11 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Nov 2021 00:00:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 29 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>emacs 的文献管理</title>
       <link>https://patrolli.github.io/xssq/post/emacs_%E7%9A%84%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Mon, 29 Nov 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/emacs_%E7%9A%84%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</guid>
       <description>搜集 bib 在 emacs 中，可以通过 dblp-lookup 输入论文标题名来得到 bibtex 信息，然后手动复制粘贴到自己的 .bib 文件中。如果查询不到，就直接从 Google scholar, arxiv 上面复制 bibtex 信息。 可以用 bu-make-field-keywords 对</description>
@@ -23,7 +19,7 @@
     <item>
       <title>cones</title>
       <link>https://patrolli.github.io/xssq/post/normal_cone/</link>
-      <pubDate>Sun, 28 Nov 2021 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 28 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/normal_cone/</guid>
       <description>Cone 锥 Convex cone 凸锥 Polar cone 定义: 从下面这个图可以看到，polar cone 类似于对集合 C 取反了 (这里需要 C 满足什么性质吗？如 convex set?)。 Tanget cone 对于给出的集合，</description>
@@ -32,7 +28,7 @@
     <item>
       <title>awesome action recognition</title>
       <link>https://patrolli.github.io/xssq/post/awesome_action_recognition/</link>
-      <pubDate>Mon, 18 Oct 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/awesome_action_recognition/</guid>
       <description>Egocentric Interactive Prototype Learning for Egocentric Action Recognition Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与动</description>
@@ -41,7 +37,7 @@
     <item>
       <title>pytorch ddp</title>
       <link>https://patrolli.github.io/xssq/post/pytorch_ddp/</link>
-      <pubDate>Mon, 20 Sep 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/pytorch_ddp/</guid>
       <description>一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16</description>
@@ -50,7 +46,7 @@
     <item>
       <title>python classmethod 和 staticmethod</title>
       <link>https://patrolli.github.io/xssq/post/python_classmethod_%E5%92%8C_staticmethod/</link>
-      <pubDate>Sun, 19 Sep 2021 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/python_classmethod_%E5%92%8C_staticmethod/</guid>
       <description>Intro 在 stackoverflow 上看到讲解 staticmethod 和 classmethod 之间区别的回答，翻译整理一下。 对于 classmethod 修饰的函数，必须接收一个 class object 作为第一个参数，而 staticmethod 可以不带参数。用一个具体的例子说明</description>
@@ -68,7 +64,7 @@
     <item>
       <title>emacs 在 org-mode 中补全符号</title>
       <link>https://patrolli.github.io/xssq/post/emacs_%E5%9C%A8_org_mode_%E4%B8%AD%E8%A1%A5%E5%85%A8%E7%AC%A6%E5%8F%B7/</link>
-      <pubDate>Mon, 06 Sep 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/emacs_%E5%9C%A8_org_mode_%E4%B8%AD%E8%A1%A5%E5%85%A8%E7%AC%A6%E5%8F%B7/</guid>
       <description>Intro 在 abo-abo 的博客里翻倒一篇博文，将 completion-at-point 用到 org-mode 中，来补全引用内容 (即被 == 包围的内容). 这样，如果这个 symbol 在文档里面会重复多次，就不必每次都完整地输入 symbol,</description>
@@ -95,7 +91,7 @@
     <item>
       <title>Beta-Binomial共轭</title>
       <link>https://patrolli.github.io/xssq/post/beta_binomial%E5%85%B1%E8%BD%AD/</link>
-      <pubDate>Mon, 23 Aug 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/beta_binomial%E5%85%B1%E8%BD%AD/</guid>
       <description>问题背景 推导： 这个问题的物理含义是什么？ 似乎可以对应贝叶斯推断： 形式</description>
@@ -104,7 +100,7 @@
     <item>
       <title>Evidential deep learning for open set action recognition</title>
       <link>https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/</link>
-      <pubDate>Thu, 19 Aug 2021 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/</guid>
       <description>Motivation open-set action recognition 的挑战是什么？ static bias 带来的影响，将具有相同 static bias, 但不同 dynamic 的 unknown class 看作了 known class 去预测。 Method 为什么用狄利克雷分布来描述？ 主要内容： 使用 EDL 的 objective function, 学习</description>
@@ -113,7 +109,7 @@
     <item>
       <title>PPDM: parallel point detection and matching for real-time human-object interaction detection</title>
       <link>https://patrolli.github.io/xssq/post/ppdm_parallel_point_detection_and_matching_for_real_time_human_object_interaction_detection/</link>
-      <pubDate>Mon, 02 Aug 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ppdm_parallel_point_detection_and_matching_for_real_time_human_object_interaction_detection/</guid>
       <description>Motivation Method 总体框图 Point-dection 预测三种 box: human,object,intertion box. 每个 box 预测他们的中心点、size 以及偏移。对于中心点的预测，转换成 key-point estimation 的做法，将每个 ground truth 点转换成一个 heatmap, 然后预测的</description>
@@ -122,7 +118,7 @@
     <item>
       <title>End-to-end object detection with transformers</title>
       <link>https://patrolli.github.io/xssq/post/carion-eccv-2020-end/</link>
-      <pubDate>Thu, 15 Jul 2021 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/carion-eccv-2020-end/</guid>
       <description>Motivation 首篇将 transformer 用在 detection 任务上的工作 使用 transformer 来做 detection 任务，有什么优势的地方？ Method 总体架构是一个 encoder-decoder, 并且和之前的检测方法不同，DETR 可以直接输出对所有检测框</description>
@@ -131,7 +127,7 @@
     <item>
       <title>Adaptive interaction modeling via graph operations search</title>
       <link>https://patrolli.github.io/xssq/post/li-cvpr-2020-adaptive/</link>
-      <pubDate>Fri, 09 Jul 2021 00:00:00 +0800</pubDate>
+      <pubDate>Fri, 09 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/li-cvpr-2020-adaptive/</guid>
       <description>Motivation 之前建模 action 中的 interaction 的工作都是设计了 fix 的 structure 来建模这些 interaction, 但视频中的 interction 具有不同的复杂性和特性，有些是场景的变化相关，有些是物体之间的复杂交互，所以</description>
@@ -140,7 +136,7 @@
     <item>
       <title>Bipartite graph network with adaptive message passing for unbiased scene graph generation</title>
       <link>https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/</link>
-      <pubDate>Sun, 04 Jul 2021 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 04 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/li-cvpr-2021-bipartite/</guid>
       <description>Motivation Method Comment Ref </description>
@@ -149,7 +145,7 @@
     <item>
       <title>Representing videos as discriminative sub-graphs for action recognition</title>
       <link>https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/</link>
-      <pubDate>Thu, 01 Jul 2021 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/li-cvpr-2021-representing/</guid>
       <description>Motivation 首先，视频中出现的不同 object 和 subject 可以看成是图的关系，对于不同的 action category, 图的结点数目可能是不一致的，因为一个视频的动作，有一些物体可能是和动作无关的</description>
@@ -158,7 +154,7 @@
     <item>
       <title>Detecting Unseen Visual Relations Using Analogies</title>
       <link>https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/</link>
-      <pubDate>Wed, 19 May 2021 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/</guid>
       <description>Motivation 直言要解决 HOI 中的组合问题：individual entities are available but their combinations are unseen at training. 之前的一些方法是单独检测 entity 和 predicate, 然后再把结果组合起来。但这样单独检测的问题</description>
@@ -167,7 +163,7 @@
     <item>
       <title>Learning to detect human-object interactions with knowledge</title>
       <link>https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/</link>
-      <pubDate>Tue, 18 May 2021 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/xu-cvpr-2019-learning/</guid>
       <description>Motivation 关注 HoI 的长尾分布问题 Motivation: HOIs contains intrinsic semantic regularities -&amp;gt; Modeling the underlying regularities among verbs and objects. Method 整体的框架： Knowledge graph 的构建：结点就是 HOI labels 中 verb 和 object 的词语，特征是 Glove 中得到的 semantic embedding. 结点的连接根据</description>
@@ -176,7 +172,7 @@
     <item>
       <title>emacs counsel-find-file 快速输入目标路径</title>
       <link>https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/</link>
-      <pubDate>Mon, 10 May 2021 00:00:00 +0800</pubDate>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/</guid>
       <description>Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是</description>
@@ -194,7 +190,7 @@
     <item>
       <title>orgmode capture for project</title>
       <link>https://patrolli.github.io/xssq/post/orgmode_capture_for_project/</link>
-      <pubDate>Tue, 27 Apr 2021 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/orgmode_capture_for_project/</guid>
       <description>Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加</description>
@@ -242,7 +238,7 @@
       <pubDate>Fri, 09 Apr 2021 19:46:58 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</guid>
-      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;ldquo;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
+      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
     </item>
     
     <item>
@@ -275,7 +271,7 @@
     <item>
       <title>配置 emacs-rime</title>
       <link>https://patrolli.github.io/xssq/post/2021-02-17-18-48/</link>
-      <pubDate>Wed, 17 Feb 2021 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/2021-02-17-18-48/</guid>
       <description>配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接</description>

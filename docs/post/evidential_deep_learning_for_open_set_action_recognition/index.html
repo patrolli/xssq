@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Evidential deep learning for open set action recognition" />
 <meta property="og:description" content="Motivation open-set action recognition 的挑战是什么？ static bias 带来的影响，将具有相同 static bias, 但不同 dynamic 的 unknown class 看作了 known class 去预测。 Method 为什么用狄利克雷分布来描述？ 主要内容： 使用 EDL 的 objective function, 学习" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/" />
-<meta property="article:published_time" content="2021-08-19T00:00:00+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-19T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-09-06T23:09:40+08:00" />
+
 <meta itemprop="name" content="Evidential deep learning for open set action recognition">
-<meta itemprop="description" content="Motivation open-set action recognition 的挑战是什么？ static bias 带来的影响，将具有相同 static bias, 但不同 dynamic 的 unknown class 看作了 known class 去预测。 Method 为什么用狄利克雷分布来描述？ 主要内容： 使用 EDL 的 objective function, 学习">
-<meta itemprop="datePublished" content="2021-08-19T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-09-06T23:09:40&#43;08:00" />
+<meta itemprop="description" content="Motivation open-set action recognition 的挑战是什么？ static bias 带来的影响，将具有相同 static bias, 但不同 dynamic 的 unknown class 看作了 known class 去预测。 Method 为什么用狄利克雷分布来描述？ 主要内容： 使用 EDL 的 objective function, 学习"><meta itemprop="datePublished" content="2021-08-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-06T23:09:40+08:00" />
 <meta itemprop="wordCount" content="546">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Evidential deep learning for open set action recognition"/>
 <meta name="twitter:description" content="Motivation open-set action recognition 的挑战是什么？ static bias 带来的影响，将具有相同 static bias, 但不同 dynamic 的 unknown class 看作了 known class 去预测。 Method 为什么用狄利克雷分布来描述？ 主要内容： 使用 EDL 的 objective function, 学习"/>
@@ -189,8 +186,7 @@
 <li>
 <p>Contrastive evidence debiasing
 同样是为了消除 static bias, 引入了对比学习的方法</p>
-<figure>
-    <img src="https://patrolli.github.io/xssq/img/capture_2021_08_26_16_46_19.png"/> 
+<figure><img src="https://patrolli.github.io/xssq/img/capture_2021_08_26_16_46_19.png"/>
 </figure>
 
 <p>中间支路是用 3D 卷积网络提取的视频特征，而上面支路是打乱了帧序列再过 3D 卷积，下面支路是用 2D 卷积提取特征。这里引入了 HSIC, 它是度量两个连续随机变量之间的独立性的，当 HSIC(x,y)=0, 表示随机变量 x 和 y 是相互独立的。这里的对比是一个 minmax 的优化，对于中间特征 f, 需要它尽可能和上下两支路的特征独立，而上下两支路的特征需要尽量和中间支路相似。这样优化的目标是，让 f 尽可能不含有上下两支路中 bias 的特征。</p>
@@ -290,7 +286,7 @@ belief mass</p>
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

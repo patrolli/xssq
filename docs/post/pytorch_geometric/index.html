@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/pytorch_geometric/" />
@@ -35,23 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="pytorch geometric" />
 <meta property="og:description" content="Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/pytorch_geometric/" />
-<meta property="article:published_time" content="2021-08-27T13:39:18+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/pytorch_geometric/" /><meta property="article:section" content="post" />
+
 <meta property="article:modified_time" content="2021-08-27T13:39:18+08:00" />
+
 <meta itemprop="name" content="pytorch geometric">
 <meta itemprop="description" content="Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax">
-<meta itemprop="dateModified" content="2021-08-27T13:39:18&#43;08:00" />
+<meta itemprop="dateModified" content="2021-08-27T13:39:18+08:00" />
 <meta itemprop="wordCount" content="973">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="pytorch geometric"/>
 <meta name="twitter:description" content="Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0&#43;${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax"/>
@@ -175,14 +173,14 @@
 <h2 id="安装">安装</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+<span class="si">${</span><span class="nv">CUDA</span><span class="si">}</span>.html
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+<span class="si">${</span><span class="nv">CUDA</span><span class="si">}</span>.html
 pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+<span class="si">${</span><span class="nv">CUDA</span><span class="si">}</span>.html
 pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+<span class="si">${</span><span class="nv">CUDA</span><span class="si">}</span>.html
 pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+<span class="si">${</span><span class="nv">CUDA</span><span class="si">}</span>.html
@@ -193,14 +191,14 @@ pip install torch-geometric
 <p>实验室 aimax 上的 cuda 版本是 cu101, 所以把这几行弄成一个脚本 <code>install-pyg.sh</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+cu101.html
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+cu101.html
 pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+cu101.html
 pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+cu101.html
 pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+cu101.html
@@ -211,7 +209,7 @@ pip install torch-geometric
 <p>pyg 提供了一个类 <code>torch_geometric.data.Data</code> 来定义一个图，它包含了一个图的一些基本属性：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -225,18 +223,18 @@ pip install torch-geometric
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Data</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Data</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="n">edge_index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
 			  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span> <span class="c1"># edge_index: (2, num_edges)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> <span class="c1"># x: (num_nodes, num_node_features)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;num node features:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_node_features</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;num edges:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_edges</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;num nodes:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;num features:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_features</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;num edge features&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_edge_features</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num node features:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_node_features</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num edges:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_edges</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num nodes:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num features:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_features</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num edge features&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">num_edge_features</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这里我们给 Data 类传入了 x 和 edge_index, 即所有的 node 和所有的 edge.</p>
@@ -247,7 +245,7 @@ pip install torch-geometric
 <p>在 **kwargs 里面，可以传递任意的参数，这些参数会被 message, update 这些函数用到。例如下面这个代码，我在 propagate 中额外添加了 <code>lxs</code> 这个参数，它可以在后面的 message, update 函数中被用到。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -274,9 +272,9 @@ pip install torch-geometric
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="kn">as</span> <span class="nn">nn</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">from</span> <span class="nn">torch_geometric.nn</span> <span class="kn">import</span> <span class="n">MessagePassing</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">torch_geometric.utils</span> <span class="kn">import</span> <span class="n">to_undirected</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 
@@ -288,8 +286,8 @@ pip install torch-geometric
 	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">propagate</span><span class="p">(</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">lxs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
 
     <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_i</span><span class="p">,</span> <span class="n">x_j</span><span class="p">):</span>
-	<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x_i&#39;</span><span class="p">,</span> <span class="n">x_i</span><span class="p">)</span>
-	<span class="k">print</span><span class="p">(</span><span class="s1">&#39;x_j&#39;</span><span class="p">,</span> <span class="n">x_j</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_i&#39;</span><span class="p">,</span> <span class="n">x_i</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_j&#39;</span><span class="p">,</span> <span class="n">x_j</span><span class="p">)</span>
 	<span class="k">return</span> <span class="n">x_j</span>
 
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">x_i</span><span class="p">):</span>
@@ -304,7 +302,7 @@ pip install torch-geometric
 </div><p><code>message()</code> 可以接收 <code>propagate()</code> 中的任意参数，并且如果这些参数在变量名中加上 &lsquo;_i&rsquo;, &lsquo;_j&rsquo;, 那么这个参数将会被映射成 source_node 和 target_node 的形式。假如输入是表示结点的 x (N, d), 还传入 edge_index (2, m), 那么在 message 中， x_i 和 x_j 的形状将变成 (m, d). 这个映射会根据 edge_index 去进行索引，x_i 是 edge_index 中的 edge_index[1] 对应的结点下标值，x_j 是 edge_index[0] 对应的结点下标值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -335,9 +333,9 @@ pip install torch-geometric
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="kn">as</span> <span class="nn">nn</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">from</span> <span class="nn">torch_geometric.nn</span> <span class="kn">import</span> <span class="n">MessagePassing</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">torch_geometric.utils</span> <span class="kn">import</span> <span class="n">to_undirected</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 
@@ -346,18 +344,18 @@ pip install torch-geometric
       <span class="nb">super</span><span class="p">(</span><span class="n">MyMessagePassingLayer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">aggr</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
 
   <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">):</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x before message:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;edge index:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x before message:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;edge index:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">)</span>
       <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">propagate</span><span class="p">(</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">lxs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
 
   <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_i</span><span class="p">,</span> <span class="n">x_j</span><span class="p">):</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x after enter message:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x_i:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_i</span><span class="p">)</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x_j:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_j</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x after enter message:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_i:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_i</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_j:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_j</span><span class="p">)</span>
       <span class="k">return</span> <span class="n">x_j</span>
 
   <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">x_i</span><span class="p">):</span>
-      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x_i in update:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_i</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_i in update:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x_i</span><span class="p">)</span>
       <span class="k">return</span> <span class="n">inputs</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -459,7 +457,7 @@ pyg 中不同 GNN layer 对具有不同属性的图的支持可以在<a href="ht
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

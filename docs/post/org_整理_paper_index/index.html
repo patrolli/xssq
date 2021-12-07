@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/" />
@@ -35,23 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="org 整理 paper_index" />
 <meta property="og:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/" />
-<meta property="article:published_time" content="2021-04-20T00:21:19+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/" /><meta property="article:section" content="post" />
+
 <meta property="article:modified_time" content="2021-04-20T00:21:19+08:00" />
+
 <meta itemprop="name" content="org 整理 paper_index">
 <meta itemprop="description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做">
-<meta itemprop="dateModified" content="2021-04-20T00:21:19&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-20T00:21:19+08:00" />
 <meta itemprop="wordCount" content="926">
-
-
-
 <meta itemprop="keywords" content="emacs,orgmode,elisp," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="org 整理 paper_index"/>
 <meta name="twitter:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做"/>
@@ -165,7 +163,7 @@
 <p>花了一些时间用 elisp 写了一个函数，将 <a href="">paper-index</a> 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (<code>org-tags-views</code>), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 <code>Un-archieve</code> 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 <code>Un-archieve</code> 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 <code>Un-archieve</code> 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 <code>Un-archieve</code> 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 <code>Un-archieve</code> 下面有效）。代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -232,7 +230,7 @@
 </span><span class="lnt">65
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
   <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">save-excursion</span>
   <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">tags</span> <span class="p">(</span><span class="nv">org-get-tags</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))</span>
@@ -388,7 +386,7 @@
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

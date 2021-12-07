@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/" />
@@ -35,23 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Decaug: augmenting HOI detection via decomposition" />
 <meta property="og:description" content="Xie-aaai-2021-decaug Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/" />
-<meta property="article:published_time" content="2021-04-09T19:46:57+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/" /><meta property="article:section" content="post" />
+
 <meta property="article:modified_time" content="2021-04-09T19:46:57+08:00" />
+
 <meta itemprop="name" content="Decaug: augmenting HOI detection via decomposition">
 <meta itemprop="description" content="Xie-aaai-2021-decaug Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，">
-<meta itemprop="dateModified" content="2021-04-09T19:46:57&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-09T19:46:57+08:00" />
 <meta itemprop="wordCount" content="1017">
-
-
-
 <meta itemprop="keywords" content="PaperReading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Decaug: augmenting HOI detection via decomposition"/>
 <meta name="twitter:description" content="Xie-aaai-2021-decaug Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，"/>
@@ -175,7 +173,7 @@
 <li>首先将 HOI 分解成 background I, human state h （appearance, pose, parsing, shape, gaze 等信息）, object state o （category, 6D pose, occlusion, functionality 等），spatial relationship s:
 <img src="https://patrolli.github.io/xssq/img/capture_2021_04_03_19_25_13.png" alt="">
 论文主要是通过 object state 和 spatial relationship 进行样本增强</li>
-<li>论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&rdquo;. （在论文中，主要是用什么信息描述 object state?）</li>
+<li>论文指出在 HOI detection 中， object state 比其 texture pattern 更加重要。例如， holding a mug, “the standing pose and the occlusion with hands are more important than the mug’s color and texture&quot;. （在论文中，主要是用什么信息描述 object state?）</li>
 <li>这里贴物体的要求：1. 保持物体的 state 2. 增强后的图片要 realistic</li>
 <li>首先判断图中的物体是否可以替换。这里考虑如果一个物体和其他物体的遮挡交错 (interlock) 较为严重时，就不进行替换。论文设计了一个名为 &ldquo;instance interlocking ratio&rdquo; 的指标来进行判断。公式为：</li>
 </ul>
@@ -186,8 +184,7 @@
 <ul>
 <li>在决定一个物体是否可以替换后，需要找到具有相似 state 的物体来进行替换。这里的 state 包括 shape variance, occlusion variance, pose variance 等。不同的 HOI 决定这些 object state 是不一样的。论文将 instance mask 作为 object state 的表征，他们认为这个 mask 包含了物体 6D pose 形状，6D pose 的投影，并且遮挡情况也可以通过临近的 instance mask 来量化。给出物体的一个 bounding box, 将 object mask 部分的像素点记为 1, background 部分的像素点记为 0, 将相邻的 object mask 的像素点记为 -1. 将这个 object state matrix 作为物体 pose, 6D pose, occulusion 的 descriptor. 基于这个 descriptor, object state distance 两个物体 state matrix 的 L1 距离。在找到可以相互替换的 object pair 后，就可以相互拼图替换，这里还涉及到一些算法，来使拼过去的图片更加 realistic. 如图：</li>
 </ul>
-<figure>
-    <img src="https://patrolli.github.io/xssq/img/capture_2021_04_03_20_03_32.png"/> 
+<figure><img src="https://patrolli.github.io/xssq/img/capture_2021_04_03_20_03_32.png"/>
 </figure>
 
 <ul>
@@ -286,7 +283,7 @@
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

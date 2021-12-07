@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="orgmode capture for project" />
 <meta property="og:description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/" />
-<meta property="article:published_time" content="2021-04-27T00:00:00+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-27T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-04-27T22:37:24+08:00" />
+
 <meta itemprop="name" content="orgmode capture for project">
-<meta itemprop="description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加">
-<meta itemprop="datePublished" content="2021-04-27T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-04-27T22:37:24&#43;08:00" />
+<meta itemprop="description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加"><meta itemprop="datePublished" content="2021-04-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-04-27T22:37:24+08:00" />
 <meta itemprop="wordCount" content="649">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="orgmode capture for project"/>
 <meta name="twitter:description" content="Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加"/>
@@ -168,7 +165,7 @@
 如果存在多个项目，那么就会对应多个 org 文件，一般的 capture 模板都只能针对一个 org file 生效，那么这里我们需要在 capture 的时候，能够对应到多个文件，首先是弹出一个提示框，用于选择项目，然后打开对应的 org 文件，将内容添加到指定位置。在我这里是有两个一级标题，对应 Idea 和 Journal, 每次 capture 都会找到他们下面的 datetree, 然后再添加内容。为了实现在 capture 的时候能够对应到多个文件，就需要自己定义函数来确定 capture 时增添内容的位置。参考 org-capture 的源码，我写了一个函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -184,7 +181,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-find-project-journal-datetree</span> <span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-find-project-journal-datetree</span> <span class="p">()</span>
   <span class="c1">;; (interactive)</span>
   <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">project</span> <span class="p">(</span><span class="nf">completing-read</span> <span class="s">&#34;Choose a project&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;compaction&#34;</span><span class="p">)))</span>
 	<span class="p">(</span><span class="nv">m</span> <span class="p">(</span><span class="nv">org-find-olp</span> <span class="p">(</span><span class="nf">cons</span> <span class="p">(</span><span class="nv">org-capture-expand-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">lxs-home-dir</span> <span class="s">&#34;Documents/&#34;</span> <span class="s">&#34;org/&#34;</span> <span class="s">&#34;org-roam-files/&#34;</span> <span class="nv">project</span> <span class="s">&#34;.org&#34;</span><span class="p">))</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;Journal&#34;</span><span class="p">)))))</span>
@@ -205,13 +202,13 @@
 <p>这个功能还有许多可以改进的地方，例如在获取所有 project files 的时候，可以不用现在这样硬编码的方式，而是检索 org-roam-file 中所有标签带有 project 的文件，作为候选，这样就会更加灵活。索引 org-roam 中一个 tag 所对应的 files 需要用到 org-roam-db-query, 这方面没有看到什么参考，怎么去写 org-roam database 的 sql 语句，不过在网上搜到一个可以用的 gist:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">setq</span> <span class="nv">lxs/org-roam</span> <span class="p">(</span><span class="nv">org-roam-db-query</span>
+<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">setq</span> <span class="nv">lxs/org-roam</span> <span class="p">(</span><span class="nv">org-roam-db-query</span>
 		<span class="p">[</span><span class="nb">:select</span> <span class="nv">file</span>
 		 <span class="nb">:from</span> <span class="nv">tags</span>
 		 <span class="nb">:where</span> <span class="p">(</span><span class="nv">like</span> <span class="nv">tags</span> <span class="p">(</span><span class="nb">quote</span> <span class="s">&#34;%\&#34;Project\&#34;%&#34;</span><span class="p">))]))</span>
@@ -301,7 +298,7 @@
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

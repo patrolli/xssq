@@ -6,11 +6,7 @@
     <description>Recent content in emacs on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Apr 2021 00:21:19 +0800</lastBuildDate>
-    
-	<atom:link href="https://patrolli.github.io/xssq/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 20 Apr 2021 00:21:19 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>org 整理 paper_index</title>
       <link>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</link>
@@ -41,7 +37,7 @@
     <item>
       <title>配置 emacs-rime</title>
       <link>https://patrolli.github.io/xssq/post/2021-02-17-18-48/</link>
-      <pubDate>Wed, 17 Feb 2021 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/2021-02-17-18-48/</guid>
       <description>配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接</description>

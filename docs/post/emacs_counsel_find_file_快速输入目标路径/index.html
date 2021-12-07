@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="emacs counsel-find-file 快速输入目标路径" />
 <meta property="og:description" content="Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/" />
-<meta property="article:published_time" content="2021-05-10T00:00:00+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/emacs_counsel_find_file_%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E7%9B%AE%E6%A0%87%E8%B7%AF%E5%BE%84/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-10T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-05-11T00:37:25+08:00" />
+
 <meta itemprop="name" content="emacs counsel-find-file 快速输入目标路径">
-<meta itemprop="description" content="Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是">
-<meta itemprop="datePublished" content="2021-05-10T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-05-11T00:37:25&#43;08:00" />
+<meta itemprop="description" content="Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是"><meta itemprop="datePublished" content="2021-05-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-11T00:37:25+08:00" />
 <meta itemprop="wordCount" content="375">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="emacs counsel-find-file 快速输入目标路径"/>
 <meta name="twitter:description" content="Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是"/>
@@ -165,23 +162,23 @@
 <p>这个需求是最近用 <code>xah-new-empty-buffer</code> 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 <strong>scratch</strong> buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是 wsl 下的 home dir, 而我的文件通常放在 /mnt/c 这个目录下，这就意味着我要不停地按 backspace, 然后再输入目标路径，按 tab 在依次补全 file path. 但有些目标路径通常是固定的，例如，如果我想保存一个 org 文件，那么我的目标文件夹的路径就是 &ldquo;/mnt/c/Users/lixun/Documents/org&rdquo;, 所以我希望能够快速地在 counsel-find-file 弹出的 mini-buffer 中输入这个路径。这里我使用 abbrev 来 pre-define 一些路径，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">define-abbrev</span> <span class="nv">global-abbrev-table</span> <span class="s">&#34;lorg&#34;</span> <span class="s">&#34;mnt/c/Users/lixun/Documents/org/&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">define-abbrev</span> <span class="nv">global-abbrev-table</span> <span class="s">&#34;lorg&#34;</span> <span class="s">&#34;mnt/c/Users/lixun/Documents/org/&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>然后在 mini-buffer 中 enable abbrev mode:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">add-hook</span>
+<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">add-hook</span>
  <span class="ss">&#39;minibuffer-setup-hook</span>
  <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
    <span class="p">(</span><span class="nv">abbrev-mode</span> <span class="mi">1</span><span class="p">)</span>
@@ -272,7 +269,7 @@
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

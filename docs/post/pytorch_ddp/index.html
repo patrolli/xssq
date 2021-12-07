@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.89.4 with theme even" />
 
 
 <link rel="canonical" href="https://patrolli.github.io/xssq/post/pytorch_ddp/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="https://patrolli.github.io/xssq/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="https://patrolli.github.io/xssq/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="pytorch ddp" />
 <meta property="og:description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://patrolli.github.io/xssq/post/pytorch_ddp/" />
-<meta property="article:published_time" content="2021-09-20T00:00:00+08:00" />
+<meta property="og:url" content="https://patrolli.github.io/xssq/post/pytorch_ddp/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-09-20T23:46:18+08:00" />
+
 <meta itemprop="name" content="pytorch ddp">
-<meta itemprop="description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16">
-<meta itemprop="datePublished" content="2021-09-20T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-09-20T23:46:18&#43;08:00" />
+<meta itemprop="description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16"><meta itemprop="datePublished" content="2021-09-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-20T23:46:18+08:00" />
 <meta itemprop="wordCount" content="1196">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="pytorch ddp"/>
 <meta name="twitter:description" content="一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16"/>
@@ -185,33 +182,33 @@
 <h3 id="导入">导入</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.distributed</span> <span class="kn">as</span> <span class="nn">dist</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch.distributed</span> <span class="k">as</span> <span class="nn">dist</span>
 <span class="kn">from</span> <span class="nn">torch.nn.parallel</span> <span class="kn">import</span> <span class="n">DistributedDataParallel</span> <span class="k">as</span> <span class="n">DDP</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="ddp-backend-初始化">DDP backend 初始化</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="n">local_rank</span><span class="p">)</span>  <span class="c1"># 指定使用哪块 GPU</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="n">local_rank</span><span class="p">)</span>  <span class="c1"># 指定使用哪块 GPU</span>
 <span class="n">dist</span><span class="o">.</span><span class="n">init_process_group</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;nccl&#39;</span><span class="p">)</span>  <span class="c1"># 默认</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="将模型放到-gpu-上">将模型放到 GPU 上</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -222,7 +219,7 @@
 <p>在 <code>Dataparallel</code> 中，只有一个进程，所以是先切分好数据，然后分配到每张卡上。但在 <code>DDP</code> 中，每个进程会复制一份代码执行，也就是每个进程都会用同一份数据。如果一个 epoch 有一万个数据，那么过一遍 epoch 实际上过了 16 万个数据。因此需要单独设计 <code>sampler</code>, 来保证各个进程的数据不相同，并且保证一个 epoch 还是一万个数据。<code>DDP</code> 中提供了这样一个 <code>sampler</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -240,7 +237,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">my_trainset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">my_trainset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># 新增1：使用DistributedSampler，DDP帮我们把细节都封装起来了。用，就完事儿！</span>
 <span class="n">train_sampler</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">distributed</span><span class="o">.</span><span class="n">DistributedSampler</span><span class="p">(</span><span class="n">my_trainset</span><span class="p">)</span>
 <span class="c1"># 需要注意的是，这里的batch_size指的是每个进程下的batch_size。也就是说，总batch_size是这里的batch_size再乘以并行数(world_size)。</span>
@@ -263,7 +260,7 @@
 <p><code>DDP</code> 在梯度反传的时候和单卡的梯度反传是一样的，直接在代码里面 <code>loss.backward()</code> 就可以了。但在打印的时候，我们可能需要汇总一下所有进程的 loss, 不然打印的是在每个进程上算出来的 loss. 另外，可以把 io 这些事情都交给 master 进程，因此，在执行打印等 io 操作时，可以先判断进程的 rank, 然后执行操作：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -278,7 +275,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">reduce_mean</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">nprocs</span><span class="p">):</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">reduce_mean</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">nprocs</span><span class="p">):</span>
     <span class="n">rt</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
     <span class="n">dist</span><span class="o">.</span><span class="n">all_reduce</span><span class="p">(</span><span class="n">rt</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">ReduceOp</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
     <span class="n">rt</span> <span class="o">/=</span> <span class="n">nprocs</span>
@@ -308,7 +305,7 @@
 <h4 id="单机多卡的启动">单机多卡的启动</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -316,7 +313,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 假设我们只用4,5,6,7号卡</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 假设我们只用4,5,6,7号卡</span>
 <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">&#34;4,5,6,7&#34;</span> python -m torch.distributed.launch --nproc_per_node <span class="m">4</span> main.py
 <span class="c1"># 假如我们还有另外一个实验要跑，也就是同时跑两个不同实验。</span>
 <span class="c1">#    这时，为避免master_port冲突，我们需要指定一个新的。这里我随便敲了一个。</span>
@@ -412,7 +409,7 @@
 
 
 
-<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 
