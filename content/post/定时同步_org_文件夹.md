@@ -2,7 +2,7 @@
 title = "定时同步 org 文件夹"
 author = ["Li Xunsong"]
 date = 2021-12-11
-lastmod = 2021-12-11T19:22:55+08:00
+lastmod = 2021-12-18T17:58:31+08:00
 draft = false
 +++
 
