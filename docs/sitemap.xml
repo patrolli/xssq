@@ -2,15 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://patrolli.github.io/xssq/post/elfeed_%E6%A0%87%E8%AE%B0%E5%85%89%E6%A0%87%E4%B9%8B%E5%89%8D%E7%9A%84_entry_%E5%85%A8%E4%B8%BA%E5%B7%B2%E8%AF%BB/</loc>
+    <lastmod>2021-12-18T17:36:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-12-11T19:22:55+08:00</lastmod>
+    <lastmod>2021-12-18T17:36:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2021-12-11T19:22:55+08:00</lastmod>
+    <lastmod>2021-12-18T17:36:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -81,6 +88,13 @@
   <url>
     <loc>https://patrolli.github.io/xssq/post/graphsage/</loc>
     <lastmod>2021-08-27T11:50:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/elfeed/</loc>
+    <lastmod>2021-12-18T16:16:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
