@@ -80,6 +80,15 @@
     </item>
     
     <item>
+      <title>hugo 博客文件缺失</title>
+      <link>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%96%87%E4%BB%B6%E7%BC%BA%E5%A4%B1/</link>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%96%87%E4%BB%B6%E7%BC%BA%E5%A4%B1/</guid>
+      <description>Intro 在发布 hugo 博客的时候遇到一个问题，当文件导出到 post 目录，部署到 github pages 后，网页没有把新的文章刷新出来。之前大概等 10 几秒就能够刷新。在 github 仓库的提交历</description>
+    </item>
+    
+    <item>
       <title>emacs 在 org-mode 中补全符号</title>
       <link>https://patrolli.github.io/xssq/post/emacs_%E5%9C%A8_org_mode_%E4%B8%AD%E8%A1%A5%E5%85%A8%E7%AC%A6%E5%8F%B7/</link>
       <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
