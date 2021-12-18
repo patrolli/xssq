@@ -183,7 +183,7 @@
 </li>
 <li>
 <p>Set prediction loss: loss 的设计是 DETR 的重点，在 DETR 中，目标检测任务被 formulate 成两个集合的匹配问题。首先模型会预测 N 个结果，而 ground truth 包含 M 个结果，并且 N&raquo;M. 首先让预测和 ground truth 集合大小一致，即在 ground truth 的集合中 pad N-M 个 no-object class. 然后这里的优化目标就是要让预测的集合与 ground truth 的集合匹配。<br />
-第一步是利用<a href="">匈牙利算法</a>，找到一个匹配，也就是找到预测集合的每一个 object query 对应的 ground truth 集合中的一个结果<br>
+第一步是利用<a href="https://patrolli.github.io/xssq/post/%E5%9B%BE%E7%9A%84%E5%8C%B9%E9%85%8D/">匈牙利算法</a>，找到一个匹配，也就是找到预测集合的每一个 object query 对应的 ground truth 集合中的一个结果<br>
 <img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_09_51_07.png" alt=""><br>
 具体这个 L_match 的定义为，c_i 是 ground truth 集合中，第 i 个元素的标签，而 σ 则是一种匹配，利用这个 match loss 来找到 optimal 的匹配：<br />
 <img src="https://patrolli.github.io/xssq/img/capture_2021_07_16_09_57_56.png" alt=""><br>

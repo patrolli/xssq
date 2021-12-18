@@ -44,11 +44,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-08-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-06T23:09:40+08:00" />
+<meta property="article:modified_time" content="2021-12-18T18:22:44+08:00" />
 
 <meta itemprop="name" content="Evidential deep learning for open set action recognition">
 <meta itemprop="description" content="Motivation open-set action recognition 的挑战是什么？ static bias 带来的影响，将具有相同 static bias, 但不同 dynamic 的 unknown class 看作了 known class 去预测。 Method 为什么用狄利克雷分布来描述？ 主要内容： 使用 EDL 的 objective function, 学习"><meta itemprop="datePublished" content="2021-08-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-09-06T23:09:40+08:00" />
+<meta itemprop="dateModified" content="2021-12-18T18:22:44+08:00" />
 <meta itemprop="wordCount" content="546">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Evidential deep learning for open set action recognition"/>
@@ -172,21 +172,21 @@
 <li>主要内容：
 <ul>
 <li>
-<p>使用 <a href="">EDL</a> 的 objective function, 学习给出一个样本 x, 预测它的类别概率和属于这个类别的不确定度
-<img src="https://patrolli.github.io/xssq/img/capture_2021_08_26_16_35_36.png" alt="">
-<img src="https://patrolli.github.io/xssq/img/capture_2021_08_26_16_36_53.png" alt="">
+<p>使用 <a href="https://patrolli.github.io/xssq/post/evidential_deep_learning/">EDL</a> 的 objective function, 学习给出一个样本 x, 预测它的类别概率和属于这个类别的不确定度
+<img src="https://patrolli.github.io/xssq/mnt/c/Users/lixun/Documents/org/static/img/capture_2021_08_26_16_35_36.png" alt="">
+<img src="https://patrolli.github.io/xssq/mnt/c/Users/lixun/Documents/org/static/img/capture_2021_08_26_16_36_53.png" alt="">
 这里相当于：给一个样本 x, 通过 DNN 计算它的 evidence e, 这个 e 又和狄利克雷分布的 α 有等式关系，再通过这个 α 来得到每个类别的概率和总体的不确定度（α 就相当于后验分布的参数，这个后验分布是关于每个 class 的）。</p>
 </li>
 <li>
 <p>对于 evidential uncertainty 的校准
 论文说提出这个校准是为了消除 OSAR 任务的 static bias, 一个校准模型需要对正确的预测给出高的 uncertainty, 而对于不正确的预测，要同时给出 uncertainty 的结果。校准就是考虑模型预测的 accuracy 和 uncertainty 之间的关系。（EDL 和 传统的 negative log-likelihood loss 都不能考虑到？）</p>
 <p>这里就是用了一个 loss 去约束预测的类别概率和 uncertainty 之间的关系。
-<img src="https://patrolli.github.io/xssq/img/capture_2021_08_26_16_44_46.png" alt=""></p>
+<img src="https://patrolli.github.io/xssq/mnt/c/Users/lixun/Documents/org/static/img/capture_2021_08_26_16_44_46.png" alt=""></p>
 </li>
 <li>
 <p>Contrastive evidence debiasing
 同样是为了消除 static bias, 引入了对比学习的方法</p>
-<figure><img src="https://patrolli.github.io/xssq/img/capture_2021_08_26_16_46_19.png"/>
+<figure><img src="https://patrolli.github.io/xssq/mnt/c/Users/lixun/Documents/org/static/img/capture_2021_08_26_16_46_19.png"/>
 </figure>
 
 <p>中间支路是用 3D 卷积网络提取的视频特征，而上面支路是打乱了帧序列再过 3D 卷积，下面支路是用 2D 卷积提取特征。这里引入了 HSIC, 它是度量两个连续随机变量之间的独立性的，当 HSIC(x,y)=0, 表示随机变量 x 和 y 是相互独立的。这里的对比是一个 minmax 的优化，对于中间特征 f, 需要它尽可能和上下两支路的特征独立，而上下两支路的特征需要尽量和中间支路相似。这样优化的目标是，让 f 尽可能不含有上下两支路中 bias 的特征。</p>
@@ -198,7 +198,7 @@
 <h2 id="comment">Comment</h2>
 <h2 id="ref">Ref</h2>
 <ul>
-<li><a href="">Evidential deep learning</a></li>
+<li><a href="https://patrolli.github.io/xssq/post/evidential_deep_learning/">Evidential deep learning</a></li>
 <li>Open set recognition</li>
 </ul>
 <p>multinomial subjective opinion: 多项主观意见
@@ -215,7 +215,7 @@ belief mass</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-09-06
+        2021-12-18
         
     </span>
   </p>
@@ -225,9 +225,9 @@ belief mass</p>
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="https://patrolli.github.io/xssq/post/beta_binomial%E5%85%B1%E8%BD%AD/">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/evidential_deep_learning/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Beta-Binomial共轭</span>
+            <span class="prev-text nav-default">Evidential deep learning</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="https://patrolli.github.io/xssq/post/ppdm_parallel_point_detection_and_matching_for_real_time_human_object_interaction_detection/">

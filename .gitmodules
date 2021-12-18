@@ -4,3 +4,7 @@
 [submodule "themes/maupassant"]
 	path = themes/maupassant
 	url = git@github.com:flysnow-org/maupassant-hugo.git
+[submodule "themes/even"]
+	path = themes/even
+	url = https://github.com/olOwOlo/hugo-theme-even.git
+

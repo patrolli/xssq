@@ -6,7 +6,16 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Dec 2021 18:21:56 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>org 整理 paper_index</title>
+      <link>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</link>
+      <pubDate>Sat, 18 Dec 2021 18:21:56 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</guid>
+      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做</description>
+    </item>
+    
     <item>
       <title>elfeed 标记光标之前的 entry 全为已读</title>
       <link>https://patrolli.github.io/xssq/post/elfeed_%E6%A0%87%E8%AE%B0%E5%85%89%E6%A0%87%E4%B9%8B%E5%89%8D%E7%9A%84_entry_%E5%85%A8%E4%B8%BA%E5%B7%B2%E8%AF%BB/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://patrolli.github.io/xssq/post/elfeed_%E6%A0%87%E8%AE%B0%E5%85%89%E6%A0%87%E4%B9%8B%E5%89%8D%E7%9A%84_entry_%E5%85%A8%E4%B8%BA%E5%B7%B2%E8%AF%BB/</guid>
       <description>Intro elfeed 只有在 entry 上有 action 的才会标记为已读 (例如按 Enter 打开 entry, 用 b 在浏览器打开 entry 等). 但我很多时候只有扫一眼 entry 标题，不感兴趣的也就不会进一步点开了。这些</description>
+    </item>
+    
+    <item>
+      <title>crontab</title>
+      <link>https://patrolli.github.io/xssq/post/crontab/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/crontab/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -134,6 +152,15 @@
     </item>
     
     <item>
+      <title>Evidential deep learning</title>
+      <link>https://patrolli.github.io/xssq/post/evidential_deep_learning/</link>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/evidential_deep_learning/</guid>
+      <description>对于一个 K 类的分类任务，EDL 将输入 x 看作一个命题，然后给出 K-维领域的主观意见 {1,&amp;hellip;,K}. 每一个主观意见被表示为一个三元组：(b, u, a). b 表示 belief mass, u 表</description>
+    </item>
+    
+    <item>
       <title>Evidential deep learning for open set action recognition</title>
       <link>https://patrolli.github.io/xssq/post/evidential_deep_learning_for_open_set_action_recognition/</link>
       <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
@@ -188,6 +215,15 @@
     </item>
     
     <item>
+      <title>图的匹配</title>
+      <link>https://patrolli.github.io/xssq/post/%E5%9B%BE%E7%9A%84%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Thu, 27 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/%E5%9B%BE%E7%9A%84%E5%8C%B9%E9%85%8D/</guid>
+      <description>定义 M 是图 G 的边子集（不含自环），且 M 中的任意两条边没有共同顶点，则称 M 是 G 的一个匹配 如果 G 中顶点 v 是 G 的匹配 M 中某条边的端点，则称它为 M 饱</description>
+    </item>
+    
+    <item>
       <title>Detecting Unseen Visual Relations Using Analogies</title>
       <link>https://patrolli.github.io/xssq/post/peyre-iccv-2019-detecting/</link>
       <pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate>
@@ -230,15 +266,6 @@
       
       <guid>https://patrolli.github.io/xssq/post/orgmode_capture_for_project/</guid>
       <description>Intro 为每一个 project 设置一个 org file, 将这个 project 相关的内容，如 idea, 日志，笔记等都放在一起。为了层次化这个 project org file, 我想使用 org-capture 来将每次要添加的内容，如日志或者 idea 添加</description>
-    </item>
-    
-    <item>
-      <title>org 整理 paper_index</title>
-      <link>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</link>
-      <pubDate>Tue, 20 Apr 2021 00:21:19 +0800</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/post/org_%E6%95%B4%E7%90%86_paper_index/</guid>
-      <description>Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做</description>
     </item>
     
     <item>
