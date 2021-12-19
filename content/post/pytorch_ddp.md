@@ -2,7 +2,8 @@
 title = "pytorch ddp"
 author = ["Li Xunsong"]
 date = 2021-09-20
-lastmod = 2021-09-20T23:46:18+08:00
+lastmod = 2021-12-20T00:32:15+08:00
+tags = ["pytorch"]
 draft = false
 +++
 
@@ -121,6 +122,35 @@ CUDA_VISIBLE_DEVICES="4,5,6,7" python -m torch.distributed.launch --nproc_per_no
 ```
 
 Note: 如果要在一台机器上跑多个实验，这里的 `master_port` 参数需要单独指定，不然端口会冲突。一个方式是在这里设置一个随机数，每次实验就随机指定一个端口。
+
+
+## torch.distributed.barrier() {#torch-dot-distributed-dot-barrier}
+
+这个函数用于处理多个进程之间的同步。
+
+场景一：在读取和处理数据时，我们希望只在一个进程上进行处理，然后其他进程去共享缓存的处理数据。这时，其他进程就需要和这个处理数据的进程保持同步，要等到处理数据的进程将数据处理完毕后，再去进行读取的操作。写法是：
+
+```python
+if args.local_rank not in [-1, 0] and not evaluate:
+    torch.distributed.barrier()  # Make sure only the first process in distributed training process the dataset, and the others will use the cache
+
+    # ... (preprocesses the data and save the preprocessed data)
+
+if args.local_rank == 0 and not evaluate:
+    torch.distributed.barrier()
+```
+
+这一过程要通过 `barrier` 来实现。当一个进程遇到 `barrier` 时，会被阻塞，那么这里就只有 rank=0 的进程会继续执行代码 (不进入 if 语句). 当 rank=0 的进程处理完数据后，它通过 `if` 语句也遇到了 `barrier`, 此时所有进程都遇到 `barrier`, 而这个阻塞就会被释放，其他进程也会开始执行数据处理的代码。
+
+场景二：汇总所有进程的 loss 和 acc. 我们希望只在一个进程中打印 acc 和 loss, 那么需要等到所有进程都算出 loss 和 acc 后，再汇总计算。
+
+```python
+# ...
+torch.distributed.barrier()
+reduced_loss = reduce_mean(loss, args.nprocs)
+if dist.get_rank() == 0:
+    print(reduced_loss)
+```
 
 
 ## Ref {#ref}
