@@ -6,7 +6,16 @@
     <description>Recent content in Tags on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Dec 2021 00:36:51 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Reading</title>
+      <link>https://patrolli.github.io/xssq/tags/paper-reading/</link>
+      <pubDate>Mon, 20 Dec 2021 00:36:51 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/tags/paper-reading/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>pytorch</title>
       <link>https://patrolli.github.io/xssq/tags/pytorch/</link>
@@ -67,15 +76,6 @@
       <pubDate>Fri, 09 Apr 2021 19:46:57 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/tags/ffmpeg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PaperReading</title>
-      <link>https://patrolli.github.io/xssq/tags/paperreading/</link>
-      <pubDate>Fri, 09 Apr 2021 19:46:57 +0800</pubDate>
-      
-      <guid>https://patrolli.github.io/xssq/tags/paperreading/</guid>
       <description></description>
     </item>
     

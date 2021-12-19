@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paper Reading on patrolli</title>
+    <link>https://patrolli.github.io/xssq/tags/paper-reading/</link>
+    <description>Recent content in Paper Reading on patrolli</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Dec 2021 00:36:51 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/paper-reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decaug: augmenting HOI detection via decomposition</title>
+      <link>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</link>
+      <pubDate>Mon, 20 Dec 2021 00:36:51 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</guid>
+      <description>Motivation 设计一种数据增强的方法 (pixel-level)，来增加 interaction 的 diversity, 以此缓解 HOI 中存在的长尾分布问题。通过贴图组合的方式来增加每种 HOI 的训练样本，论</description>
+    </item>
+    
+  </channel>
+</rss>

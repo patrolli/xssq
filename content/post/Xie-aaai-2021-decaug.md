@@ -1,13 +1,13 @@
 +++
 title = "Decaug: augmenting HOI detection via decomposition"
 author = ["Li Xunsong"]
-lastmod = 2021-04-09T19:46:57+08:00
-tags = ["PaperReading"]
+lastmod = 2021-12-20T00:36:51+08:00
+tags = ["Paper Reading"]
 categories = ["Academic"]
 draft = false
 +++
 
-<sup id="8ee52d5562c7b98dc31141ab8959c0fc"><a href="#Xie-aaai-2021-decaug" title="Yichen Xie, Haoshu Fang, Dian Shao, Yonglu, Li \&amp; Cewu Lu, DecAug: Augmenting {HOI} Detection via  Decomposition, {CoRR}, v(), (2020).">Xie-aaai-2021-decaug</a></sup>
+<Xie-aaai-2021-decaug>
 
 
 ## Motivation {#motivation}
@@ -36,7 +36,7 @@ draft = false
 -   目前的替换仍是在被替换的物体原来的位置上进行，也就是只对物体的 appearance 进行了增强，这里还需要对物体在这个 HOI 中可能出现的位置进行增强，将物体贴到可能的位置上去。论文提出 pose-guided probability 的方法来找到物体 feasible 的位置。首先生成 human 的 pose, 得到 17 个 keypoints 坐标。然后计算物体中心和 human body 的中心之间的位移矢量，作为 relative spatial position vector, 将物体出现的位置 L 建模为 human pose 的条件概率，用一个混合高斯分布来建模，对于每个 HOI label h, 去学习这个条件概率分布。
 
 ![](/img/capture_2021_04_03_20_17_52.png)
-这里 N\_G 是指数据集中 atomic poses 的数目，这里设置为 42. 这个[混合高斯分布]({{< relref "混合高斯分布" >}})的参数通过 [EM 算法]({{< relref "em算法" >}})来求解。
+这里 N\_G 是指数据集中 atomic poses 的数目，这里设置为 42. 这个[混合高斯分布]({{<relref "混合高斯分布.md#" >}})的参数通过 [EM 算法]({{<relref "em算法.md#" >}})来求解。
 
 
 ## Comment {#comment}
