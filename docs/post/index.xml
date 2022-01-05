@@ -6,7 +6,16 @@
     <description>Recent content in Posts on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Dec 2021 00:36:51 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>美化 org-mode</title>
+      <link>https://patrolli.github.io/xssq/post/%E7%BE%8E%E5%8C%96_org_mode/</link>
+      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/%E7%BE%8E%E5%8C%96_org_mode/</guid>
+      <description>将 org list 变成一个圆点 效果示意： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 (defvar</description>
+    </item>
+    
     <item>
       <title>Decaug: augmenting HOI detection via decomposition</title>
       <link>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</link>

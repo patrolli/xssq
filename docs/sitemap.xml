@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://patrolli.github.io/xssq/</loc>
+    <lastmod>2022-01-05T15:57:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/</loc>
+    <lastmod>2022-01-05T15:57:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/%E7%BE%8E%E5%8C%96_org_mode/</loc>
+    <lastmod>2022-01-05T15:57:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/categories/academic/</loc>
     <lastmod>2021-12-20T00:36:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -24,20 +45,6 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/tags/paper-reading/</loc>
-    <lastmod>2021-12-20T00:36:51+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2021-12-20T00:36:51+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/post/</loc>
     <lastmod>2021-12-20T00:36:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
