@@ -1,12 +1,12 @@
 +++
 title = "hugo 博客搭建"
-lastmod = 2021-04-09T19:46:58+08:00
-tags = ["emacs", "blog"]
-categories = ["emacs"]
+author = ["Li Xunsong"]
+lastmod = 2022-01-07T15:14:14+08:00
+tags = ["hugo", "emacs"]
 draft = false
 +++
 
-## 基本安装与使用 {#基本安装与使用}
+## 基本配置 {#基本配置}
 
 
 ### Hugo 安装 {#hugo-安装}
@@ -25,7 +25,7 @@ hugo server
 
 ### 部署到 github pages {#部署到-github-pages}
 
-github pages 有两种形式，一种是针对用户的 pages: <username>.github.io，另一种是针对项目的 pages: <username>.github.io/projectxx. 无论如何，首先要在 github 上创建一个 <username>.github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。
+github pages 有两种形式，一种是针对用户的 pages: &lt;username&gt;.github.io，另一种是针对项目的 pages: &lt;username&gt;.github.io/projectxx. 无论如何，首先要在 github 上创建一个 &lt;username&gt;.github.io 的仓库。由于我之前将 hexo 的网站部署到了我的 patrolli.github.io 上，当时也没有写几篇博客，懒得再迁移，于是这次的 hugo 博客就放到项目的 github pages. patrolli.github.io 可以之后留做个人简历的入口。
 根据 [Host on GitHub](https://gohugo.io/hosting-and-deployment/hosting-on-github/) 的 tutorial, 部署到 Github Pages project 有两种方式。第一种是直接以 master 分支的 /doc 文件夹发布，另一种是新建一个 gh-pages 分支，将 hugo 的发布文件夹 (publish) 放到这个分支下，然后选择以这个分支进行发布。第一种方法要简单一些，第二种我也还没研究明白。第一种方法的步骤如下：
 
 -   在 github 创建一个仓库，不要添加 .gitignore 和 README.md
@@ -58,25 +58,30 @@ git push origin master
 ```
 
 
-### Todo {#todo}
-
--   [X] 图片管理
--   主题美化完善
--   结合 emacs orgmode 的工作流
+## 主题相关 {#主题相关}
 
 
-### emacs orgmode easy-hugo ox-hugo 工作流 {#emacs-orgmode-easy-hugo-ox-hugo-工作流}
+### 显示代码行数 {#显示代码行数}
 
-目前在 emacs 中使用 hugo 的工作流：
+hugo 使用 `Chroma` 来做代码高亮，要设置显示或关闭代码行数，在 `config.toml` 中写入：
+
+```text
+pygmentsOptions = "linenos=false" # true, false, table, inline
+```
+
+参考: [Syntax Highlighting | Hugo](https://gohugo.io/content-management/syntax-highlighting/)
+
+
+## 在 org-mode 下的工作流 {#在-org-mode-下的工作流}
+
+目前在 emacs 中使用 hugo 的工作流 (主要使用 file-based 的导出方式)：
 
 -   使用 org-roam 来记录笔记
--   使用 yasnippet 来为这个 org 文件增加必要的导出头文件信息
--   使用 ox-hugo 将这个 org 文件导出到博客目录下 (content/posts), 并将 org 文件转换成 md 文件，文件名与 org 文件一致
--   发布，使用 easy-hugo 可以将博文发布到 github pages 上，或者手动执行 deploy.sh 脚本
+-   运行函数将当前 org buffer 导出到博客的 `content/post` 目录下 (插入文件头，使用 ox-hugo 导出)
+-   发布，使用 easy-hugo 可以将博文发布到 github pages 上，或者执行 deploy.sh 脚本
 
-TODO:
 
--   [ ] 对于已经发布的笔记文件，如果进行了修改，在修改保存后自动导出并部署
+### 自动插入 tags {#自动插入-tags}
 
 
 ### issues {#issues}
@@ -89,5 +94,5 @@ TODO:
 
 -   [official quick start](https://gohugo.io/getting-started/quick-start/)
 -   [使用 Emacs + ox-hugo 来写博客](http://blog.jiayuanzhang.com/post/blog-with-ox-hugo/)
--   [博客写作流程之工具篇： emacs, orgmode, hugo & ox-hugo](https://www.xianmin.org/post/ox-hugo/)
+-   [博客写作流程之工具篇： emacs, orgmode, hugo &amp; ox-hugo](https://www.xianmin.org/post/ox-hugo/)
 -   [博客系统迁移：Hexo 到 Hugo](https://liujiacai.net/blog/2020/12/05/hexo-to-hugo/)

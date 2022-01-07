@@ -122,6 +122,25 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/pytorch_ddp/">pytorch ddp</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-09-20 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16
+    </div>
+    <div class="read-more">
+      <a href="https://patrolli.github.io/xssq/post/pytorch_ddp/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/python_classmethod_%E5%92%8C_staticmethod/">python classmethod 和 staticmethod</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-09-19 </span>
@@ -196,25 +215,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/pytorch_geometric/">pytorch geometric</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-08-27 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Intro pytorch geometric 是基于 pytorch 的一个 GNN 框架库 安装 1 2 3 4 5 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+${CUDA}.html pip install torch-geometric 这里 ${CUDA} 根据对应的 cuda 版本选择：cpu, cu92, cu101, cu102, cu110 实验室 aimax
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/pytorch_geometric/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -253,7 +253,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -272,6 +272,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

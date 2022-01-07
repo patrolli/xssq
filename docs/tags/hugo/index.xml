@@ -6,14 +6,23 @@
     <description>Recent content in hugo on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Feb 2021 17:51:00 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jan 2022 15:14:14 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo 博客搭建</title>
+      <link>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Fri, 07 Jan 2022 15:14:14 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+      <description>基本配置 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的 pages: &amp;lt</description>
+    </item>
+    
     <item>
       <title>hugo&amp;org-mode&amp;ox-hugo 的博客工作流</title>
       <link>https://patrolli.github.io/xssq/post/hugo-workflow/</link>
       <pubDate>Thu, 11 Feb 2021 17:51:00 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/hugo-workflow/</guid>
-      <description>两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： 1 2 3 4 5 6 +++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博</description>
+      <description>两种工作流 ox-hugo 有两种 work-flow: 一种是 one-post-per-subtree, 另一种是 one-post-per-file. ox-hugo 起到的作用实际是将我们写的 org 文件导出成 md, 并且生成 hugo 需要的 md 头文件信息，例如： +++ title = &amp;#34;hugo&amp;amp;org-mode&amp;amp;ox-hugo 的博客工作流&amp;#</description>
     </item>
     
   </channel>

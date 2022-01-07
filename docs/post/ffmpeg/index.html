@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Li Xunsong" /><meta name="description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi 1 2 ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 1 ffmpeg -i ./video.webm ./video/image%d.jpg" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 ffmpeg -i ./video.webm ./video/image%d.jpg" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="ffmpeg" />
-<meta property="og:description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi 1 2 ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 1 ffmpeg -i ./video.webm ./video/image%d.jpg" />
+<meta property="og:description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 ffmpeg -i ./video.webm ./video/image%d.jpg" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/ffmpeg/" /><meta property="article:section" content="post" />
 
 <meta property="article:modified_time" content="2021-04-09T19:46:57+08:00" />
 
 <meta itemprop="name" content="ffmpeg">
-<meta itemprop="description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi 1 2 ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 1 ffmpeg -i ./video.webm ./video/image%d.jpg">
+<meta itemprop="description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 ffmpeg -i ./video.webm ./video/image%d.jpg">
 <meta itemprop="dateModified" content="2021-04-09T19:46:57+08:00" />
-<meta itemprop="wordCount" content="43">
+<meta itemprop="wordCount" content="40">
 <meta itemprop="keywords" content="ffmpeg,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ffmpeg"/>
-<meta name="twitter:description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi 1 2 ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 1 ffmpeg -i ./video.webm ./video/image%d.jpg"/>
+<meta name="twitter:description" content="使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 ffmpeg -i ./video.webm ./video/image%d.jpg"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -154,28 +154,13 @@
 <li>使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi</li>
 </ul>
 <!--listend-->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ffmpeg -f image2 -i frame%4d.jpg video.avi
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ffmpeg -f image2 -i frame%4d.jpg video.avi
 ffmpeg -i video.avi -t <span class="m">5</span> out.gif
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+</code></pre></div><ul>
 <li>
 <p>将视频转换成图片</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ffmpeg -i ./video.webm ./video/image%d.jpg
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ffmpeg -i ./video.webm ./video/image%d.jpg
+</code></pre></div></li>
 </ul>
 
     </div>
@@ -245,7 +230,7 @@ ffmpeg -i video.avi -t <span class="m">5</span> out.gif
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -264,6 +249,13 @@ ffmpeg -i video.avi -t <span class="m">5</span> out.gif
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

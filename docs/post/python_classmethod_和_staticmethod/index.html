@@ -49,7 +49,7 @@
 <meta itemprop="name" content="python classmethod 和 staticmethod">
 <meta itemprop="description" content="Intro 在 stackoverflow 上看到讲解 staticmethod 和 classmethod 之间区别的回答，翻译整理一下。 对于 classmethod 修饰的函数，必须接收一个 class object 作为第一个参数，而 staticmethod 可以不带参数。用一个具体的例子说明"><meta itemprop="datePublished" content="2021-09-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-09-19T17:34:46+08:00" />
-<meta itemprop="wordCount" content="622">
+<meta itemprop="wordCount" content="592">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="python classmethod 和 staticmethod"/>
 <meta name="twitter:description" content="Intro 在 stackoverflow 上看到讲解 staticmethod 和 classmethod 之间区别的回答，翻译整理一下。 对于 classmethod 修饰的函数，必须接收一个 class object 作为第一个参数，而 staticmethod 可以不带参数。用一个具体的例子说明"/>
@@ -161,39 +161,7 @@
       <h2 id="intro">Intro</h2>
 <p>在 <code>stackoverflow</code> 上看到讲解 <code>staticmethod</code> 和 <code>classmethod</code> 之间区别的<a href="https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner">回答</a>，翻译整理一下。</p>
 <p>对于 <code>classmethod</code> 修饰的函数，必须接收一个 <code>class object</code> 作为第一个参数，而 <code>staticmethod</code> 可以不带参数。用一个具体的例子说明二者之间的区别：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 	<span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="n">day</span>
 	<span class="bp">self</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">month</span>
@@ -221,20 +189,10 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">date2</span><span class="o">.</span><span class="n">is_date_valid</span><span class="p">(</span><span class="s1">&#39;11-09-2012&#39;</span><span class="p">))</span>
 <span class="n">date3</span> <span class="o">=</span> <span class="n">date2</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;10-09-2012&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">date3</span><span class="o">.</span><span class="n">display</span><span class="p">())</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在这个例子中，<code>from_string</code> 是一个 <code>classmethod</code>, 它的作用是，按指定格式的字符串来初始化一个 <code>Date</code> 对象。在 <code>Date</code> 的 <code>__init__</code> 函数中定义了初始化一个 <code>Date</code> 对象所需要的参数，如果这里我们想通过给出一个字符串来初始化得到一个 <code>Date</code> 对象，我们首先需要将这个字符串解析出 <code>day</code>, <code>month</code>, <code>year</code> 的内容，然后将这些内容传入 <code>Date</code> 的 <code>__init__</code> 来初始化得到 <code>Date</code> 对象：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">string_date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">))</span>
+</code></pre></div><p>在这个例子中，<code>from_string</code> 是一个 <code>classmethod</code>, 它的作用是，按指定格式的字符串来初始化一个 <code>Date</code> 对象。在 <code>Date</code> 的 <code>__init__</code> 函数中定义了初始化一个 <code>Date</code> 对象所需要的参数，如果这里我们想通过给出一个字符串来初始化得到一个 <code>Date</code> 对象，我们首先需要将这个字符串解析出 <code>day</code>, <code>month</code>, <code>year</code> 的内容，然后将这些内容传入 <code>Date</code> 的 <code>__init__</code> 来初始化得到 <code>Date</code> 对象：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">string_date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">))</span>
 <span class="n">date1</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在 <code>C++</code> 中，可以通过重载构造函数的方式，来实现这个目的。而在 <code>python</code> 里面，没有提供重载构造函数的功能，因此需要借助 <code>classmethod</code>, 来实现这一 feature. 在上面的例子中，<code>Date.from_string</code> 返回的也是一个 <code>Date</code> 对象。这就相当于我们有了两种创建一个 <code>Date</code> 对象的手段，一是直接使用 <code>Date()</code>, 这将调用 <code>__init__</code> 函数，二是显式地通过 <code>Date.from_string</code>, 它从格式化的字符串中创建一个 <code>Date</code> 对象。</p>
+</code></pre></div><p>在 <code>C++</code> 中，可以通过重载构造函数的方式，来实现这个目的。而在 <code>python</code> 里面，没有提供重载构造函数的功能，因此需要借助 <code>classmethod</code>, 来实现这一 feature. 在上面的例子中，<code>Date.from_string</code> 返回的也是一个 <code>Date</code> 对象。这就相当于我们有了两种创建一个 <code>Date</code> 对象的手段，一是直接使用 <code>Date()</code>, 这将调用 <code>__init__</code> 函数，二是显式地通过 <code>Date.from_string</code>, 它从格式化的字符串中创建一个 <code>Date</code> 对象。</p>
 <p>而这里的 <code>is_date_valid</code> 函数是一个 <code>staticmethod</code>, 它用于检查构造日期的字符串是否合法，它的参数中，不包含 class object 或者 instance object. 它和一个普通的函数并没有太多区别，只是为这个类提供了一些 <code>helper function</code>.</p>
 <p>无论是 <code>staticmethod</code> 还是 <code>classmethod</code>, 子类都可以继承。</p>
 <p>在使用 <code>staticmethod</code> 或 <code>classmethod</code> 的时候，都可以通过类名或者实例来调用。</p>
@@ -303,7 +261,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -322,6 +280,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

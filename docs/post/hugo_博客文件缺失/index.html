@@ -49,7 +49,7 @@
 <meta itemprop="name" content="hugo 博客文件缺失">
 <meta itemprop="description" content="Intro 在发布 hugo 博客的时候遇到一个问题，当文件导出到 post 目录，部署到 github pages 后，网页没有把新的文章刷新出来。之前大概等 10 几秒就能够刷新。在 github 仓库的提交历"><meta itemprop="datePublished" content="2021-09-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-12-18T23:52:27+08:00" />
-<meta itemprop="wordCount" content="467">
+<meta itemprop="wordCount" content="455">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo 博客文件缺失"/>
 <meta name="twitter:description" content="Intro 在发布 hugo 博客的时候遇到一个问题，当文件导出到 post 目录，部署到 github pages 后，网页没有把新的文章刷新出来。之前大概等 10 几秒就能够刷新。在 github 仓库的提交历"/>
@@ -167,23 +167,7 @@
 </figure>
 
 <p>点开失败的 git action, 可以看到具体构建失败的原因。今天下午遇到的原因其实是没有将 themes/ 这个文件夹下的所有主题写到 .gitmodules 文件中。虽然之前没有写也没出错。问题在于，themes 文件夹下面有几个主题，就要把这几个主题写到 .gitmodules 里面，例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">[submodule &#34;themes/ananke&#34;]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">[submodule &#34;themes/ananke&#34;]
         path = themes/ananke
         url = https://github.com/budparr/gohugo-theme-ananke.git
 [submodule &#34;themes/maupassant&#34;]
@@ -195,9 +179,7 @@
 [submodule &#34;themes/hugo-onyx-theme&#34;]
         path = themes/hugo-onyx-theme
         url = https://github.com/kaushalmodi/hugo-onyx-theme.git
-</code></pre></td></tr></table>
-</div>
-</div><p>而其实这个报错的信息就是通过 git action 里面看到的：</p>
+</code></pre></div><p>而其实这个报错的信息就是通过 git action 里面看到的：</p>
 <figure><img src="https://patrolli.github.io/xssq/img/Intro/2021-12-18_23-50-36_screenshot.png"/>
 </figure>
 
@@ -273,7 +255,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -292,6 +274,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

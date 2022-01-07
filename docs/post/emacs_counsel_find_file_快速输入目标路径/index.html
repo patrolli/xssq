@@ -49,7 +49,7 @@
 <meta itemprop="name" content="emacs counsel-find-file 快速输入目标路径">
 <meta itemprop="description" content="Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是"><meta itemprop="datePublished" content="2021-05-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-05-11T00:37:25+08:00" />
-<meta itemprop="wordCount" content="375">
+<meta itemprop="wordCount" content="369">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="emacs counsel-find-file 快速输入目标路径"/>
 <meta name="twitter:description" content="Intro 这个需求是最近用 xah-new-empty-buffer 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 scratch buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是"/>
@@ -160,32 +160,14 @@
     <div class="post-content">
       <h2 id="intro">Intro</h2>
 <p>这个需求是最近用 <code>xah-new-empty-buffer</code> 来快速打开一个 buffer 记录一些草稿，然后保存文件，用它来代替 emacs 的 <strong>scratch</strong> buffer. 但一个问题是，在每次保存这些 untitled buffer 的时候 (c-x c-s), 默认打开的路径是 wsl 下的 home dir, 而我的文件通常放在 /mnt/c 这个目录下，这就意味着我要不停地按 backspace, 然后再输入目标路径，按 tab 在依次补全 file path. 但有些目标路径通常是固定的，例如，如果我想保存一个 org 文件，那么我的目标文件夹的路径就是 &ldquo;/mnt/c/Users/lixun/Documents/org&rdquo;, 所以我希望能够快速地在 counsel-find-file 弹出的 mini-buffer 中输入这个路径。这里我使用 abbrev 来 pre-define 一些路径，例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">define-abbrev</span> <span class="nv">global-abbrev-table</span> <span class="s">&#34;lorg&#34;</span> <span class="s">&#34;mnt/c/Users/lixun/Documents/org/&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>然后在 mini-buffer 中 enable abbrev mode:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">add-hook</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">define-abbrev</span> <span class="nv">global-abbrev-table</span> <span class="s">&#34;lorg&#34;</span> <span class="s">&#34;mnt/c/Users/lixun/Documents/org/&#34;</span><span class="p">)</span>
+</code></pre></div><p>然后在 mini-buffer 中 enable abbrev mode:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">add-hook</span>
  <span class="ss">&#39;minibuffer-setup-hook</span>
  <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
    <span class="p">(</span><span class="nv">abbrev-mode</span> <span class="mi">1</span><span class="p">)</span>
    <span class="p">(</span><span class="nb">setq</span> <span class="nv">local-abbrev-table</span> <span class="nv">global-abbrev-table</span><span class="p">)))</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在保存文件或者 find-file 的时候，都会弹出 ivy 的 mini-buffer, 先按两下 /, 将起始的路径变成根目录，然后输入 abbrev 并展开（这里就是输入 &ldquo;lorg&rdquo;, 然后按空格或者 <code>expand-abbrev</code>, 注意如果是空格展开，需要在展开后把后面的空格给去掉），这时 minibuffer 的输入栏就是我们的目标路径，然后按 Tab, 来激活 ivy （会发现这个路径的 text 被渲染了），就到了我们希望的目标路径上。</p>
+</code></pre></div><p>在保存文件或者 find-file 的时候，都会弹出 ivy 的 mini-buffer, 先按两下 /, 将起始的路径变成根目录，然后输入 abbrev 并展开（这里就是输入 &ldquo;lorg&rdquo;, 然后按空格或者 <code>expand-abbrev</code>, 注意如果是空格展开，需要在展开后把后面的空格给去掉），这时 minibuffer 的输入栏就是我们的目标路径，然后按 Tab, 来激活 ivy （会发现这个路径的 text 被渲染了），就到了我们希望的目标路径上。</p>
 
     </div>
 
@@ -251,7 +233,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -270,6 +252,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

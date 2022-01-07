@@ -49,7 +49,7 @@
 <meta itemprop="name" content="org 整理 paper_index">
 <meta itemprop="description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做">
 <meta itemprop="dateModified" content="2021-12-18T18:21:56+08:00" />
-<meta itemprop="wordCount" content="926">
+<meta itemprop="wordCount" content="861">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="org 整理 paper_index"/>
 <meta name="twitter:description" content="Intro 花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做"/>
@@ -161,76 +161,7 @@
     <div class="post-content">
       <h2 id="intro">Intro</h2>
 <p>花了一些时间用 elisp 写了一个函数，将 paper-index 中维护的论文索引按照他们的 tag 来进行分组。之前我是对每篇论文用一个一级 headline 进行维护，然后插入对应的 tag, 但这样做有一些弊端，首先是一篇论文可能会有多个 tag, 一一加上后整行就会显得很长，窗口小了的话就会折行，看着就不舒服了；二是不方便检索，如果知道论文题目，可以直接搜索，但有时候会忘记论文的题目，需要浏览来查找，虽然可以通过 tag 来过滤 (<code>org-tags-views</code>), 但每次都需要输入命令，而且会将 filter 的结果放在一个新的 buffer 中，也不太方便。所以我想对此进行一些改进，目标是能够将每个论文的 headline （或者在这里说索引）按照其 tag 复制到对应的以 tag 命名的一级标题下（论文的索引就变成二级标题）。在一开始添加论文的时候，可以先放在一个 <code>Un-archieve</code> 的标题下，然后执行命令去根据它的 tag 来移动到对应的分组下，同时删去他在 <code>Un-archieve</code> 的索引。另外，之后也昆虫为某个论文索引再添加 tag, 然后再次执行命令，又可以将这个索引复制到对应的 tag headline 下。如果在 <code>Un-archieve</code> 中的论文索引的 tag 已经被复制到 tag 的 headline 下，那么这个 tag 就被移除，如果 <code>Un-archieve</code> 中的论文索引没有 tag, 那么执行命令就会删除掉这个索引（只在 <code>Un-archieve</code> 下面有效）。代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs/org-refile-headline-by-tag</span> <span class="p">()</span>
   <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">save-excursion</span>
   <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">tags</span> <span class="p">(</span><span class="nv">org-get-tags</span> <span class="no">nil</span> <span class="no">t</span><span class="p">))</span>
@@ -295,9 +226,7 @@
 	<span class="p">(</span><span class="nb">setq</span> <span class="nv">tags</span> <span class="p">(</span><span class="nf">cdr</span> <span class="nv">tags</span><span class="p">))</span>
 	<span class="p">)</span>
     <span class="p">)))</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="outro">Outro</h2>
+</code></pre></div><h2 id="outro">Outro</h2>
 <p>为了写这个函数花费了许多功夫，主要还是自己对 elisp 不太熟悉，以及 org-mode 的 api, 在网上用关键词查找自己想要的功能，很难找到有效的答案，后面发现 org mode 的源码里面每个函数的实现其实就很具有参考价值，之后可以多看源码来熟悉对 org mode 的 hack. 另外，在搜索和处理文本时，正则表达式也是威力巨大的武器，我也还不太会用，还需要花一些功夫去深入地学习。</p>
 
     </div>
@@ -364,7 +293,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -383,6 +312,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Li Xunsong" /><meta name="description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： 1 pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单独" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="pandoc" />
-<meta property="og:description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： 1 pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单" />
+<meta property="og:description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单独" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/pandoc/" /><meta property="article:section" content="post" />
 
 <meta property="article:modified_time" content="2021-05-06T19:48:51+08:00" />
 
 <meta itemprop="name" content="pandoc">
-<meta itemprop="description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： 1 pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单">
+<meta itemprop="description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单独">
 <meta itemprop="dateModified" content="2021-05-06T19:48:51+08:00" />
-<meta itemprop="wordCount" content="127">
+<meta itemprop="wordCount" content="125">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="pandoc"/>
-<meta name="twitter:description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： 1 pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单"/>
+<meta name="twitter:description" content="在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单独"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -151,25 +151,11 @@
 </div>
     <div class="post-content">
       <p>在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pandoc -s foo.tex --bibliography<span class="o">=</span>foo.bib --csl<span class="o">=</span>ieee.csl -o foo.docx
-</code></pre></td></tr></table>
-</div>
-</div><p>这里需要指明 bib 文件的路径，另外需要单独<a href="https://tex.stackexchange.com/questions/268196/how-to-convert-latex-to-word-using-pandoc-and-keep-citations-as-numeral">下载样式文件</a> （这里的 ieee.csl），并指明路径。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pandoc -s foo.tex --bibliography<span class="o">=</span>foo.bib --csl<span class="o">=</span>ieee.csl -o foo.docx
+</code></pre></div><p>这里需要指明 bib 文件的路径，另外需要单独<a href="https://tex.stackexchange.com/questions/268196/how-to-convert-latex-to-word-using-pandoc-and-keep-citations-as-numeral">下载样式文件</a> （这里的 ieee.csl），并指明路径。</p>
 <p>执行这个命令的时候，可能需要再安装 <code>pandoc-citeproc</code> 这个 package:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo apt install pandoc-citeproc
-</code></pre></td></tr></table>
-</div>
-</div><p>@Ref</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo apt install pandoc-citeproc
+</code></pre></div><p>@Ref</p>
 <ul>
 <li><a href="https://pandoc.org/demos.html">Pandoc - Demos</a></li>
 </ul>
@@ -238,7 +224,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -257,6 +243,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

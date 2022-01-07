@@ -49,7 +49,7 @@
 <meta itemprop="name" content="目录下 org 文件自动导出成 hugo md 文件">
 <meta itemprop="description" content="Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些">
 <meta itemprop="dateModified" content="2021-04-10T00:37:09+08:00" />
-<meta itemprop="wordCount" content="466">
+<meta itemprop="wordCount" content="425">
 <meta itemprop="keywords" content="emacs,elisp," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="目录下 org 文件自动导出成 hugo md 文件"/>
 <meta name="twitter:description" content="Intro 目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 C-c C-e, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些"/>
@@ -161,52 +161,7 @@
     <div class="post-content">
       <h2 id="intro">Intro</h2>
 <p>目前在从 org 使用 ox-hugo 导出成 hugo 的 blog 时，只能手动的执行 <code>C-c C-e</code>, 然后选择导出成 Hugo 形式的 markdown. 如果原始的 org 文件进行了修改，就需要每次自己手动去进行导出，有一些不方便，所以我想写一个函数，来<strong>直接将指定目录下，所有已经导出过 hugo blog 的 org 文件，全部重新导出</strong>，这样只要定期执行这个命令，就可以保证文件在修改后能够被更新地导出到 hugo blogs. 目前的实现代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="c1">;; 检测文件是否已经被导出 hugo</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="c1">;; 检测文件是否已经被导出 hugo</span>
 <span class="p">(</span><span class="nb">defun</span> <span class="nv">lxs-org-is-hugo-file-p</span> <span class="p">(</span><span class="nv">fPath</span><span class="p">)</span>
   <span class="s">&#34;Predict if the org file has been converted into hugo&#34;</span>
   <span class="p">(</span><span class="nb">with-temp-buffer</span>
@@ -247,9 +202,7 @@
   <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">directory</span> <span class="p">(</span><span class="nv">my--choose-directory</span><span class="p">)))</span>
     <span class="p">(</span><span class="nv">my--export-to-hugo</span> <span class="nv">directory</span><span class="p">)))</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="outro">Outro</h2>
+</code></pre></div><h2 id="outro">Outro</h2>
 <ul>
 <li>如果只针对单个 org 文件，也可以不用 <code>C-c C-e</code> 命令来选择导出成什么形式，直接执行 <code>org-hugo-export-wim-to-md</code> 即可</li>
 <li>TODO: <input disabled="" type="checkbox"> 自动加入 Hugo 的 header lines, 一旦希望这个 org 文件被导出成 hugo blogs, 就插入 hugo 的头文件信息到 org 文件中</li>
@@ -323,7 +276,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -342,6 +295,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

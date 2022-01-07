@@ -13,7 +13,7 @@
       <pubDate>Fri, 09 Apr 2021 19:46:58 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/</guid>
-      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
+      <description>从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 fc-cache -fv Ref: Linux notes | Shreyas Ragavan</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Fri, 09 Apr 2021 19:46:57 +0800</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/ffmpeg/</guid>
-      <description>使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi 1 2 ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 1 ffmpeg -i ./video.webm ./video/image%d.jpg</description>
+      <description>使用 ffmpeg 将一系列帧图片转换成 .gif 和 .avi ffmpeg -f image2 -i frame%4d.jpg video.avi ffmpeg -i video.avi -t 5 out.gif 将视频转换成图片 ffmpeg -i ./video.webm ./video/image%d.jpg</description>
     </item>
     
   </channel>

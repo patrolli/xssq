@@ -122,6 +122,25 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/crontab/">crontab</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-12-11 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      
+    </div>
+    <div class="read-more">
+      <a href="https://patrolli.github.io/xssq/post/crontab/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5_org_%E6%96%87%E4%BB%B6%E5%A4%B9/">定时同步 org 文件夹</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-12-11 </span>
@@ -131,7 +150,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 'org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+      步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 'org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： #!/bin/sh # Add org file changes to the repository REPOS=&#34;org&#34; for REPO in $REPOS
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5_org_%E6%96%87%E4%BB%B6%E5%A4%B9/" class="read-more-link">Read more...</a>
@@ -196,25 +215,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/pytorch_ddp/">pytorch ddp</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-09-20 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      一些基本术语 假设有两台机器，每台机器 8 张显卡，那么我们共有 16 张显卡，可以启动 16 个进程。 world_size: 全局的并行数，这里就是 16 rank: 表示当前进程的序号，对于 world_size=16
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/pytorch_ddp/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -253,7 +253,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -272,6 +272,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

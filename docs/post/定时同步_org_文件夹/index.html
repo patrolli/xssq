@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Li Xunsong" /><meta name="description" content="步骤 在 emacs 配置里面设置：(run-at-time &amp;quot;00:59&amp;quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： 1 2 3 4 5 6 7 8 9 10 11 12 13 14" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="步骤 在 emacs 配置里面设置：(run-at-time &amp;quot;00:59&amp;quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： #!/bin/sh # Add org file changes to the repository REPOS=&amp;#34;org&amp;#34; for REPO in $REPOS" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="定时同步 org 文件夹" />
-<meta property="og:description" content="步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： 1 2 3 4 5 6 7 8 9 10 11 12 13 14" />
+<meta property="og:description" content="步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： #!/bin/sh # Add org file changes to the repository REPOS=&#34;org&#34; for REPO in $REPOS" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5_org_%E6%96%87%E4%BB%B6%E5%A4%B9/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-12-11T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-12-18T17:58:31+08:00" />
 
 <meta itemprop="name" content="定时同步 org 文件夹">
-<meta itemprop="description" content="步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： 1 2 3 4 5 6 7 8 9 10 11 12 13 14"><meta itemprop="datePublished" content="2021-12-11T00:00:00+00:00" />
+<meta itemprop="description" content="步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： #!/bin/sh # Add org file changes to the repository REPOS=&#34;org&#34; for REPO in $REPOS"><meta itemprop="datePublished" content="2021-12-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-12-18T17:58:31+08:00" />
-<meta itemprop="wordCount" content="240">
+<meta itemprop="wordCount" content="220">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="定时同步 org 文件夹"/>
-<meta name="twitter:description" content="步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： 1 2 3 4 5 6 7 8 9 10 11 12 13 14"/>
+<meta name="twitter:description" content="步骤 在 emacs 配置里面设置：(run-at-time &quot;00:59&quot; 3600 &#39;org-save-all-org-buffers). 每一个小时将所有打开的 org mode buffer 保存一次 用一个脚本来 commit org 的仓库： #!/bin/sh # Add org file changes to the repository REPOS=&#34;org&#34; for REPO in $REPOS"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -166,25 +166,7 @@
 </li>
 <li>
 <p>用一个脚本来 commit org 的仓库：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="c1"># Add org file changes to the repository</span>
 <span class="nv">REPOS</span><span class="o">=</span><span class="s2">&#34;org&#34;</span>
 
@@ -198,39 +180,19 @@
     git add . &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span>
     git commit -m <span class="s2">&#34;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
 <span class="k">done</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 <li>
 <p>另外一个脚本用于将 org repo push 的远程 github:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="c1"># push org repo into github</span>
 <span class="nb">cd</span> ~/Documents/org/
 git push -v origin refs/heads/master<span class="se">\:</span>refs/heads/master
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 <li>
 <p>使用 <a href="https://patrolli.github.io/xssq/post/crontab/">crontab</a> 来定时执行脚本:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">0 * * * * ~/scripts/org-git-sync.sh &gt;/dev/null
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">0 * * * * ~/scripts/org-git-sync.sh &gt;/dev/null
 0 3 * * * ~/scripts/org-git-push.sh &gt;/dev/null
-</code></pre></td></tr></table>
-</div>
-</div><p>我们小时 commit 一次，然后每天一次将 repo push 到远程</p>
+</code></pre></div><p>我们小时 commit 一次，然后每天一次将 repo push 到远程</p>
 </li>
 </ol>
 <h2 id="参考">参考</h2>
@@ -304,7 +266,7 @@ git push -v origin refs/heads/master<span class="se">\:</span>refs/heads/master
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -323,6 +285,13 @@ git push -v origin refs/heads/master<span class="se">\:</span>refs/heads/master
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

@@ -122,6 +122,25 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/pandoc/">pandoc</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-05-06 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      在将 org 文件导出成 word 的时候，文献的引用信息不能被导出，只好曲线救国，从 .tex 导出到 .docx. 命令如下： pandoc -s foo.tex --bibliography=foo.bib --csl=ieee.csl -o foo.docx 这里需要指明 bib 文件的路径，另外需要单独
+    </div>
+    <div class="read-more">
+      <a href="https://patrolli.github.io/xssq/post/pandoc/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/orgmode_capture_for_project/">orgmode capture for project</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-04-27 </span>
@@ -181,27 +200,6 @@
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hugo 博客搭建</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-04-09 </span>
-      <div class="post-category">
-          <a href="https://patrolli.github.io/xssq/categories/emacs/"> emacs </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      基本安装与使用 Hugo 安装 直接在官网下载 Hugo 的安装包 本地创建 根据官网的 quick start, 创建一个 site 只需如下几个命令 1 hugo server 部署到 github pages github pages 有两种形式，一种是针对用户的
-    </div>
-    <div class="read-more">
-      <a href="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/">ubuntu 安装 iosevka 字体</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-04-09 </span>
@@ -211,7 +209,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan
+      从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 fc-cache -fv Ref: Linux notes | Shreyas Ragavan
     </div>
     <div class="read-more">
       <a href="https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/" class="read-more-link">Read more...</a>
@@ -257,7 +255,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -276,6 +274,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

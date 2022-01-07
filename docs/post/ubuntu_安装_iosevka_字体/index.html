@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Li Xunsong" /><meta name="description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Li Xunsong" /><meta name="description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&amp;quot;~/temp/&amp;quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 fc-cache -fv Ref: Linux notes | Shreyas Ragavan" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="ubuntu 安装 iosevka 字体" />
-<meta property="og:description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan" />
+<meta property="og:description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 fc-cache -fv Ref: Linux notes | Shreyas Ragavan" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://patrolli.github.io/xssq/post/ubuntu_%E5%AE%89%E8%A3%85_iosevka_%E5%AD%97%E4%BD%93/" /><meta property="article:section" content="post" />
 
 <meta property="article:modified_time" content="2021-04-09T19:46:58+08:00" />
 
 <meta itemprop="name" content="ubuntu 安装 iosevka 字体">
-<meta itemprop="description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan">
+<meta itemprop="description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 fc-cache -fv Ref: Linux notes | Shreyas Ragavan">
 <meta itemprop="dateModified" content="2021-04-09T19:46:58+08:00" />
-<meta itemprop="wordCount" content="67">
+<meta itemprop="wordCount" content="64">
 <meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ubuntu 安装 iosevka 字体"/>
-<meta name="twitter:description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 1 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： 1 sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 1 fc-cache -fv Ref: Linux notes | Shreyas Ragavan"/>
+<meta name="twitter:description" content="从 github 的代码仓库中下载 zip 文件，放到一个临时目录中 (&quot;~/temp/&quot;) 解压文件 unzip -u ttf-iosevka-5.2.1.zip -d iosevka 放到系统的字体目录： sudo cp -r ~/temp/iosevka /usr/share/fonts/ 重新刷新字体缓存 fc-cache -fv Ref: Linux notes | Shreyas Ragavan"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -156,37 +156,16 @@
 </li>
 <li>
 <p>解压文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">unzip -u ttf-iosevka-5.2.1.zip -d iosevka
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">unzip -u ttf-iosevka-5.2.1.zip -d iosevka
+</code></pre></div></li>
 <li>
 <p>放到系统的字体目录：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo cp -r ~/temp/iosevka /usr/share/fonts/
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo cp -r ~/temp/iosevka /usr/share/fonts/
+</code></pre></div></li>
 <li>
 <p>重新刷新字体缓存</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">fc-cache -fv
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">fc-cache -fv
+</code></pre></div></li>
 <li>
 <p>Ref:</p>
 <ul>
@@ -218,9 +197,9 @@
           <a href="https://patrolli.github.io/xssq/tags/linux/">linux</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+        <a class="prev" href="https://patrolli.github.io/xssq/post/%E6%B7%B7%E5%90%88%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">hugo 博客搭建</span>
+            <span class="prev-text nav-default">混合高斯分布</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="https://patrolli.github.io/xssq/post/em%E7%AE%97%E6%B3%95/">
@@ -261,7 +240,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -280,6 +259,13 @@
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

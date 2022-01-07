@@ -49,7 +49,7 @@
 <meta itemprop="name" content="配置 emacs-rime">
 <meta itemprop="description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接"><meta itemprop="datePublished" content="2021-02-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-17T19:09:08+08:00" />
-<meta itemprop="wordCount" content="708">
+<meta itemprop="wordCount" content="660">
 <meta itemprop="keywords" content="emacs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置 emacs-rime"/>
 <meta name="twitter:description" content="配置 emacs rime 安装 安装 librime, 其他系统参考：emacs-rime/INSTALLATION.org at master · DogLooksGood/emacs-rime sudo apt install librime-dev 安装 emacs rime rime 在 melpa 源中已经发布，故可以直接"/>
@@ -181,41 +181,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 <ol>
 <li>
 <p>配置 emacs rime</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">rime</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">rime</span>
   <span class="nb">:custom</span>
   <span class="p">(</span><span class="nv">default-input-method</span> <span class="s">&#34;rime&#34;</span><span class="p">)</span>
   <span class="nb">:config</span>
@@ -245,9 +211,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 	      <span class="nb">:internal-border-width</span> <span class="mi">10</span><span class="p">))</span>
   <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;find-file-hook</span> <span class="nf">#&#39;</span><span class="nv">toggle-input-method</span><span class="p">)</span>  <span class="c1">;; 打开文件时默认开启 rime</span>
   <span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 <li>
 <p>配置系统的 rime</p>
 <p>在 emacs 中, 可以通过 <code>M-x rime-open-shema</code>, <code>M-x rime-open-configuration</code> 来打开配置文件的设置。emacs-rime 只是 rime 的前端，所有输入法相关的配置都在系统的 rime 的配置文件中完成。我需要使用的输入法是小鹤双拼，配置方法如下：</p>
@@ -258,19 +222,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </li>
 <li>
 <p>在 <code>~/.config/fcitx/rime/default.custom.yaml</code> 文件中添加小鹤双拼输入方案：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">double_pinyin_flypy  </span><span class="w"> </span><span class="c"># 新增小鹤双拼</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin</span><span class="w">
@@ -278,26 +230,10 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_fluency</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_simp</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_tw</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></code></pre></div></li>
 <li>
 <p>单独配置小鹤双拼的输入设置，在 <code>~/.config/fcitx/rime/double-pinyin-flypy.custom.yaml</code> 中配置：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">switches</span><span class="p">:</span><span class="w">                   </span><span class="c"># 注意缩进</span><span class="w">
 </span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_mode</span><span class="w">
 </span><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">                </span><span class="c"># reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态</span><span class="w">
@@ -307,9 +243,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 </span><span class="w"></span><span class="nt">​    - name</span><span class="p">:</span><span class="w"> </span><span class="l">simplification</span><span class="w">
 </span><span class="w">      </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                </span><span class="c"># 增加这一行：默认启用「繁→簡」转换。</span><span class="w">
 </span><span class="w">      </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">漢字, 汉字 ]</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></code></pre></div></li>
 </ul>
 </li>
 </ol>
@@ -388,7 +322,7 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2020 - 
     2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>patrolli</span>
   </span>
 </div>
@@ -407,6 +341,13 @@ rime 在 melpa 源中已经发布，故可以直接安装</p>
 
 
 <script type="text/javascript" src="https://patrolli.github.io/xssq/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

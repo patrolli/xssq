@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awesome on patrolli</title>
+    <link>https://patrolli.github.io/xssq/tags/awesome/</link>
+    <description>Recent content in awesome on patrolli</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/tags/awesome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>awesome action recognition</title>
+      <link>https://patrolli.github.io/xssq/post/awesome_action_recognition/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/awesome_action_recognition/</guid>
+      <description>Egocentric Interactive Prototype Learning for Egocentric Action Recognition Epic-Kitchen 的数据集，将识别动作分解成识别 verb 和 noun. 文章首先得到 verb 的 prototype (verb classifier 权重的 l2 normalization), 然后用这个 prototype 去和 3D feature map 的所有 grid (TxHxW) vector 计算响应，来得到与动</description>
+    </item>
+    
+  </channel>
+</rss>
