@@ -6,7 +6,16 @@
     <description>Recent content on patrolli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Jan 2022 15:14:14 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 17:22:59 +0800</lastBuildDate><atom:link href="https://patrolli.github.io/xssq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>awesome human object interaction</title>
+      <link>https://patrolli.github.io/xssq/post/awesome_human_object_interaction/</link>
+      <pubDate>Mon, 10 Jan 2022 17:22:59 +0800</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/awesome_human_object_interaction/</guid>
+      <description>Intro HoI 是 visual relation 的一个子任务，它对 human body 和 object understanding 的依赖性很强 相关工作 Transformer based QPIC: query-based pairwise human-object interaction detection with image-wide contextual information 这篇是基于 DETR 做的, 它有什么改进或区别吗？ 推理是什么做的？ Mining</description>
+    </item>
+    
     <item>
       <title>hugo 博客搭建</title>
       <link>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
