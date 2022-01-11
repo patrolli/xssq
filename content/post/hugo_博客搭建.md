@@ -2,7 +2,7 @@
 title = "hugo 博客搭建"
 author = ["Li Xunsong"]
 date = 2021-02-11
-lastmod = 2022-01-11T21:29:13+08:00
+lastmod = 2022-01-12T00:11:35+08:00
 tags = ["hugo", "emacs"]
 draft = false
 +++
@@ -80,6 +80,32 @@ pygmentsOptions = "linenos=false" # true, false, table, inline
 -   使用 org-roam 来记录笔记
 -   运行函数将当前 org buffer 导出到博客的 `content/post` 目录下 (插入文件头，使用 ox-hugo 导出)
 -   发布，使用 easy-hugo 可以将博文发布到 github pages 上，或者执行 deploy.sh 脚本
+
+
+### org 导出相关 {#org-导出相关}
+
+
+#### 日期 {#日期}
+
+对于 file-based 的工作方式，需要在文件头设置：
+
+| org           | hugo front-format    |
+|---------------|----------------------|
+| #+date        | date = 2017-07-24    |
+| +hugo_lastmod | lastmod = 2018-02-06 |
+
+参考：[Dates — ox-hugo - Org to Hugo exporter](https://ox-hugo.scripter.co/doc/dates/)
+
+
+#### 摘要显示 {#摘要显示}
+
+插入 `#+hugo: more`:
+
+```text
+My post summary.
+#+hugo: more
+My post content.
+```
 
 
 ### 自动插入 tags {#自动插入-tags}
