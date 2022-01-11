@@ -23,7 +23,7 @@
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://patrolli.github.io/xssq/post/%E7%BE%8E%E5%8C%96_org_mode/</guid>
-      <description>将 org list 变成一个圆点 效果示意： (defvar xs-org-list-prettify nil &amp;#34;toggle org list prettify&amp;#34;) (defvar gkroam-org-list-re &amp;#34;^ *\\([0-9]+[).]\\|[*+-]\\) \\(\\[[ X-]\\] \\)?&amp;#34; &amp;#34;Org list bullet and checkbox regexp.&amp;#34;) (defun gkroam--fontify-org-checkbox (notation) &amp;#34;Highlight org checkbox with NOTATION.&amp;#34; (add-text-properties (match-beginning 2) (1- (match-end 2)) `(display ,notation))) (defun gkroam--fontify-org-list () &amp;#34;Highlight org list, including bullet and checkbox.&amp;#34; (with-silent-modifications (add-text-properties (match-beginning 1) (match-end 1) &amp;#39;(display &amp;#3</description>
+      <description></description>
     </item>
     
     <item>

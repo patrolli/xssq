@@ -2,9 +2,12 @@
 title = "美化 org-mode"
 author = ["Li Xunsong"]
 date = 2022-01-04
-lastmod = 2022-01-05T15:57:52+08:00
+lastmod = 2022-01-12T00:06:01+08:00
 draft = false
 +++
+
+<!--more-->
+
 
 ## 将 org list 变成一个圆点 {#将-org-list-变成一个圆点}
 
