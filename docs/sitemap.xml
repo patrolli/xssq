@@ -10,42 +10,14 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2022-01-10T17:27:26+08:00</lastmod>
+    <lastmod>2022-01-11T21:29:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2022-01-10T17:27:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/tags/emacs/</loc>
-    <lastmod>2022-01-07T15:14:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/tags/hugo/</loc>
-    <lastmod>2022-01-07T15:14:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2022-01-07T15:14:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://patrolli.github.io/xssq/tags/</loc>
-    <lastmod>2022-01-07T15:14:14+08:00</lastmod>
+    <lastmod>2022-01-11T21:29:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -81,6 +53,13 @@
   <url>
     <loc>https://patrolli.github.io/xssq/tags/paper-reading/</loc>
     <lastmod>2021-12-20T00:36:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/tags/</loc>
+    <lastmod>2022-01-11T21:29:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -324,6 +303,13 @@
   </url>
   
   <url>
+    <loc>https://patrolli.github.io/xssq/tags/emacs/</loc>
+    <lastmod>2022-01-11T21:29:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/post/%E7%9B%AE%E5%BD%95%E4%B8%8B_org_%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%87%BA%E6%88%90_hugo_md_%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2021-04-10T00:37:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -394,6 +380,13 @@
   </url>
   
   <url>
+    <loc>https://patrolli.github.io/xssq/tags/hugo/</loc>
+    <lastmod>2022-01-11T21:29:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://patrolli.github.io/xssq/post/hugo-workflow/</loc>
     <lastmod>2021-02-11T17:53:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -403,6 +396,13 @@
   <url>
     <loc>https://patrolli.github.io/xssq/tags/orgmode/</loc>
     <lastmod>2021-02-11T17:53:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/hugo_%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2022-01-11T21:29:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

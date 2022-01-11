@@ -1,7 +1,8 @@
 +++
 title = "hugo 博客搭建"
 author = ["Li Xunsong"]
-lastmod = 2022-01-07T15:14:14+08:00
+date = 2021-02-11
+lastmod = 2022-01-11T21:29:13+08:00
 tags = ["hugo", "emacs"]
 draft = false
 +++
