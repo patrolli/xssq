@@ -27,6 +27,15 @@
     </item>
     
     <item>
+      <title>emacs hack helpful-mode</title>
+      <link>https://patrolli.github.io/xssq/post/emacs_hack_helpful_mode/</link>
+      <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://patrolli.github.io/xssq/post/emacs_hack_helpful_mode/</guid>
+      <description>复用 helpful buffer 的 window 当调用 helpful 连续查找多个函数/变量的时候，复用当前用于显示 helpful buffer 的窗口，这样不至于在多次调用后多增加很多窗口。 (setq helpful-switch-buffer-function (lambda (buf) (if-let ((window (display-buffer-reuse-mode-window buf &amp;#39;((mode . helpful-mode))))) ;;</description>
+    </item>
+    
+    <item>
       <title>Decaug: augmenting HOI detection via decomposition</title>
       <link>https://patrolli.github.io/xssq/post/xie-aaai-2021-decaug/</link>
       <pubDate>Mon, 20 Dec 2021 00:36:51 +0800</pubDate>

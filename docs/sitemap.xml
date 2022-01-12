@@ -10,14 +10,14 @@
   
   <url>
     <loc>https://patrolli.github.io/xssq/</loc>
-    <lastmod>2022-01-12T00:11:35+08:00</lastmod>
+    <lastmod>2022-01-12T22:44:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://patrolli.github.io/xssq/post/</loc>
-    <lastmod>2022-01-12T00:11:35+08:00</lastmod>
+    <lastmod>2022-01-12T22:44:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,6 +25,13 @@
   <url>
     <loc>https://patrolli.github.io/xssq/post/%E7%BE%8E%E5%8C%96_org_mode/</loc>
     <lastmod>2022-01-12T00:06:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://patrolli.github.io/xssq/post/emacs_hack_helpful_mode/</loc>
+    <lastmod>2022-01-12T22:44:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
